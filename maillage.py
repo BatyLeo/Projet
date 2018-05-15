@@ -71,7 +71,7 @@ while ny<=Ny:
             codim0to1NY.append(NY)
             
             # On ajoute les deux côtés de la face
-            codim0to1A.append(-(Nghost+1)) # car il n'y a pas de cellule en amont
+            codim0to1A.append(Ncell+Nx) # car il n'y a pas de cellule en amont
             codim0to1B.append(Ncell) # la cellule que l'on vient de créer est en aval
             Nghost+=1
             
@@ -94,6 +94,7 @@ while ny<=Ny:
         if nx==Nx:
             codim0to1A.append(Ncell) # la cellule que l'on vient de créer est en amont
             codim0to1B.append(-(Nghost+1)) # car il n'y a pas de cellule en aval
+            #codim0to1B.append(Ncell-Nx) # car il n'y a pas de cellule en aval
             Nghost+=1
 
         else:
@@ -116,8 +117,8 @@ while ny<=Ny:
             codim0to1E.append(E)
             codim0to1NX.append(NX)
             codim0to1NY.append(NY)
-            
             codim0to1A.append(-(Nghost+1)) # il n'y a rien en amont
+            #codim0to1A.append(Ncell+Ny*(Nx+1)) # il n'y a rien en amont
             codim0to1B.append(Ncell) # la cellule que l'on vient de créer est en aval
             
             Nghost+=1
@@ -139,7 +140,7 @@ while ny<=Ny:
         # Cas où y=Ny-1
         if ny==Ny:
             codim0to1A.append(Ncell) # la cellule que l'on vient de créer est en amont
-            codim0to1B.append(-(Nghost+1)) # il n'y a rien en aval
+            codim0to1B.append(Ncell-Ny*(Nx+1)) # il n'y a rien en aval
             
             Nghost+=1
         else:
@@ -154,7 +155,7 @@ while ny<=Ny:
 codim0=codim0[1:,:]
 codim1=codim1[1:,:]
 
-
+'''
 # Visualisation et vérification du maillage:
     # En noir le maillage, en bleu le passage des face
 for i in range(len(codim1[:,1])):
@@ -167,7 +168,7 @@ for i in range(len(codim1[:,1])):
         plt.plot(X,Y,'b')
 plt.axis('equal')
 plt.show()
-
+'''
 # Sauvegarde du maillage
 np.save('codim0', codim0)
 np.save('codim1', codim1)
