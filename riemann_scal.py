@@ -1,7 +1,6 @@
 def RIEMANN(lambda1,state1,lambda2,state2):
-    lambda0=max(abs(lambda1),abs(lambda2)) ## maximal wave speed
-    #riemann=(lambda1*state1-lambda2*state2+lambda0*(state1+state2))/2. #??
-    rightf=(lambda1*state1+lambda2*state2+lambda0*(state1-state2))/2.
-    leftf=-rightf ## conservative, entropy flux=0
+    lambda0=(lambda1+lambda2)/2. ## coefficient = wave-speed
+    rightf=max(lambda0,0)*state1+min(lambda0,0)*state2 - lambda0*state2
+    leftf=-(max(lambda0,0)*state1+min(lambda0,0)*state2 - lambda0*state1 )
     return [leftf,rightf,lambda0] ## end of Lax-Friedrichs Riemann solver
     

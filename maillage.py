@@ -1,16 +1,21 @@
-#---------------- CrÃ©ation du maillage carrÃ© en 2 dimensions ------------------
+# -*- coding: ISO-8859-1 -*-
+#---------------- Création du maillage carré en 2 dimensions ------------------
 
 import math
 import numpy as np
 import matplotlib.pyplot as plt
 
-x0 = 0; y0 = 0 # On dÃ©finit l'origine du repÃ¨re 2D (coordonnÃ©es de la premiÃ¨re face)
-# Domaine de rÃ©solution
-Lx = 1 # intervalle [x0,Lx] selon x
-Ly = 1 # intervalle [y0,Ly] selon y
+
+
+
+
+
+
+x0 = 0.0; y0 = 0.0 # origine du repère 2D 
+Lx = 1.0; Ly = 1.0 # domaine de résolution[x0,x0+Lx]*[y0,y0+Ly]
 
 LL = min(Lx,Ly)
-mylevel = 3 # ParamÃ¨tre entier Ã  modifier pour modifier le pas du maillage
+mylevel = 5 # Paramètre entier à modifier pour modifier le pas du maillage
             # Vaut 5 dans le code scilab
 NN = 2**mylevel
 
@@ -21,40 +26,46 @@ hx = Lx/Nx # pas d'espace selon x
 hy = Ly/Ny # pas d'espace selon y
 volume = hx*hy # volume d'une cellule
 
-neighbours = 4 # nombre de voisins par cellule (on met artificiellement -1 aux bords)
+neighbours = 4 # nombre de voisins par cellule
+
+
+
+
+
+
 
 # Initialisation
 Ncell = 0   # nombre de cellules
-codim0 = np.array([[0,0]]) # chaque ligne stocke les coordonnÃ©es (x,y) du centre de chaque cellule
-Nface = 0   # nombre de frontiÃ¨res
-codim1 = np.array([[0,0,0,0]]) # chaque ligne stocke les coordonnÃ©es (x,y)
-        # de deux points dÃ©limitant une face
+codim0 = np.array([[0,0]]) # chaque ligne stocke les coordonnées (x,y) du centre de chaque cellule
+Nface = 0   # nombre de frontières
+codim1 = np.array([[0,0,0,0]]) # chaque ligne stocke les coordonnées (x,y)
+        # de deux points délimitant une face
         # (de la droite vers la gauche pour les faces horizontales
         # du bas vers le haut pour les faces verticales)
 
-codim0to1E = []  # liste des longueurs des frontiÃ¨res (correspond avec codim1)
+codim0to1E = []  # liste des longueurs des frontières (correspond avec codim1)
 codim0to1NX = [] # composantes x des normales des faces (correspond avec codim1)
 codim0to1NY = [] # composantes y des normales des faces (correspond avec codim1)
 Nghost = 0 # nombre de cellules fantome?? (au bord)
-codim0to1A = [] # liste des numÃ©ros des cellules en amont des frontiÃ¨res correspondant Ã  codim1
-codim0to1B = [] # liste des numÃ©ros des cellules en aval des frontiÃ¨res correspondant Ã  codim1
+codim0to1A = [] # liste des numéros des cellules en amont des frontières correspondant à codim1
+codim0to1B = [] # liste des numéros des cellules en aval des frontières correspondant à codim1
 
 
-# CrÃ©ation du maillage
+# Création du maillage
 # On parcours le maillage ligne par ligne, de la droite vers la gauche, et de haut en bas
 ny = 0
 while ny<=Ny:
     nx = 0
     while nx<=Nx:
-        #(numcell = nx + ny*Nx # numÃ©ro de la cellule (on commence la numÃ©rotation Ã  0))
+        #(numcell = nx + ny*Nx # numéro de la cellule (on commence la numérotation à 0))
         
         # -------------- On ajoute une cellule ------------------------------
         xx = x0 + nx*hx # abscisse du centre de la cellule
-        yy = y0 + ny*hy # ordonnÃ©e du centre de la cellule
+        yy = y0 + ny*hy # ordonnée du centre de la cellule
         
         codim0=np.concatenate((codim0,np.array([[xx,yy]])))
         
-        # --- On crÃ©e la face verticale Ã  gauche de la cellule ---
+        # --- On crée la face verticale à gauche de la cellule ---
         # Cas du bord x=0
         if nx==0:
             Nface+=1
@@ -64,19 +75,19 @@ while ny<=Ny:
             ey = codim1[Nface,3]-codim1[Nface,1] # >0 (face verticale), ou 0
             assert(ex>=0 and ey>=0)
             E = math.sqrt(ex*ex + ey*ey) # norme de la face
-            NX = ey/E; # composante x de la normale Ã  la face (ne pas confondre avec Nx!!)
-            NY = ex/E; # composante y de la normale Ã  la face (ne pas confondre avec Ny!!)
+            NX = ey/E; # composante x de la normale à la face (ne pas confondre avec Nx!!)
+            NY = ex/E; # composante y de la normale à la face (ne pas confondre avec Ny!!)
             codim0to1E.append(E)
             codim0to1NX.append(NX)
             codim0to1NY.append(NY)
             
-            # On ajoute les deux cÃ´tÃ©s de la face
+            # On ajoute les deux côtés de la face
+            # Nghost+=1 # condition périodique
             codim0to1A.append(Ncell+Nx) # car il n'y a pas de cellule en amont
-            codim0to1B.append(Ncell) # la cellule que l'on vient de crÃ©er est en aval
-            Nghost+=1
+            codim0to1B.append(Ncell) # la cellule que l'on vient de créer est en aval
             
         
-        # --- On crÃ©e la face verticale Ã  droite de la cellule ---
+        # --- On crée la face verticale à droite de la cellule ---
         Nface+=1
         codim1=np.concatenate((codim1,np.array([[xx+hx/2,yy-hy/2,xx+hx/2,yy+hy/2]])))
         
@@ -84,26 +95,26 @@ while ny<=Ny:
         ey = codim1[Nface,3]-codim1[Nface,1] # >0 (face verticale), or 0
         assert(ex>=0 and ey>=0)
         E = math.sqrt(ex*ex + ey*ey) # norme de la face
-        NX = ey/E; # composante x de la normale Ã  la face (ne pas confondre avec Nx!!)
-        NY = ex/E; # composante y de la normale Ã  la face (ne pas confondre avec Ny!!)
+        NX = ey/E; # composante x de la normale à la face (ne pas confondre avec Nx!!)
+        NY = ex/E; # composante y de la normale à la face (ne pas confondre avec Ny!!)
         codim0to1E.append(E)
         codim0to1NX.append(NX)
         codim0to1NY.append(NY)
         
         # Cas du bord x=Nx 
         if nx==Nx:
-            codim0to1A.append(Ncell) # la cellule que l'on vient de crÃ©er est en amont
-            codim0to1B.append(-(Nghost+1)) # car il n'y a pas de cellule en aval
-            #codim0to1B.append(Ncell-Nx) # car il n'y a pas de cellule en aval
-            Nghost+=1
+            codim0to1A.append(Ncell) # la cellule que l'on vient de créer est en amont
+            #codim0to1B.append(-(Nghost+1)) # condition périodique
+            #Nghost+=1
+            codim0to1B.append(Ncell-Nx) # car il n'y a pas de cellule en aval
 
         else:
-            codim0to1A.append(Ncell) # la cellule que l'on vient de crÃ©er est en amont
+            codim0to1A.append(Ncell) # la cellule que l'on vient de créer est en amont
             codim0to1B.append(Ncell+1)
 
         
-        # --- On crÃ©e la face horizontale en-dessous de la cellule ---
-        # Cas oÃ¹ y=0
+        # --- On crée la face horizontale en-dessous de la cellule ---
+        # Cas où y=0
         if ny==0:
             Nface+=1
             codim1=np.concatenate((codim1,np.array([[xx-hx/2,yy-hy/2,xx+hx/2,yy-hy/2]])))
@@ -112,18 +123,17 @@ while ny<=Ny:
             ey = codim1[Nface,3]-codim1[Nface,1] # >0 (face verticale), ou 0
             assert(ex>=0 and ey>=0)
             E = math.sqrt(ex*ex + ey*ey) # norme de la face
-            NX = ey/E; # composante x de la normale Ã  la face (ne pas confondre avec Nx!!)
-            NY = ex/E; # composante y de la normale Ã  la face (ne pas confondre avec Ny!!)
+            NX = ey/E; # composante x de la normale à la face (ne pas confondre avec Nx!!)
+            NY = ex/E; # composante y de la normale à la face (ne pas confondre avec Ny!!)
             codim0to1E.append(E)
             codim0to1NX.append(NX)
             codim0to1NY.append(NY)
-            codim0to1A.append(-(Nghost+1)) # il n'y a rien en amont
-            #codim0to1A.append(Ncell+Ny*(Nx+1)) # il n'y a rien en amont
-            codim0to1B.append(Ncell) # la cellule que l'on vient de crÃ©er est en aval
-            
-            Nghost+=1
+            #codim0to1A.append(-(Nghost+1)) # condition périodique           
+            #Nghost+=1
+            codim0to1A.append(Ncell+Ny*(Nx+1)) # il n'y a rien en amont
+            codim0to1B.append(Ncell) # la cellule que l'on vient de créer est en aval
         
-        # --- On crÃ©e la face horizontale au-dessus de la cellule ---
+        # --- On crée la face horizontale au-dessus de la cellule ---
         Nface+=1
         codim1=np.concatenate((codim1,np.array([[xx-hx/2,yy+hy/2,xx+hx/2,yy+hy/2]])))
         
@@ -131,23 +141,22 @@ while ny<=Ny:
         ey = codim1[Nface,3]-codim1[Nface,1] # >0 (face verticale), ou 0
         assert(ex>=0 and ey>=0)
         E = math.sqrt(ex*ex + ey*ey) # norme de la face
-        NX = ey/E; # composante x de la normale Ã  la face (ne pas confondre avec Nx!!)
-        NY = ex/E; # composante y de la normale Ã  la face (ne pas confondre avec Ny!!)
+        NX = ey/E; # composante x de la normale à la face (ne pas confondre avec Nx!!)
+        NY = ex/E; # composante y de la normale à la face (ne pas confondre avec Ny!!)
         codim0to1E.append(E)
         codim0to1NX.append(NX)
         codim0to1NY.append(NY)
         
-        # Cas oÃ¹ y=Ny-1
-        if ny==Ny:
-            codim0to1A.append(Ncell) # la cellule que l'on vient de crÃ©er est en amont
+        # Cas où y=Ny-1
+        if ny==Ny:           
+            # Nghost+=1 # condition périodique
+            codim0to1A.append(Ncell) # la cellule que l'on vient de créer est en amont
             codim0to1B.append(Ncell-Ny*(Nx+1)) # il n'y a rien en aval
-            
-            Nghost+=1
         else:
             codim0to1A.append(Ncell)
             codim0to1B.append(Ncell+Nx+1)
 
-        # On passe Ã  la cellule suivante
+        # On passe à la cellule suivante
         Ncell+=1 
         nx+=1
     ny+=1
@@ -156,7 +165,7 @@ codim0=codim0[1:,:]
 codim1=codim1[1:,:]
 
 '''
-# Visualisation et vÃ©rification du maillage:
+# Visualisation et vérification du maillage:
     # En noir le maillage, en bleu le passage des face
 for i in range(len(codim1[:,1])):
     a=[codim1[i,0],codim1[i,2]]
