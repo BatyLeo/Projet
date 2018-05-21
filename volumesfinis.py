@@ -11,7 +11,7 @@ x0 = 0.0; y0 = 0.0 # origine du repere 2D
 Lx = 1.0; Ly = 1.0 # domaine de resolution[x0,x0+Lx]*[y0,y0+Ly]
 
 LL = min(Lx,Ly)
-mylevel = 5 # Parametre entier a modifier pour modifier le pas du maillage
+mylevel = np.load('mylevel.npy') # Parametre entier a modifier pour modifier le pas du maillage
             # Vaut 5 dans le code scilab
 NN = 2**mylevel
 
@@ -24,6 +24,14 @@ volume = hx*hy # volume d'une cellule
 
 neighbours = 4 # nombre de voisins par cellule
 
+ns = 1 # nombre de simulations
+THETA=np.linspace(0,np.pi/2,ns) # differents angles de vitesse entre 0 et pi/2
+
+normev = 0.5 # cas constant : norme de la vitesse
+
+x0,y0=0.25,0.25 # position initiale de la gaussienne
+sigma = 1/50 # largeur de la gaussienne
+
 
 codim0=np.load('codim0.npy')
 codim1=np.load('codim1.npy')
@@ -34,24 +42,22 @@ codim0to1NX=np.load('codim0to1NX.npy')
 codim0to1NY=np.load('codim0to1NY.npy')
 
 
-def ux(i):
-    return 1
-    
-def uy(i):
-    return 1
+def ux(i,theta):
+    return normev*np.cos(theta)
+
+def uy(i,theta):
+    return normev*np.sin(theta)
 
 ## Initialisation
 qini = np.zeros(codim0.shape[0])
 
-qini[0]=1
-
-"""
-qini[10]=1
-qini[0:3]=3*[0.5]
-qini[9]=0.5
-qini[11]=0.5
-qini[18:21]=[0.5,0.5,0.5]
-"""
+def initialisation(sigma,x0,y0):
+    for i in range(len(qini)):
+        x,y=codim0[i]
+        qini[i]=np.exp(-((x-x0)**2+(y-y0)**2)/(2*sigma**2))
+    return qini
+    
+qini=initialisation(sigma,x0,y0)
 
 qhist = [qini.copy()]
 
@@ -62,33 +68,52 @@ q1 = qini.copy()
 t = 0
 Tfinal = 1
 
-## Boucle temporelle
-while t<Tfinal:
-    k = 1000
-    flux=np.zeros(codim0.shape[0]) # Matrice des flux
-    # On parcours toutes les faces
-    for iface in range(codim1.shape[0]):
-        i=codim0to1A[iface] # Cellule en amont
-        j=codim0to1B[iface] # Cellule en aval
-        if i<0 or j<0: # Conditions de bord periodiques
-            continue
-        # Vitesse du fluide en i et j projete selon la normale a la face
-        lambdai = ux(i)*codim0to1NX[iface]+uy(i)*codim0to1NY[iface] 
-        lambdaj = ux(j)*codim0to1NX[iface]+uy(j)*codim0to1NY[iface]
-        statei = q0[i] # Concentration en i
-        statej = q0[j] # Concentration en j
-        # Schema de Lax-Friedriech: calcul du flux en i et en j a travers la face
-        [leftf,rightf,Lambda] = RIEMANN(lambdai,statei,lambdaj,statej) 
-        # Mise a jour des flux
-        flux[i]+=leftf*codim0to1E[iface]
-        flux[j]+=rightf*codim0to1E[iface]
-        # Calcul du pas de temps associz
-        k=min(k,volume/(2*(hx+hy)*Lambda))
-    # Mise a jour de la concentration
-    q1+=flux*(k/volume)
-    qhist.append(q1.copy())
-    q0 = q1.copy()
-    t+=k
+SNAPSHOTMATRIX=np.zeros((codim0.shape[0],1))
+
+## Boucle sur les differents angles de la vitesse
+for theta in THETA : # Cas vitesse constante, pas uniforme sur les angles
+    
+    ## Boucle temporelle
+    while t<Tfinal:
+        k = 1000
+        flux=np.zeros(codim0.shape[0]) # Matrice des flux
+        # On parcours toutes les faces
+        for iface in range(codim1.shape[0]):
+            i=codim0to1A[iface] # Cellule en amont
+            j=codim0to1B[iface] # Cellule en aval
+            if i<0 or j<0: # Conditions de bord periodiques
+                continue
+            # Vitesse du fluide en i et j projete selon la normale a la face
+            lambdai = ux(i,theta)*codim0to1NX[iface]+uy(i,theta)*codim0to1NY[iface] 
+            lambdaj = ux(j,theta)*codim0to1NX[iface]+uy(j,theta)*codim0to1NY[iface]
+            statei = q0[i] # Concentration en i
+            statej = q0[j] # Concentration en j
+            # Schema de Lax-Friedriech: calcul du flux en i et en j a travers la face
+            [leftf,rightf,Lambda] = RIEMANN(lambdai,statei,lambdaj,statej) 
+            # Mise a jour des flux
+            flux[i]+=leftf*codim0to1E[iface]
+            flux[j]+=rightf*codim0to1E[iface]
+            # Calcul du pas de temps associz
+            k=min(k,volume/(2*(hx+hy)*Lambda))
+        # Mise a jour de la concentration
+        q1+=flux*(k/volume)
+        qhist.append(q1.copy())
+        q0 = q1.copy()
+        t+=k
+    M=np.zeros((codim0.shape[0],len(qhist)))
+    for ligne in range(codim0.shape[0]):
+        for colonne in range(len(qhist)):
+            M[ligne,colonne]=qhist[colonne][ligne]
+    SNAPSHOTMATRIX=np.concatenate((SNAPSHOTMATRIX,M),axis=1)
+        
+SNAPSHOTMATRIX=SNAPSHOTMATRIX[:,1:]
+print (SNAPSHOTMATRIX.shape[1]) # Compte le nombre de snapshots
+np.save('SNAPSHOTMATRIX',SNAPSHOTMATRIX) # Attention a changer le nom pour differentes simulations
+
+
+
+    
+    
 
 ## Plot 2D
 #for q in qhist:
