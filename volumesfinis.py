@@ -1,18 +1,22 @@
-# -*- coding: ISO-8859-1 -*-
 import numpy as np
 import matplotlib.pyplot as plt
-#import math
 from mpl_toolkits.mplot3d import Axes3D
 
 from riemann_scal import *
 
-
+## Recuperation des parametres du maillage
+codim0=np.load('codim0.npy')
+codim1=np.load('codim1.npy')
+codim0to1A=np.load('codim0to1A.npy')
+codim0to1B=np.load('codim0to1B.npy')
+codim0to1E=np.load('codim0to1E.npy')
+codim0to1NX=np.load('codim0to1NX.npy')
+codim0to1NY=np.load('codim0to1NY.npy')
 x0 = 0.0; y0 = 0.0 # origine du repere 2D 
 Lx = 1.0; Ly = 1.0 # domaine de resolution[x0,x0+Lx]*[y0,y0+Ly]
 
 LL = min(Lx,Ly)
-mylevel = np.load('mylevel.npy') # Parametre entier a modifier pour modifier le pas du maillage
-            # Vaut 5 dans le code scilab
+mylevel = np.load('mylevel.npy') 
 NN = 2**mylevel
 
 Nx = NN * int(Lx/LL) # nombre de faces selon la direction x
@@ -24,7 +28,12 @@ volume = hx*hy # volume d'une cellule
 
 neighbours = 4 # nombre de voisins par cellule
 
-ns = 1 # nombre de simulations
+## Parametres 
+
+t = 0
+Tfinal = 1 # Temps final d'une simulation 
+
+ns = 16 # nombre de simulations
 THETA=np.linspace(0,np.pi/2,ns) # differents angles de vitesse entre 0 et pi/2
 
 normev = 0.5 # cas constant : norme de la vitesse
@@ -32,16 +41,7 @@ normev = 0.5 # cas constant : norme de la vitesse
 x0,y0=0.25,0.25 # position initiale de la gaussienne
 sigma = 1/50 # largeur de la gaussienne
 
-
-codim0=np.load('codim0.npy')
-codim1=np.load('codim1.npy')
-codim0to1A=np.load('codim0to1A.npy')
-codim0to1B=np.load('codim0to1B.npy')
-codim0to1E=np.load('codim0to1E.npy')
-codim0to1NX=np.load('codim0to1NX.npy')
-codim0to1NY=np.load('codim0to1NY.npy')
-
-
+# Definition de la vitesse
 def ux(i,theta):
     return normev*np.cos(theta)
 
@@ -49,9 +49,9 @@ def uy(i,theta):
     return normev*np.sin(theta)
 
 ## Initialisation
-qini = np.zeros(codim0.shape[0])
 
 def initialisation(sigma,x0,y0):
+    qini=np.zeros(codim0.shape[0])
     for i in range(len(qini)):
         x,y=codim0[i]
         qini[i]=np.exp(-((x-x0)**2+(y-y0)**2)/(2*sigma**2))
@@ -59,19 +59,25 @@ def initialisation(sigma,x0,y0):
     
 qini=initialisation(sigma,x0,y0)
 
-qhist = [qini.copy()]
 
-q0 = qini.copy()
 
-q1 = qini.copy()
 
-t = 0
-Tfinal = 1
 
-SNAPSHOTMATRIX=np.zeros((codim0.shape[0],1))
+compteur=0
+qhist=[]
 
 ## Boucle sur les differents angles de la vitesse
 for theta in THETA : # Cas vitesse constante, pas uniforme sur les angles
+    print(theta)
+    qhist.append(qini.copy()) # Recuperation des vecteurs solutions a chaque instant de la simulation
+    
+    q0 = qini.copy()
+    
+    q1 = qini.copy()
+    
+    compteur+=1
+    print (compteur)    
+    t=0
     
     ## Boucle temporelle
     while t<Tfinal:
@@ -100,25 +106,16 @@ for theta in THETA : # Cas vitesse constante, pas uniforme sur les angles
         qhist.append(q1.copy())
         q0 = q1.copy()
         t+=k
-    M=np.zeros((codim0.shape[0],len(qhist)))
-    for ligne in range(codim0.shape[0]):
-        for colonne in range(len(qhist)):
-            M[ligne,colonne]=qhist[colonne][ligne]
-    SNAPSHOTMATRIX=np.concatenate((SNAPSHOTMATRIX,M),axis=1)
+    # Remplissage d'une matrice compose des vecteurs solutions que l'on va rajouter a la matrice de snapshots
+
+SNAPSHOTMATRIX=np.zeros((codim0.shape[0],len(qhist)))
+for ligne in range(codim0.shape[0]):
+    for colonne in range(len(qhist)):
+        SNAPSHOTMATRIX[ligne,colonne]=qhist[colonne][ligne]
         
-SNAPSHOTMATRIX=SNAPSHOTMATRIX[:,1:]
-print (SNAPSHOTMATRIX.shape[1]) # Compte le nombre de snapshots
-np.save('SNAPSHOTMATRIX',SNAPSHOTMATRIX) # Attention a changer le nom pour differentes simulations
-
-
-
-    
-    
-
-## Plot 2D
-#for q in qhist:
-#    plt.matshow(q.reshape((Nx+1,Ny+1)),False,origin='lower')
-#    plt.pause(0.001)
+#SNAPSHOTMATRIX=SNAPSHOTMATRIX[:,1:] # On avait mis une colonne de zeros pour initialiser la matrice
+print (SNAPSHOTMATRIX.shape[0]) # Compte le nombre de snapshots
+np.save('SNAPSHOTMATRIX',SNAPSHOTMATRIX) # Sauvegarde. Attention a changer le nom pour differentes simulations
 
 
 
@@ -134,15 +131,3 @@ for q in qhist:
     y=Y.reshape(Nx+1,Ny+1)
     ax.plot_wireframe(x,y,q.reshape(Nx+1,Ny+1))#,False)
     plt.pause(0.1)
-
-"""
-plt.clf()
-fig = plt.figure(1)
-ax = fig.gca(projection='3d')
-X=np.array([codim0[i,0] for i in range(codim0.shape[0])])
-Y=np.array([codim0[i,1] for i in range(codim0.shape[0])])
-x=X.reshape(Nx+1,Ny+1)
-y=Y.reshape(Nx+1,Ny+1)
-ax.plot_wireframe(x,y,qhist[1].reshape(Nx+1,Ny+1))
-plt.pause(0.1)
-"""
