@@ -675,22 +675,6 @@
 	
 	\section{Remerciements}
 	
-	\section{Exemples de figures, tableau, équations...}
-	
-	Ce court texte illustre la façon de citer les
-	références~\cite{Cours1, Cours2,
-		Article1, Article2, Rapport, Thèse}, de faire une note de bas de
-	page~\footnote{Exemple de note de bas de page.}, de faire
-	référence à une partie du document (Sec.~\ref{section}), à une
-	figure (Figure~\ref{figure1}), à un tableau
-	(Tableau~\ref{tableau}) ou à une équation
-	(Equation~\ref{equation}).
-	
-	\begin{equation} \label{equation}
-	H \psi = i\hbar \frac{\partial \psi}{\partial t}.
-	\end{equation}
-	
-	
 	\newpage
 	
 	\begin{thebibliography}{99}
