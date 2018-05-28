@@ -22,7 +22,7 @@ vitesse=0.5;
 
 def norme(v):
     return np.sqrt(v[0]**2+v[1]**2)
- 
+
 
 def v(theta):
     return np.array([vitesse*np.cos(theta),vitesse*np.sin(theta)])
@@ -36,7 +36,7 @@ class particle:
     vy=0
     def __init__(self):
         self.x=self.y=0
-        
+
 
 Particles=[]
 for i in range(nbParticles):
@@ -48,19 +48,19 @@ for i in range(nbParticles):
 def point_fixe(A,k, theta):
     f_k = A + dt*v(theta)/2
     t = dt*(k+1)
-    
+
     B = f_k + dt*v(theta)/2
 
     while norme( B-A) > epsilon :
         A,B = B, f_k + dt*v(theta)/2
     return B
-    
+
 
 def resoudre(X0,n,theta):
     X = np.array([ X0 for k in range(n)] )
     for k in range(n-1):
         X[k+1] = point_fixe(X[k],k,theta)
-    
+
     return X
 #-------------------------------------------------------------------------------
 
@@ -87,14 +87,14 @@ for i_t in range(nb_steps):
     for i_p in range(len(Particles)):
         p=Particles[i_p]
         plt.plot([p.x],[p.y],marker='o',color='red')
-        
-    
+
+
         p.x,p.y=allXp[i_p][i_t]
     plt.show()
-    
+
     plt.pause(0.02)
     plt.clf()
-    
+
 # Calcul de la matrice des snapshots pour une valeur de theta
 def snap(theta):
     Snapshot = np.zeros([nbParticles*2, nb_steps])
@@ -111,9 +111,9 @@ pos0 = np.copy(M[:,0])
 for i in range(nb_steps):
     M[:,i] = M[:,i] -M[:,0]
 
-        
 
-    
+
+
 #On calcule la décomposition SVD de la matrice M
 print("Calcul de la décomposition SVD de la matrice M")
 Ut,St,Vt = LS.svd(M,False) 
@@ -142,7 +142,7 @@ plt.show()
 
 svec2 = np.zeros(2*nbParticles)
 
-plt.plot( np.linspace(np.linspace(0,1,20),np.linspace(0,1,20));
+plt.plot( np.linspace(np.linspace(0,1,20),np.linspace(0,1,20)))
 plt.plot( Ut[0,:nbParticles], Ut[0,nbParticles:2*nbParticles])
 
 Vx,Vy=-Ut[:nbParticles,0], -Ut[nbParticles:2*nbParticles,0]
