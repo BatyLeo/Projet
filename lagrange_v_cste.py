@@ -41,7 +41,7 @@ class particle:
 Particles=[]
 for i in range(nbParticles):
     Particles.append(particle())
-    # Les particules sont initialement disposées selon une gaussienne cetrée en (0.25 , 0.25) de variance 0.02
+    # Les particules sont initialement disposees selon une gaussienne cetree en (0.25 , 0.25) de variance 0.02
     Particles[i].x0=Particles[i].x=np.random.normal(center[0],cov)
     Particles[i].y=Particles[i].y0=np.random.normal(center[1],cov)
 
@@ -73,6 +73,7 @@ THETA = np.array([ np.pi*k/32 for k in range(16)]);
 k=8;
 theta = THETA[k]
 
+allXp=nbParticles*[1]
 #Calcul des trajectoires des particules
 for i_p in range(len(Particles)):
     p=Particles[i_p]
@@ -114,16 +115,16 @@ for i in range(nb_steps):
 
 
 
-#On calcule la décomposition SVD de la matrice M
-print("Calcul de la décomposition SVD de la matrice M")
+#On calcule la decomposition SVD de la matrice M
+print("Calcul de la decomposition SVD de la matrice M")
 Ut,St,Vt = LS.svd(M,False) 
 
-#On sauve la matrice M obtenue et les vecteurs singuliers à gauche de M
+#On sauve la matrice M obtenue et les vecteurs singuliers a gauche de M
 np.save('M_mat', M)
 np.save('Ut_mat', Ut)
 
 
-#On trace les valeurs singulières de M en fonction de leur indice
+#On trace les valeurs singulieres de M en fonction de leur indice
 Sigma = np.diag(St)
 sig = St[0:20]
 
@@ -133,7 +134,7 @@ svec = np.zeros(20)
 for i in range(0,20):
     svec[i] = i 
 
-plt.plot(svec, np.log(sig)/np.log(10)) 
+plt.plot(svec, np.log(sig)/np.log(10),'--o') 
 plt.xlabel('i')
 plt.ylabel('log 10 ieme valeur singuliere') 
 plt.show()
