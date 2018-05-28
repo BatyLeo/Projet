@@ -523,6 +523,17 @@
 	
 	\section{Conclusions}
 	
+	Tout au long de ce projet, nous avons donc pu observer que la POD, utilisée dans de bonnes conditions, était non seulement un outil fonctionnel mais surtout indispensable 
+	pour modéliser des équations telles que l'équation d'advection en des temps de calcul raisonnables. De plus, nous avons montré qu'il était possible de maîtriser les incertitudes 
+	en jeu tout en réduisant la taille des données utilisées, en stockant pour cela moins de modes de la POD. 
+	En revanche, nous avons déterminé une séparation entre les écoulements pour lesquels l'approche lagrangienne était vraiment plus adaptée (vitesse constante, Lamb-Oseen) et ceux pour 
+	lesquels l'approche eulérienne donnait de meilleurs résultats (écoulement cellulaire). Ainsi, il semble que la POD demande de bien choisir l’approche choisie en fonction de l’écoulement 
+	observé afin d’obtenir une réduction optimale du modèle.
+	Enfin, grâce à une interpolation d’ordre 1 d’un champ de vitesse discrétisé, nous avons pu entrevoir comment résoudre et compresser un tel modèle à partir de relevés expérimentaux comme 
+	on y serait confronté dans une situation réelle. Ainsi, nous avons remarqué que la réduction de modèles en grande dimension via la POD était une méthode permettant, sous réserve d’un bon 
+	choix d’approche et de paramètres, de résoudre rapidement et avec une certaine fiabilité les équations décrivant le transport de polluants.  
+
+	
 	\section{Appendice}
 	
 	\subsection{Méthode des volumes finis ~\cite{Cours2}}
@@ -674,6 +685,11 @@
 	\lstinputlisting{lagrange_lambo.py}
 	
 	\section{Remerciements}
+	
+	Nous tenons particulièrement à remercier M. Damiano Lombardi et M. Sébastien Boyaval pour leur patience 
+	et leur précieuse aide ainsi que pour toute l’expérience qu’ils nous ont apporté au cours de ce projet. 
+	Nous remercions de même l’Ecole Nationale des Ponts et Chaussées pour la mise en œuvre d’un tel projet et 
+	les rencontres organisées avec les intervenants du cours d’ouverture de M. Boyaval et M. Lombardi.
 	
 	\newpage
 	
