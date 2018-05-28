@@ -289,7 +289,82 @@
 	
 	Cette condition nous permet de choisir le pas de temps adapté à la vitesse et au maillage à chaque instant pour assurer la stabilité.
 	
+		\subsubsection{Modèle Réduit}
+	La POD fournit une base orthonormée de $r$ fonctions scalaires $(P^k)_{k=1}^r$ discrétisées en espace 2D, on note $P^k_{i,j}$ la valeur moyenne de $P^k$ dans la cellule $K_{i,j}$.\\
 	
+	Nous allons approcher la concentration $c$ en utilisant cette base ainsi on note:
+\begin{equation}
+c(X,t) \simeq c^r(X,t) = \sum_{k=1}^r a_k(t) P^k(X)
+\label{MR-C}
+\end{equation}
+
+On injecte (\ref{MR-C}) dans (\ref{equation1}) on obtient : 
+
+\begin{align*}
+\partial_t \left( \sum_{k=1}^r a_k P^k \right) + u \cdot \nabla \left( \sum_{k=1}^r a_k P^k \right) &= 0 \\
+\sum_{k=1}^r \partial_t a_k P^k + \sum_{k=1}^r  a_k u \cdot \nabla  P^k  &= 0 \\
+\forall \ 1\leq k_0 \leq r \ \ \sum_{k=1}^r \partial_t a_k \langle P^k,P^{k_0} \rangle + \sum_{k=1}^r  a_k \langle u \cdot \nabla  P^k, P^{k_0} \rangle &= 0 
+\end{align*} 
+avec $\langle f , g \rangle = \int_{[0,1]^2} fg$ le produit scalaire de $L^2$. Comme la base $(P^k)_{k=1}^r$ est orthonormée on obtient :
+$$
+\forall \ 1\leq k_0 \leq r \ \ \partial_t a_{k_0} + \sum_{k=1}^r  a_k \langle u \cdot \nabla  P^k, P^{k_0} \rangle = 0 
+$$
+Ainsi on construit la matrice $D$ de dimension $r \times r$ telle que $[D]_{l,k} = \langle u \cdot \nabla  P^k, P^{l} \rangle $ et le vecteur $A(t)$ de dimension $r$ tel que $[A(t)]_k = a_k(t)$, et par suite l'équation devient :
+\begin{equation}
+\partial_t A(t) + D \cdot A(t) = 0
+\label{MR}
+\end{equation}
+
+\paragraph{Discrétisation spatiale et calcul de $D$ :}
+
+  Toute fonction $P^k$ est discrétisée en espace de la façon suivante : 
+$$
+P_{i,j}^k = \frac{1}{\vert K_{i,j} \vert} \int_{K_{i,j}}
+P^k(X) \mathrm{d}X
+$$
+d'abord on essaye d'approcher $\nabla P^k$ sur $K_{i,j}$ en utilisant un schéma de différences finis :
+$$
+\nabla P^k_{i,j} =
+\begin{pmatrix}
+\frac{P^k_{i,j+1}-P^k_{i,j-1}}{2\Delta x} \\
+\frac{P^k_{i+1,j}-P^k_{i-1,j}}{2\Delta y}
+\end{pmatrix}
+$$
+ainsi :
+$$
+(u \cdot \nabla P^k )_{i,j} = u^x_{i,j} \frac{P^k_{i,j+1}-P^k_{i,j-1}}{2\Delta x} + u^y_{i,j} \frac{P^k_{i+1,j}-P^k_{i-1,j}}{2\Delta y}
+$$
+et finalement on peut calculer les coefficients de $D$
+\begin{align*}
+[D]_{l,k} &= \int_{[0,1]^2} (u \cdot \nabla P^k) \ P^l\\
+&\simeq \sum_{i,j} \vert K_{i,j} \vert (u \cdot \nabla P^k )_{i,j} \ P^l_{i,j} \\
+&= \sum_{i,j} \vert K_{i,j} \vert  \left(u^x_{i,j} \frac{P^k_{i,j+1}-P^k_{i,j-1}}{2\Delta x} + u^y_{i,j} \frac{P^k_{i+1,j}-P^k_{i-1,j}}{2\Delta y} \right) \ P^l_{i,j}  \ \ \ \forall 1 \leq k,l \leq r
+\end{align*}
+\paragraph{Discrétisation temporelle :} Nous utilisons le schéma d'Euler implicite pour discrétiser en temps l'équation (\ref{MR}) qui s'écrit :
+$$
+\frac{1}{t_n - t_{n-1}}(A(t_n)-A(t_{n-1})) + D \cdot A(t_n) = 0
+$$
+ou en réarrangeant les termes :
+\begin{equation}
+A(t_n) = A(t_{n-1}) - \Delta t_n D \cdot A(t_n)
+\end{equation}
+
+\paragraph{Condition initiale}
+Posons $C(t_n)$ le vecteur qui contient les $c_{i,j}(t_n)$ et $C_r$ le vecteur contient les $c^r_{i,j}(t_n)$. En remarquant que $C_r(t_n)$ (de dimension $n_x \times n_y$ est complètement déterminé par le vecteur $A(t_n)$ de dimension $r$ via l'équation :
+$$
+C(t_n) \simeq C_r(t_n) = U_r \cdot A(t_n)
+$$	
+où 
+$$
+U_r = (P^1 \vert P^2 \vert \dots P^r)
+$$
+Pour déterminer la condition initiale $A(t_0)$ il suffit de projeter la condition initiale $C(t_0)$ sur la base $(P^k)$ cela revient à :
+$$
+A(t_0) = U_r^T \cdot C(t_0)
+$$
+
+\paragraph{Conditions de stabilité}
+condition CFL ...
 	
 	
 	
