@@ -413,11 +413,11 @@ Cette condition nous permet de choisir le pas de temps adapté à la vitesse et 
 	\end{figure}
 	
 	Ceci nous permet de choisir le nombre de modes qu'on va utiliser. Avec un nombre maximal de 50 modes (que nous nous sommes fixés),
-	on voit que l'on n'arrive pas à atteindre l'erreur relative que l'on s'était fixée, à savoir $10^{-3}$. On voit donc que l'approche eulerienne dans le cas d'une vitesse constante n'est pas optimale : en effet, pour chaque valeur de la vitesse,
-	la dynamique de la solution est différente (son parcours n'est jamais le même), on ne peut donc pas facilement exhiber un sous-espacer linéaire
+	on voit que l'on n'arrive pas à atteindre l'erreur relative que l'on s'était fixée, à savoir $10^{-3}$. En fait, il faudrait environ 100 modes propres pour obtenir cette erreur là. On voit donc que l'approche eulerienne dans le cas d'une vitesse constante n'est pas optimale : en effet, pour chaque valeur de la vitesse,
+	la dynamique de la solution est différente (son parcours n'est jamais le même et on ne se recoupe jamais), on ne peut donc pas facilement exhiber un sous-espace linéaire
 	qui contiendrait la majorité de la dynamique. Il est donc inutile d'essayer de réduire ce modèle sous l'approche eulérienne.\\
 	On note cependant qu'avec 16 simulations, on obtient une matrice de snapshots d'environ $3,7Go$ ($257\times 257\times 8 \times 7346$, $7346$ étant le nombre de colonnes), que l'on arrive à compresser en $517ko$
-	en prenant $50$ modes : même si l'erreur reste trop importante, la compression de données est très bonne.
+	en prenant $50$ modes : même si l'erreur reste trop importante, la compression de données est très bonne.\\
 	
 		De plus, cet exemple illustre parfaitement le rôles des modes propres dans la reconstitution de la solution approchée. Voici en effet le tracé des modes propres sur $(0,1)^2$ (en utilisant le module \emph{pcolor} de \emph{matplotlib.pyplot}) :
 	
