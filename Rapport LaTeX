@@ -405,6 +405,9 @@ condition CFL ...
 	\subsubsection{Interpolation}
 	
 	La résolution numérique du problème nécessite de connaître le champ de vitesse des particules, noté $v$.
+	Cependant, le champs de vitesse n'est pas toujours connu annalytiquement. Par exemple, si la vitesse est mesurée experimentalement,
+	alors elle n'est connue qu'aux points de mesure. Nous présentons ici une méthode d'interpollation,  est à dire qui nous permet d'approximer
+	le champs de vitesse sur l'ensemble du domaine lorsqu'il n'est connu qu'en certain points.
 	Nous supposons que l'ensemble $\Omega=(0,1)^2 $ soit muni d'un maillage carré régulier de pas noté $\Delta x$ en abscisse et $\Delta y$ en ordonnée. Nous supposons également que le champ de vitesse est connu en tout point du maillage. Nous présentons ici la méthode d'interpolation que nous avons utilisé pour approximer le champ de vitesse dans l'ensemble du domaine $\Omega$.
 	
 	Considérons une maille dont les coordonnées du coin inférieur gauche sont notées $(x^{LL},y^{LL})$.
@@ -546,6 +549,16 @@ condition CFL ...
 	\begin{figure}[H]
 		\begin{center}
 			\includegraphics[scale=0.5]{ecoulement_cell_100_particules_60_modes.png}
+			\caption{Valeurs singulières pour 100 particules}
+			\label{valeurs_singulieres_cell_100_particules}
+		\end{center}
+	\end{figure}
+	
+	La simulation suivante a necessité plus de temps de calcul. Les positions initiales ainsi que le premier paramètre du modèle sont choisis aléatoirement.
+	64 trajectoires ont été simulées, pour 100 particules.
+		\begin{figure}[H]
+		\begin{center}
+			\includegraphics[scale=0.5]{ecoulement_cell_variation_parametres.png}
 			\caption{Valeurs singulières pour 100 particules}
 			\label{valeurs_singulieres_cell_100_particules}
 		\end{center}
