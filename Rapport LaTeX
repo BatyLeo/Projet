@@ -93,7 +93,7 @@
 		\begin{minipage}{16cm}
 			{\normalsize
 				\parindent=0pt
-				{{\bf ABSTRACT} : Predicting the behavior of a pollutant in a fluid is one of the major problems today, it is very complex to do, as there are too many variables to describe the phenomenon and achieve good precision overtime. We have to use reduction models such as POD (Proper Orthogonal Direct) in order to compute the solution in a reasonable time. It involves keeping the major dynamic of the solution with a few degrees of liberties and accepting an error between the approximation and the real solution.
+				{{\bf ABSTRACT} : The ability of predicting the behaviour of a pollutant in a fluid is crucial in several realistic applications, such as when a drilling rig explodes undersea (\emph{Deepwater Horizon} explosion in 2010 for example). Despite the increasing available computational power, the number of the parameters in the system and the number of degrees of freedom needed to approximate its solution make the prediction task prohibitively expensive from a computational point of view.. We have to use reduction models such as POD (Proper Orthogonal Decomposition) in order to compute the solution in a reasonable time. It involves keeping the major dynamic of the solution with a few degrees of freedom and accepting an error between the approximation and the real solution.
 					We use the advection equation to simulate a pollution peak represented by a Gaussian function in a fluid where the fluid speed varies in a closed region. After computing a couple of solutions using our initial integration schemes for some parameters like the finite volumes scheme and explicit Euler scheme to simulate the fundamental dynamic, we use the POD algorithm to compute approximate solutions for a new set of parameters, this time in a much shorter period. We decided to approach the problem with two different methods. The Eulerian method, in which we consider the velocity as a function of space and time, and try to compute the concentration of the pollutant as a function of the same variables. Whereas in the Lagrangian method, we follow some particles arraigned initially in a random way according to a probability law adapted to the initial concentration and compute their trajectory as a function of time and the initial location. Thus, we will try to compare both methods to see which one suits the problem better.
 				}
 				\par}
@@ -175,7 +175,7 @@
 	u_x = ||u||\cos(\theta)\\
 	u_y = ||u||\sin(\theta)
 	\end{array}\right.$$	
-		
+	
 	Les particules sont distribuées selon une gaussienne centrée en (0.25 ; 0.25) de variance 1/50. Leurs vitesses sont identiques, constante et orientées avec un angle $\theta$ compris entre $0$ et $\frac{\pi}{2}$. 
 	Les positions des différentes particules sont ensuite stockées dans une matrice M de taille $2nb_{particules}\times nb_{steps}$.\\
 	
@@ -210,9 +210,9 @@
 	
 	L'approche Eulérienne consiste à déterminer en chaque point de notre maillage les valeurs de la concentration en polluant. On va donc, à chaque itération de l'algorithme, mettre à jour l'ensemble du maillage.\\
 	
-	Il se trouve qu'une simple approche par la méthode des différences finies n'est pas un schéma stable pour notre étude : le schéma est un peu trop instable (concentration pouvant devenir négative). On va lui préférer la méthode des volumes finis avec un schéma de Lax-Friedrichs, qui est un schéma qui amène un peu plus de phénomène de diffusion, mais qui assure la positivité de la concentration. Pour plus de détails, voir la section \ref{volumesfinis}.\\
+	Il se trouve qu'une simple approche par la méthode des différences finies n'est pas un schéma stable pour notre étude : le schéma est un peu trop instable (concentration pouvant devenir négative). On va lui préférer la méthode des volumes finis avec un schéma de Lax-Friedrichs, qui est un schéma qui assure, par exemple, la positivité (et qui donc respecte une des propriétés fondamentales de la solution du problème continu). Ce schéma numérique classique introduit de la diffusion numérique. Les paramètres de discretisation seront donc choisis afin de limiter ce phénomène. Pour plus de détails, voir la section \ref{volumesfinis}.\\
 	
-	Nous avions à notre disposition un code d'éléments finis 2D sous Scilab faisant tourner le schéma de Lax-Friedrichs sur des cas très compliqués et un maillage uniforme sur $(0,1)^2$. En déchiffrant une partie de ce code, et en s'y inspirant, nous avons codé ce schéma en Python, de façon simplifiée et en retenant seulement ce qui allait nous servir pour notre étude (maillage, fonction permettant l'actualisation, affichage de la solution). La zone étudiée est toujours $(0,1)^2$, et notre condition initiale est représentée par une gaussienne étroite (équivalente à un pic de polluant). De plus, les conditions aux bords sont périodiques : nous nous plaçons sur une sphère afin de rendre le code plus simple, même si nous ferons en sorte de ne jamais atteindre les bords. Ce code Python est donné en annexe.\\
+	Nous avions à notre disposition un code d'éléments finis 2D sous Scilab faisant tourner le schéma de Lax-Friedrichs sur des cas très génériques et un maillage uniforme sur $(0,1)^2$. En déchiffrant une partie de ce code, et en s'y inspirant, nous avons codé ce schéma en Python, de façon simplifiée et en retenant seulement ce qui allait nous servir pour notre étude (maillage, fonction permettant l'actualisation, affichage de la solution). La zone étudiée est toujours $(0,1)^2$, et notre condition initiale est représentée par une gaussienne étroite (équivalente à un pic de polluant). De plus, les conditions aux bords sont périodiques : nous nous plaçons sur une sphère afin de rendre le code plus simple, même si nous ferons en sorte de ne jamais atteindre les bords. Ce code Python est donné en annexe.\\
 	
 	
 	
@@ -289,82 +289,82 @@
 	
 	Cette condition nous permet de choisir le pas de temps adapté à la vitesse et au maillage à chaque instant pour assurer la stabilité.
 	
-			\subsubsection{Modèle Réduit}
+	\subsubsection{Modèle Réduit}
 	La POD fournit une base orthonormée de $r$ fonctions scalaires $(P^k)_{k=1}^r$ discrétisées en espace 2D, on note $P^k_{i,j}$ la valeur moyenne de $P^k$ dans la cellule $K_{i,j}$.\\
 	
 	Nous allons approcher la concentration $c$ en utilisant cette base ainsi on note:
-\begin{equation}
-c(X,t) \simeq c^r(X,t) = \sum_{k=1}^r a_k(t) P^k(X)
-\label{MR-C}
-\end{equation}
-
-On injecte (\ref{MR-C}) dans (\ref{equation1}), on obtient : 
-
-\begin{align*}
-\partial_t \left( \sum_{k=1}^r a_k P^k \right) + u \cdot \nabla \left( \sum_{k=1}^r a_k P^k \right) &= 0 \\
-\sum_{k=1}^r \partial_t a_k P^k + \sum_{k=1}^r  a_k u \cdot \nabla  P^k  &= 0 \\
-\forall \ 1\leq k_0 \leq r \ \ \sum_{k=1}^r \partial_t a_k \langle P^k,P^{k_0} \rangle + \sum_{k=1}^r  a_k \langle u \cdot \nabla  P^k, P^{k_0} \rangle &= 0 
-\end{align*} 
-avec $\langle f , g \rangle = \int_{[0,1]^2} fg$, qui est le produit scalaire de $L^2$. Comme la base $(P^k)_{k=1}^r$ est orthonormée, on obtient :
-$$
-\forall \ 1\leq k_0 \leq r \ \ \partial_t a_{k_0} + \sum_{k=1}^r  a_k \langle u \cdot \nabla  P^k, P^{k_0} \rangle = 0 
-$$
-Ainsi on construit une matrice $D$ de dimension $r \times r$ telle que $[D]_{l,k} = \langle u \cdot \nabla  P^k, P^{l} \rangle $ et un vecteur $A(t)$ de dimension $r$ tel que $[A(t)]_k = a_k(t)$, et par suite l'équation devient :
-\begin{equation}
-\partial_t A(t) + D \cdot A(t) = 0
-\label{MR}
-\end{equation}
-
-\paragraph{Discrétisation spatiale et calcul de $D$ :}
-
-  Toute fonction $P^k$ est discrétisée en espace de la façon suivante : 
-$$
-P_{i,j}^k = \frac{1}{\vert K_{i,j} \vert} \int_{K_{i,j}}
-P^k(X) \mathrm{d}X
-$$
-D'abord, on essaye d'approcher $\nabla P^k$ sur $K_{i,j}$ en utilisant un schéma de différences finis :
-$$
-\nabla P^k_{i,j} =
-\begin{pmatrix}
-\frac{P^k_{i,j+1}-P^k_{i,j-1}}{2\Delta x} \\
-\frac{P^k_{i+1,j}-P^k_{i-1,j}}{2\Delta y}
-\end{pmatrix}
-$$
-ainsi :
-$$
-(u \cdot \nabla P^k )_{i,j} = u^x_{i,j} \frac{P^k_{i,j+1}-P^k_{i,j-1}}{2\Delta x} + u^y_{i,j} \frac{P^k_{i+1,j}-P^k_{i-1,j}}{2\Delta y}
-$$
-et finalement on peut calculer les coefficients de $D$
-\begin{align*}
-[D]_{l,k} &= \int_{[0,1]^2} (u \cdot \nabla P^k) \ P^l\\
-&\simeq \sum_{i,j} \vert K_{i,j} \vert (u \cdot \nabla P^k )_{i,j} \ P^l_{i,j} \\
-&= \sum_{i,j} \vert K_{i,j} \vert  \left(u^x_{i,j} \frac{P^k_{i,j+1}-P^k_{i,j-1}}{2\Delta x} + u^y_{i,j} \frac{P^k_{i+1,j}-P^k_{i-1,j}}{2\Delta y} \right) \ P^l_{i,j}  \ \ \ \forall 1 \leq k,l \leq r
-\end{align*}
-\paragraph{Discrétisation temporelle :} Nous utilisons le schéma d'Euler implicite pour discrétiser en temps l'équation (\ref{MR}) qui s'écrit :
-$$
-\frac{1}{t_n - t_{n-1}}(A(t_n)-A(t_{n-1})) + D \cdot A(t_n) = 0
-$$
-ou en réarrangeant les termes :
-\begin{equation}
-A(t_n) = A(t_{n-1}) - \Delta t_n D \cdot A(t_n)
-\end{equation}
-
-\paragraph{Condition initiale}
-Posons $C(t_n)$ le vecteur qui contient les $c_{i,j}(t_n)$ et $C_r$ le vecteur contient les $c^r_{i,j}(t_n)$. En remarquant que $C_r(t_n)$ ( de dimension $n_x \times n_y$) est complètement déterminé par le vecteur $A(t_n)$ (de dimension $r$) via l'équation :
-$$
-C(t_n) \simeq C_r(t_n) = U_r \cdot A(t_n)
-$$	
-où 
-$$
-U_r = (P^1 \vert P^2 \vert \dots P^r)
-$$
-Pour déterminer la condition initiale $A(t_0)$, il suffit de projeter la condition initiale $C(t_0)$ sur la base $(P^k)$, cela revient à :
-$$
-A(t_0) = U_r^T \cdot C(t_0)
-$$
-
-\paragraph{Conditions de stabilité}
-condition CFL ...
+	\begin{equation}
+	c(X,t) \simeq c^r(X,t) = \sum_{k=1}^r a_k(t) P^k(X)
+	\label{MR-C}
+	\end{equation}
+	
+	On injecte \eqref{MR-C} dans \eqref{equation1}, on obtient : 
+	
+	\begin{align*}
+	\partial_t \left( \sum_{k=1}^r a_k P^k \right) + u \cdot \nabla \left( \sum_{k=1}^r a_k P^k \right) &= 0 \\
+	\sum_{k=1}^r \partial_t a_k P^k + \sum_{k=1}^r  a_k u \cdot \nabla  P^k  &= 0 \\
+	\forall \ 1\leq k_0 \leq r \ \ \sum_{k=1}^r \partial_t a_k \langle P^k,P^{k_0} \rangle + \sum_{k=1}^r  a_k \langle u \cdot \nabla  P^k, P^{k_0} \rangle &= 0 
+	\end{align*} 
+	avec $\langle f , g \rangle = \int_{[0,1]^2} fg$, qui est le produit scalaire de $L^2$. Comme la base $(P^k)_{k=1}^r$ est orthonormée, on obtient :
+	$$
+	\forall \ 1\leq k_0 \leq r \ \ \partial_t a_{k_0} + \sum_{k=1}^r  a_k \langle u \cdot \nabla  P^k, P^{k_0} \rangle = 0 
+	$$
+	Ainsi on construit une matrice $D$ de dimension $r \times r$ telle que $[D]_{l,k} = \langle u \cdot \nabla  P^k, P^{l} \rangle $ et un vecteur $A(t)$ de dimension $r$ tel que $[A(t)]_k = a_k(t)$, et par suite l'équation devient :
+	\begin{equation}
+	\partial_t A(t) + D \cdot A(t) = 0
+	\label{MR}
+	\end{equation}
+	
+	\paragraph{Discrétisation spatiale et calcul de $D$ :}
+	
+	Toute fonction $P^k$ est discrétisée en espace de la façon suivante : 
+	$$
+	P_{i,j}^k = \frac{1}{\vert K_{i,j} \vert} \int_{K_{i,j}}
+	P^k(X) \mathrm{d}X
+	$$
+	D'abord, on essaye d'approcher $\nabla P^k$ sur $K_{i,j}$ en utilisant un schéma de différences finis :
+	$$
+	\nabla P^k_{i,j} =
+	\begin{pmatrix}
+	\frac{P^k_{i,j+1}-P^k_{i,j-1}}{2\Delta x} \\
+	\frac{P^k_{i+1,j}-P^k_{i-1,j}}{2\Delta y}
+	\end{pmatrix}
+	$$
+	ainsi :
+	$$
+	(u \cdot \nabla P^k )_{i,j} = u^x_{i,j} \frac{P^k_{i,j+1}-P^k_{i,j-1}}{2\Delta x} + u^y_{i,j} \frac{P^k_{i+1,j}-P^k_{i-1,j}}{2\Delta y}
+	$$
+	et finalement on peut calculer les coefficients de $D$
+	\begin{align*}
+	[D]_{l,k} &= \int_{[0,1]^2} (u \cdot \nabla P^k) \ P^l\\
+	&\simeq \sum_{i,j} \vert K_{i,j} \vert (u \cdot \nabla P^k )_{i,j} \ P^l_{i,j} \\
+	&= \sum_{i,j} \vert K_{i,j} \vert  \left(u^x_{i,j} \frac{P^k_{i,j+1}-P^k_{i,j-1}}{2\Delta x} + u^y_{i,j} \frac{P^k_{i+1,j}-P^k_{i-1,j}}{2\Delta y} \right) \ P^l_{i,j}  \ \ \ \forall 1 \leq k,l \leq r
+	\end{align*}
+	\paragraph{Discrétisation temporelle :} Nous utilisons le schéma d'Euler implicite pour discrétiser en temps l'équation \eqref{MR} qui s'écrit :
+	$$
+	\frac{1}{t_n - t_{n-1}}(A(t_n)-A(t_{n-1})) + D \cdot A(t_n) = 0
+	$$
+	ou en réarrangeant les termes :
+	\begin{equation}
+	A(t_n) = A(t_{n-1}) - \Delta t_n D \cdot A(t_n)
+	\end{equation}
+	
+	\paragraph{Condition initiale}
+	Posons $C(t_n)$ le vecteur qui contient les $c_{i,j}(t_n)$ et $C_r$ le vecteur contient les $c^r_{i,j}(t_n)$. En remarquant que $C_r(t_n)$ ( de dimension $n_x \times n_y$) est complètement déterminé par le vecteur $A(t_n)$ (de dimension $r$) via l'équation :
+	$$
+	C(t_n) \simeq C_r(t_n) = U_r \cdot A(t_n)
+	$$	
+	où 
+	$$
+	U_r = (P^1 \vert P^2 \vert \dots P^r)
+	$$
+	Pour déterminer la condition initiale $A(t_0)$, il suffit de projeter la condition initiale $C(t_0)$ sur la base $(P^k)$, cela revient à :
+	$$
+	A(t_0) = U_r^T \cdot C(t_0)
+	$$
+	
+	\paragraph{Conditions de stabilité}
+	condition CFL ...
 	
 	
 	
@@ -406,8 +406,8 @@ condition CFL ...
 	\subsubsection{Interpolation}
 	
 	La résolution numérique du problème nécessite de connaître le champ de vitesse des particules, noté $v$.
-	Cependant, le champs de vitesse n'est pas toujours connu annalytiquement. Par exemple, si la vitesse est mesurée experimentalement,
-	alors elle n'est connue qu'aux points de mesure. Nous présentons ici une méthode d'interpollation,  est à dire qui nous permet d'approximer
+	Cependant, le champs de vitesse n'est pas toujours connu analytiquement Par exemple, si la vitesse est mesurée expérimentalement,
+	alors elle n'est connue qu'aux points de mesure. Nous présentons ici une méthode d'interpolation,  est à dire qui nous permet d'approximer
 	le champs de vitesse sur l'ensemble du domaine lorsqu'il n'est connu qu'en certain points.
 	Nous supposons que l'ensemble $\Omega=(0,1)^2 $ soit muni d'un maillage carré régulier de pas noté $\Delta x$ en abscisse et $\Delta y$ en ordonnée. Nous supposons également que le champ de vitesse est connu en tout point du maillage. Nous présentons ici la méthode d'interpolation que nous avons utilisé pour approximer le champ de vitesse dans l'ensemble du domaine $\Omega$.
 	
@@ -440,7 +440,7 @@ condition CFL ...
 	$$v(x,y,t) = v(x^{LL}, y^{LL},t) \varphi_1(\tilde{x}, \tilde{y}) + v(x^{LL} +\Delta x, y^{LL},t) \varphi_2(\tilde{x}, \tilde{y}) $$
 	$$ + v(x^{LL}+\Delta x, y^{LL}+\Delta y,t) \varphi_3(\tilde{x}, \tilde{y}) $$
 	$$ + v(x^{LL}, y^{LL}+\Delta y,t) \varphi_4(\tilde{x}, \tilde{y}) $$
-
+	
 	
 	\section{Résultats}
 	
@@ -461,7 +461,7 @@ condition CFL ...
 	on voit que l'on n'arrive pas à atteindre l'erreur relative que l'on s'était fixée, à savoir $10^{-3}$. En fait, il faudrait environ 100 modes propres pour obtenir cette erreur là. On voit donc que l'approche eulerienne dans le cas d'une vitesse constante n'est pas optimale : en effet, pour chaque valeur de la vitesse,
 	la dynamique de la solution est différente (son parcours n'est jamais le même et on ne se recoupe jamais), on ne peut donc pas facilement exhiber un sous-espace linéaire
 	qui contiendrait la majorité de la dynamique. Il est donc inutile d'essayer de réduire ce modèle sous l'approche eulérienne.\\
-	On note cependant qu'avec 16 simulations, on obtient une matrice de snapshots d'environ $3,7Go$ ($257\times 257\times 8 \times 7346$, $7346$ étant le nombre de colonnes), que l'on arrive à compresser en $517ko$
+	On note cependant qu'avec 16 simulations, on obtient une matrice de \emph{snapshots} d'environ $3,7Go$ ($257\times 257\times 8 \times 7346$, $7346$ étant le nombre de colonnes), que l'on arrive à compresser en $517ko$
 	en prenant $50$ modes : même si l'erreur reste trop importante, la compression de données est très bonne.\\
 	
 	De plus, cet exemple illustre parfaitement le rôles des modes propres dans la reconstitution de la solution approchée. Voici en effet le tracé des modes propres sur $(0,1)^2$ (en utilisant le module \emph{pcolor} de \emph{matplotlib.pyplot}) :
@@ -469,14 +469,51 @@ condition CFL ...
 	\begin{tabular}{cc}
 		\includegraphics[width=0.5\linewidth]{eulerien_constant_mode_1} &	\includegraphics[width=0.5\linewidth]{eulerien_constant_mode_2}\\
 	\end{tabular}
-
+	
 	\begin{tabular}{cc}
 		\includegraphics[width=0.5\linewidth]{eulerien_constant_mode_10} &	\includegraphics[width=0.5\linewidth]{eulerien_constant_mode_50}\\
 	\end{tabular}
 	
 	Les différentes couleurs montrent les oscillations de la fonction. On voit que le premier mode rassemble la majeure dynamique de ce qu'on a simulé : la condition initiale, qui est restée la même durant toutes nos simulations, est représentée de façon très claire.\\
-	On voit ensuite, dès le deuxième mode, la première oscillation qui va permettre de reconstituer les solutions. L'oscillation se dirige dans le cadrant en haut à droite, lieu de nos simulations car $\theta \in [0,\frac{\pi}{2}]$. Le 10ème mode représente bien les différentes trajectoires de nos simulations (encore via des oscillations), et enfin, quand on va chercher des modes plus grands, on va essayer de reproduire de plus en plus les détails de la dynamique.
+	On voit ensuite, dès le deuxième mode, la première oscillation qui va permettre de reconstituer les solutions. L'oscillation se dirige dans le cadrant en haut à droite, lieu de nos simulations car $\theta \in [0,\frac{\pi}{2}]$. Le 10ème mode représente bien les différentes trajectoires de nos simulations (encore via des oscillations), et enfin, quand on va chercher des modes plus grands, on va essayer de reproduire de plus en plus les détails de la dynamique.\\
 	
+	Ensuite, nous avons testé la reconstruction d'une solution avec notre base de modes propres pour un nouveau paramètre qui ne faisait pas partie des simulations précédentes : on est donc sûr qu'aucun vecteur solution ayant servi à la POD ne peut directement représenter la solution. En l'occurrence, nous avons pris $\theta=\frac{\pi}{9}$. Ceci est un test dit \emph{out-of-data in-bound} : on utilise une valeur de paramètre non présente dans la base qui va servir à réduire la modèle, mais qui est quand même dans l'intervalle que nous nous sommes fixés au départ.\\
+	
+	Voici les différentes reconstructions pour un nombre de modes propres valant 10, 20, 50, 100, 200 et 500, d'abord pour la condition initiale :
+	
+	\begin{tabular}{cc}
+		\includegraphics[width=0.5\linewidth]{eulerien_constant_reproduction_condition_initiale_10modes} &	\includegraphics[width=0.5\linewidth]{eulerien_constant_reproduction_condition_initiale_20modes}\\
+		Condition initiale, 10 modes & Condition initiale, 20 modes
+	\end{tabular}
+
+	\begin{tabular}{cc}
+	\includegraphics[width=0.5\linewidth]{eulerien_constant_reproduction_condition_initiale_50modes} &	\includegraphics[width=0.5\linewidth]{eulerien_constant_reproduction_condition_initiale_100modes}\\
+	Condition initiale, 50 modes & Condition initiale, 100 modes
+	\end{tabular}
+
+	\begin{tabular}{cc}
+	\includegraphics[width=0.5\linewidth]{eulerien_constant_reproduction_condition_initiale_200modes} &	\includegraphics[width=0.5\linewidth]{eulerien_constant_reproduction_condition_initiale_500modes}\\
+	Condition initiale, 200 modes & Condition initiale, 500 modes
+	\end{tabular}
+
+	On voit premièrement que la condition initiale est plutôt bien restituée. Avec un nombre faibles de modes, on observe des oscillations mais elles disparaissent vite avec un nombre de modes de plus en plus grand. Cela est notamment dû au fait que la condition initiale a été la même dans toutes les simulations. Regardons maintenant ce qu'il se passe à mi-parcours :
+	
+		\begin{tabular}{cc}
+		\includegraphics[width=0.5\linewidth]{eulerien_constant_reproduction_moment_random_10modes} &	\includegraphics[width=0.5\linewidth]{eulerien_constant_reproduction_moment_random_20modes}\\
+		A mi-parcours, 10 modes & A mi-parcours, 20 modes
+	\end{tabular}
+	
+	\begin{tabular}{cc}
+		\includegraphics[width=0.5\linewidth]{eulerien_constant_reproduction_moment_random_50modes} &	\includegraphics[width=0.5\linewidth]{eulerien_constant_reproduction_moment_random_100modes}\\
+		A mi-parcours, 50 modes & A mi-parcours, 100 modes
+	\end{tabular}
+	
+	\begin{tabular}{cc}
+		\includegraphics[width=0.5\linewidth]{eulerien_constant_reproduction_moment_random_200modes} &	\includegraphics[width=0.5\linewidth]{eulerien_constant_reproduction_moment_random_500modes}\\
+		A mi-parcours, 200 modes & A mi-parcours, 500 modes
+	\end{tabular}
+
+	Cette fois-ci, on voit très clairement qu'un faible nombre de modes ne permet plus de restituer une dynamique cohérente. Des oscillations de grande amplitudes sont observées pour 10 et 20 modes, et il reste encore des petites "vagues" pour 50 modes. Cependant, passé une centaine de modes, on n'observe plus de grands changements dans la gaussienne. Il faudrait donc une centaine de modes environ pour s'en sortir dans la restitution d'une solution fine pour un nouveau paramètre dans l'intervalle de départ. 
 	
 	\subsubsection{Cas des \'ecoulements cellulaires}
 	
@@ -518,6 +555,7 @@ condition CFL ...
 	
 	\todo[inline]{POD}
 	
+	
 	\subsection{Approche Lagrangienne}
 	
 	\subsubsection{Vitesse constante}
@@ -557,10 +595,10 @@ condition CFL ...
 	
 	La simulation suivante a necessité plus de temps de calcul. Les positions initiales ainsi que le premier paramètre du modèle sont choisis aléatoirement.
 	64 trajectoires ont été simulées, pour 100 particules. Les positions initiales suivent une loi gaussienne centrée en (0.25 , 0.5) et de variance 0.05. 
-	Le premier paramètre (\theta_0) a été choisi uniformément sur $[0, 2.5]$.
-		\begin{figure}[H]
+	Le premier paramètre ($\theta_0$) a été choisi uniformément sur $[0, 2.5]$.
+	\begin{figure}[H]
 		\begin{center}
-			\includegraphics[scale=0.5]{ecoulement_cell_variation_parametres.png}
+			\includegraphics[scale=0.5]{lagrange_cell_variation_parametres.png}
 			\caption{Valeurs singulières pour 100 particules}
 			\label{valeurs_singulieres_cell_100_particules}
 		\end{center}
@@ -628,7 +666,7 @@ condition CFL ...
 	Enfin, grâce à une interpolation d’ordre 1 d’un champ de vitesse discrétisé, nous avons pu entrevoir comment résoudre et compresser un tel modèle à partir de relevés expérimentaux comme 
 	on y serait confronté dans une situation réelle. Ainsi, nous avons remarqué que la réduction de modèles en grande dimension via la POD était une méthode permettant, sous réserve d’un bon 
 	choix d’approche et de paramètres, de résoudre rapidement et avec une certaine fiabilité les équations décrivant le transport de polluants.  
-
+	
 	
 	\section{Appendice}
 	
@@ -783,8 +821,8 @@ condition CFL ...
 	\section{Remerciements}
 	
 	Nous tenons particulièrement à remercier M. Damiano Lombardi et M. Sébastien Boyaval pour leur patience 
-	et leur précieuse aide ainsi que pour toute l’expérience qu’ils nous ont apporté au cours de ce projet. 
-	Nous remercions de même l’Ecole Nationale des Ponts et Chaussées pour la mise en œuvre d’un tel projet et 
+	et leur précieuse aide, ainsi que pour toute l'expérience qu’ils nous ont apporté au cours de ce projet. 
+	Nous remercions de même l'Ecole Nationale des Ponts et Chaussées pour la mise en \oe{}uvre d'un tel projet et 
 	les rencontres organisées avec les intervenants du cours d’ouverture de M. Boyaval et M. Lombardi.
 	
 	\newpage
