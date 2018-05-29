@@ -377,7 +377,8 @@ condition CFL ...
 	\subsection{Approche Lagrangienne}
 	
 	\subsubsection{Description}
-	L'approche lagrangienne consiste à suivre les particules le long de leur trajectoires.
+	L'approche lagrangienne consiste à suivre les particules le long de leur trajectoires. Si l'on note $X(\xi,t) \in \mathbb{R}^{n\times2}$ les positions, à l'instant $t\in [0,T]$, des particules 
+	qui était initialement aux positions $\xi \in \mathbb{R}^{n\times2}$. 
 	Cela revient à résoudre : 
 	$$
 	\left\{
@@ -388,7 +389,7 @@ condition CFL ...
 	\right.
 	$$ 
 	
-	Où $X(\xi,t) \in \mathbb{R}^{n\times2}$, n étant le nombre de particules, $t\in [0,T]$ et $\xi$ étant les positions initiales des particules.
+	
 	
 	\subsubsection{Résolution numérique}
 	Nous avons utilisé le schéma de Crank-Nicholson :
