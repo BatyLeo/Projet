@@ -301,9 +301,9 @@
 	On injecte \eqref{MR-C} dans \eqref{equation1}, on obtient : 
 	
 	\begin{align*}
-	\partial_t \left( \sum_{k=1}^r a_k P^k \right) + u \cdot \nabla \left( \sum_{k=1}^r a_k P^k \right) &= 0 \\
-	\sum_{k=1}^r \partial_t a_k P^k + \sum_{k=1}^r  a_k u \cdot \nabla  P^k  &= 0 \\
-	\forall \ 1\leq k_0 \leq r \ \ \sum_{k=1}^r \partial_t a_k \langle P^k,P^{k_0} \rangle + \sum_{k=1}^r  a_k \langle u \cdot \nabla  P^k, P^{k_0} \rangle &= 0 
+	& \partial_t \left( \sum_{k=1}^r a_k P^k \right) + u \cdot \nabla \left( \sum_{k=1}^r a_k P^k \right) = 0 \\
+	\Rightarrow & \ \ \sum_{k=1}^r \partial_t a_k P^k + \sum_{k=1}^r  a_k u \cdot \nabla  P^k  = 0 \\
+	\Rightarrow & \ \ \forall \ 1\leq k_0 \leq r \ \ \sum_{k=1}^r \partial_t a_k \langle P^k,P^{k_0} \rangle + \sum_{k=1}^r  a_k \langle u \cdot \nabla  P^k, P^{k_0} \rangle = 0 
 	\end{align*} 
 	avec $\langle f , g \rangle = \int_{[0,1]^2} fg$, qui est le produit scalaire de $L^2$. Comme la base $(P^k)_{k=1}^r$ est orthonormée, on obtient :
 	$$
@@ -362,6 +362,10 @@
 	$$
 	A(t_0) = U_r^T \cdot C(t_0)
 	$$
+	\paragraph{Algorithme :}
+        On part de la condition initiale $A(t_0) = U_r^T \cdot C(t_0)$ puis pour $n>0, t_n<T$ on résout l'équation 
+	$(\Delta t_n D + I_r) \cdot A(t_n) = A(t_{n-1})$, les vecteurs $A(t_n)$ ainsi obtenus sont utilisés pour reconstruire
+	les vecteurs $C(t_n)$ avec la relation $C(t_n) = U_r \cdot A(t_n)$.
 	
 	\paragraph{Conditions de stabilité}
 	condition CFL ...
