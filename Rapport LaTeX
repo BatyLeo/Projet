@@ -365,7 +365,10 @@
 	\paragraph{Algorithme :}
         On part de la condition initiale $A(t_0) = U_r^T \cdot C(t_0)$ puis pour $n>0, t_n<T$ on résout l'équation 
 	$(\Delta t_n D + I_r) \cdot A(t_n) = A(t_{n-1})$, les vecteurs $A(t_n)$ ainsi obtenus sont utilisés pour reconstruire
-	les vecteurs $C(t_n)$ avec la relation $C(t_n) = U_r \cdot A(t_n)$.
+	les vecteurs $C(t_n)$ avec la relation $C(t_n) = U_r \cdot A(t_n)$.\\
+	
+        On voit ici l'intérêt de la méthode POD, on a pu réduire le problème de dimension ($n_x \times n_y \times n_t$) 
+	en un problème de dimension ($r \times n_t$).
 	
 	\paragraph{Conditions de stabilité}
 	condition CFL ...
