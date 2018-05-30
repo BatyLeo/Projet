@@ -396,7 +396,9 @@
 	\right.
 	$$ 
 	
-	
+	Supposons : $u \in \mathcal{C}^0(\mathbb{R}^{n\times2} \times \mathbb{R}) \bigcap W^{1,\infty}(\mathbb{R}^{n\times2} \times \mathbb{R}).
+	C'est toujours le cas dans notre étude. Alors le théorème de Cauchy-Lipschitz assure l'existence et l'unicité d'une solution locale. 
+	De plus, l'application est globalement lipschitzienne. Le transport est donc à vitesse finie.
 	
 	\subsubsection{Résolution numérique}
 	Nous avons utilisé le schéma de Crank-Nicholson :
