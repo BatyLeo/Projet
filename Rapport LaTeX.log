@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.10.20)  30 MAY 2018 16:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.10.20)  30 MAY 2018 17:01
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1300,169 +1300,200 @@ n/12 25\OML/lmm/m/it/12 ; \OT1/lmr/m/n/12 0\OML/lmm/m/it/12 :\OT1/lmr/m/n/12 75
 ] \OMS/lmsy/m/n/12 ^^B
  []
 
-[22 <./out500modes.png> <./outfin.png> <./outfin500modes.png>]
-<valeurs_singulieres_cell_10_particules.png, id=194, 462.528pt x 346.896pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 628--629
+
+ []
+
+<opticell2.png, id=188, 307.1475pt x 230.5413pt>
+File: opticell2.png Graphic file (type png)
+ <use opticell2.png>
+Package pdftex.def Info: opticell2.png used on input line 634.
+(pdftex.def)             Requested size: 227.62204pt x 170.85117pt.
+
+<opticell1.png, id=189, 301.3659pt x 225.4824pt>
+File: opticell1.png Graphic file (type png)
+ <use opticell1.png>
+Package pdftex.def Info: opticell1.png used on input line 635.
+(pdftex.def)             Requested size: 227.62204pt x 170.3087pt.
+ [22 <./out500modes.png> <./outfin.png> <./outfin500modes.png>]
+<micheminmode20.png, id=196, 331.7193pt x 259.4493pt>
+File: micheminmode20.png Graphic file (type png)
+ <use micheminmode20.png>
+Package pdftex.def Info: micheminmode20.png used on input line 643.
+(pdftex.def)             Requested size: 227.62204pt x 178.03839pt.
+
+<micheminmode50.png, id=197, 324.4923pt x 261.6174pt>
+File: micheminmode50.png Graphic file (type png)
+ <use micheminmode50.png>
+Package pdftex.def Info: micheminmode50.png used on input line 644.
+(pdftex.def)             Requested size: 227.62204pt x 183.51814pt.
+
+<valeurs_singulieres_cell_10_particules.png, id=198, 462.528pt x 346.896pt>
 File: valeurs_singulieres_cell_10_particules.png Graphic file (type png)
 
 <use valeurs_singulieres_cell_10_particules.png>
 Package pdftex.def Info: valeurs_singulieres_cell_10_particules.png used on inp
-ut line 641.
+ut line 658.
 (pdftex.def)             Requested size: 231.26343pt x 173.44757pt.
-
-<lagrange_gauss_1er_mode.png, id=195, 578.16pt x 431.4519pt>
+ [23 <./opticell2.png> <./opticell1.png> <./micheminmode20.png> <./micheminmode
+50.png>]
+<lagrange_gauss_1er_mode.png, id=206, 578.16pt x 431.4519pt>
 File: lagrange_gauss_1er_mode.png Graphic file (type png)
 
 <use lagrange_gauss_1er_mode.png>
-Package pdftex.def Info: lagrange_gauss_1er_mode.png used on input line 649.
+Package pdftex.def Info: lagrange_gauss_1er_mode.png used on input line 666.
 (pdftex.def)             Requested size: 289.07928pt x 215.72542pt.
 
-<ecoulement_cellulaire_10.png, id=196, 462.528pt x 346.896pt>
+<ecoulement_cellulaire_10.png, id=207, 462.528pt x 346.896pt>
 File: ecoulement_cellulaire_10.png Graphic file (type png)
 
 <use ecoulement_cellulaire_10.png>
-Package pdftex.def Info: ecoulement_cellulaire_10.png used on input line 663.
+Package pdftex.def Info: ecoulement_cellulaire_10.png used on input line 680.
 (pdftex.def)             Requested size: 256.0748pt x 192.06375pt.
- [23 <./valeurs_singulieres_cell_10_particules.png> <./lagrange_gauss_1er_mode.
+ [24 <./valeurs_singulieres_cell_10_particules.png> <./lagrange_gauss_1er_mode.
 png>]
-<valeurs_singulieres_cell_100_particules.png, id=202, 462.528pt x 346.896pt>
+<valeurs_singulieres_cell_100_particules.png, id=213, 462.528pt x 346.896pt>
 File: valeurs_singulieres_cell_100_particules.png Graphic file (type png)
 
 <use valeurs_singulieres_cell_100_particules.png>
 Package pdftex.def Info: valeurs_singulieres_cell_100_particules.png used on in
-put line 671.
+put line 688.
 (pdftex.def)             Requested size: 231.26343pt x 173.44757pt.
 
-<lagrange_cell_variation_parametres.png, id=203, 462.528pt x 346.896pt>
+<lagrange_cell_variation_parametres.png, id=214, 462.528pt x 346.896pt>
 File: lagrange_cell_variation_parametres.png Graphic file (type png)
 
 <use lagrange_cell_variation_parametres.png>
 Package pdftex.def Info: lagrange_cell_variation_parametres.png used on input l
-ine 684.
+ine 701.
 (pdftex.def)             Requested size: 231.26343pt x 173.44757pt.
- [24 <./ecoulement_cellulaire_10.png> <./valeurs_singulieres_cell_100_particule
+ [25 <./ecoulement_cellulaire_10.png> <./valeurs_singulieres_cell_100_particule
 s.png>]
-<champ_lamboseen.png, id=209, 462.528pt x 346.896pt>
+<champ_lamboseen.png, id=221, 462.528pt x 346.896pt>
 File: champ_lamboseen.png Graphic file (type png)
  <use champ_lamboseen.png>
-Package pdftex.def Info: champ_lamboseen.png used on input line 697.
+Package pdftex.def Info: champ_lamboseen.png used on input line 714.
 (pdftex.def)             Requested size: 231.26343pt x 173.44757pt.
 
-<valeurs_singulieres_lambo_100_particules.png, id=210, 462.528pt x 346.896pt>
+<valeurs_singulieres_lambo_100_particules.png, id=222, 462.528pt x 346.896pt>
 File: valeurs_singulieres_lambo_100_particules.png Graphic file (type png)
 
 <use valeurs_singulieres_lambo_100_particules.png>
 Package pdftex.def Info: valeurs_singulieres_lambo_100_particules.png used on i
-nput line 704.
+nput line 721.
 (pdftex.def)             Requested size: 231.26343pt x 173.44757pt.
- [25 <./lagrange_cell_variation_parametres.png> <./champ_lamboseen.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 719--722
+ [26 <./lagrange_cell_variation_parametres.png> <./champ_lamboseen.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 736--739
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 723--724
+Underfull \hbox (badness 10000) in paragraph at lines 740--741
 
  []
 
-[26 <./valeurs_singulieres_lambo_100_particules.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 758--761
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 762--766
-
- []
-
-[27]
-Underfull \hbox (badness 10000) in paragraph at lines 767--769
+[27 <./valeurs_singulieres_lambo_100_particules.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 775--778
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 778--779
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 788--789
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 790--791
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 802--803
+Underfull \hbox (badness 10000) in paragraph at lines 779--783
 
  []
 
 [28]
-
-LaTeX Warning: Command \L invalid in math mode on input line 834.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 843--844
+Underfull \hbox (badness 10000) in paragraph at lines 784--786
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 848--850
+Underfull \hbox (badness 10000) in paragraph at lines 795--796
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 805--806
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 807--808
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 819--820
 
  []
 
 [29]
-LaTeX Font Info:    Try loading font information for U+dsrom on input line 858.
+
+LaTeX Warning: Command \L invalid in math mode on input line 851.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 860--861
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 865--867
+
+ []
+
+[30]
+LaTeX Font Info:    Try loading font information for U+dsrom on input line 875.
 
  (/usr/local/texlive/2015/texmf-dist/tex/latex/doublestroke/Udsrom.fd
 File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
 )
-(./maillage.py [30]
+(./maillage.py [31]
 LaTeX Font Info:    Try loading font information for TS1+lmr on input line 14.
  (/usr/local/texlive/2015/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
-) [31] [32] [33] [34]) (./riemann_scal.py) [35]
-(./volumesfinis_eulerien_constant.py [36] [37] [38])
-(./svd_eulerien_constant.py [39]) (./lagrange_v_cste.py [40] [41]
+) [32] [33] [34] [35]) (./riemann_scal.py) [36]
+(./volumesfinis_eulerien_constant.py [37] [38] [39]) (./EulOpt.py [40] [41])
+(./CellularFlow.py [42] [43] [44] [45] [46] [47]) (./PODcellularflow.py
+[48] [49] [50] [51]) (./svd_eulerien_constant.py [52]) (./lagrange_v_cste.py
+[53] [54]
 Overfull \hbox (64.79703pt too wide) in paragraph at lines 65--67
 [][][][] 
  []
 
-[42] [43] [44]) (./lagrange_ecouleent_cellulaire.py
+[55] [56]) (./lagrange_ecouleent_cellulaire.py [57]
 Overfull \hbox (269.24579pt too wide) in paragraph at lines 37--38
 [][][][] 
  []
 
-[45]
+[58]
 Overfull \hbox (64.79703pt too wide) in paragraph at lines 69--71
 [][][][] 
  []
 
-[46] [47]) (./lagrange_lambo.py [48] [49]
+[59]) [60] (./lagrange_lambo.py [61]
 Overfull \hbox (64.79703pt too wide) in paragraph at lines 79--81
 [][][][] 
  []
 
-[50])
-Overfull \hbox (15.44733pt too wide) in paragraph at lines 159--922
+[62] [63])
+Overfull \hbox (15.44733pt too wide) in paragraph at lines 159--943
 [][][][] 
  []
 
-[51] [52] [53] (./Rapport LaTeX.aux)
+[64] [65] (./Rapport LaTeX.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 17153 strings out of 493089
- 318549 string characters out of 6134841
+ 17184 strings out of 493089
+ 318414 string characters out of 6134841
  503055 words of memory out of 5000000
- 20197 multiletter control sequences out of 15000+600000
+ 20215 multiletter control sequences out of 15000+600000
  61768 words of font info for 50 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 62i,10n,80p,1056b,1738s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 62i,10n,72p,1056b,1738s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/
 texlive/2015/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/local/texlive/2015/
 texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2015/texmf-dist/fon
@@ -1484,10 +1515,10 @@ texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2015/texmf-dist
 1/public/lm/lmsy8.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/am
 sfonts/symbols/msam10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/publi
 c/amsfonts/symbols/msbm10.pfb>
-Output written on "Rapport LaTeX.pdf" (53 pages, 3112672 bytes).
+Output written on "Rapport LaTeX.pdf" (65 pages, 3324777 bytes).
 PDF statistics:
- 376 PDF objects out of 1000 (max. 8388607)
- 199 compressed objects within 2 object streams
+ 423 PDF objects out of 1000 (max. 8388607)
+ 225 compressed objects within 3 object streams
  0 named destinations out of 1000 (max. 500000)
- 243 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 263 words of extra memory for PDF output out of 10000 (max. 10000000)
 

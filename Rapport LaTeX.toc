@@ -28,28 +28,28 @@
 \contentsline {subsection}{\numberline {3.2}Approche Lagrangienne}{23}
 \contentsline {subsubsection}{\numberline {3.2.1}Vitesse constante}{23}
 \contentsline {subsubsection}{\numberline {3.2.2}\'Ecoulement cellulaire}{24}
-\contentsline {subsubsection}{\numberline {3.2.3}Champs de Lamb-Oseen}{25}
-\contentsline {section}{\numberline {4}Discussion}{26}
-\contentsline {subsection}{\numberline {4.1}Approche Eulerienne}{26}
-\contentsline {subsubsection}{\numberline {4.1.1}Vitesse constante}{26}
-\contentsline {subsubsection}{\numberline {4.1.2}\'Ecoulement cellulaire}{27}
-\contentsline {subsection}{\numberline {4.2}Approche Lagrangienne}{27}
-\contentsline {subsubsection}{\numberline {4.2.1}Vitesse constante}{27}
-\contentsline {subsubsection}{\numberline {4.2.2}\'Ecoulement cellulaire}{27}
-\contentsline {subsubsection}{\numberline {4.2.3}Champ de Lamb-Oseen}{27}
-\contentsline {section}{\numberline {5}Conclusions}{27}
-\contentsline {section}{\numberline {6}Appendice}{28}
-\contentsline {subsection}{\numberline {6.1}M\'ethode des volumes finis ~\cite {Cours2}}{28}
-\contentsline {subsubsection}{\numberline {6.1.1}Maillage}{28}
-\contentsline {subsubsection}{\numberline {6.1.2}Sch\'ema num\'erique}{29}
-\contentsline {section}{\numberline {7}Annexes}{30}
-\contentsline {subsection}{\numberline {7.1}Cr\'eation du maillage}{30}
-\contentsline {subsection}{\numberline {7.2}Approche Eulerienne}{35}
-\contentsline {subsubsection}{\numberline {7.2.1}Calcul du flux : solveur de Lax-Friedrichs Riemann}{35}
-\contentsline {subsubsection}{\numberline {7.2.2}Volumes finis - cas constant}{36}
-\contentsline {subsubsection}{\numberline {7.2.3}Decomposition SVD}{39}
-\contentsline {subsection}{\numberline {7.3}Approche Lagrangienne}{40}
-\contentsline {subsubsection}{\numberline {7.3.1}Champs de vitesse uniforme}{40}
-\contentsline {subsubsection}{\numberline {7.3.2}Champs de vitesse issu d'un \'ecoulement cellulaire}{45}
-\contentsline {subsubsection}{\numberline {7.3.3}Champs de vitesse de Lamb Oseen}{48}
-\contentsline {section}{\numberline {8}Remerciements}{52}
+\contentsline {subsubsection}{\numberline {3.2.3}Champs de Lamb-Oseen}{26}
+\contentsline {section}{\numberline {4}Discussion}{27}
+\contentsline {subsection}{\numberline {4.1}Approche Eulerienne}{27}
+\contentsline {subsubsection}{\numberline {4.1.1}Vitesse constante}{27}
+\contentsline {subsubsection}{\numberline {4.1.2}\'Ecoulement cellulaire}{28}
+\contentsline {subsection}{\numberline {4.2}Approche Lagrangienne}{28}
+\contentsline {subsubsection}{\numberline {4.2.1}Vitesse constante}{28}
+\contentsline {subsubsection}{\numberline {4.2.2}\'Ecoulement cellulaire}{28}
+\contentsline {subsubsection}{\numberline {4.2.3}Champ de Lamb-Oseen}{28}
+\contentsline {section}{\numberline {5}Conclusions}{28}
+\contentsline {section}{\numberline {6}Appendice}{29}
+\contentsline {subsection}{\numberline {6.1}M\'ethode des volumes finis ~\cite {Cours2}}{29}
+\contentsline {subsubsection}{\numberline {6.1.1}Maillage}{29}
+\contentsline {subsubsection}{\numberline {6.1.2}Sch\'ema num\'erique}{30}
+\contentsline {section}{\numberline {7}Annexes}{31}
+\contentsline {subsection}{\numberline {7.1}Cr\'eation du maillage}{31}
+\contentsline {subsection}{\numberline {7.2}Approche Eulerienne}{36}
+\contentsline {subsubsection}{\numberline {7.2.1}Calcul du flux : solveur de Lax-Friedrichs Riemann}{36}
+\contentsline {subsubsection}{\numberline {7.2.2}Volumes finis - cas constant}{37}
+\contentsline {subsubsection}{\numberline {7.2.3}Decomposition SVD}{52}
+\contentsline {subsection}{\numberline {7.3}Approche Lagrangienne}{53}
+\contentsline {subsubsection}{\numberline {7.3.1}Champs de vitesse uniforme}{53}
+\contentsline {subsubsection}{\numberline {7.3.2}Champs de vitesse issu d'un \'ecoulement cellulaire}{57}
+\contentsline {subsubsection}{\numberline {7.3.3}Champs de vitesse de Lamb Oseen}{61}
+\contentsline {section}{\numberline {8}Remerciements}{64}
