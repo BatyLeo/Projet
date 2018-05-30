@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.10.20)  26 MAY 2018 20:39
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.10.20)  30 MAY 2018 10:53
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -710,7 +710,12 @@ LaTeX Info: Redefining \addtolength on input line 81.
 (/usr/local/texlive/2015/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2014/09/06 1.5e listings language file
 )
-(./Rapport LaTeX.aux)
+(./Rapport LaTeX.aux
+
+LaTeX Warning: Label `valeurs_singulieres_cell_100_particules' multiply defined
+.
+
+)
 \openout1 = `"Rapport LaTeX.aux"'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 59.
@@ -727,8 +732,7 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 59.
 LaTeX Font Info:    ... okay on input line 59.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 59.
 LaTeX Font Info:    Try loading font information for TS1+cmr on input line 59.
-
-(/usr/local/texlive/2015/texmf-dist/tex/latex/base/ts1cmr.fd
+ (/usr/local/texlive/2015/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    ... okay on input line 59.
@@ -861,16 +865,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 142--143
  []
 
 [5]
-Underfull \hbox (badness 10000) in paragraph at lines 163--164
+Underfull \hbox (badness 10000) in paragraph at lines 164--165
 
  []
 
 [6]
-Underfull \hbox (badness 10000) in paragraph at lines 207--208
-
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 209--210
 
  []
@@ -880,11 +879,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 211--212
 
  []
 
+
+Underfull \hbox (badness 10000) in paragraph at lines 213--214
+
+ []
+
 <euler_condition_initiale.png, id=37, 462.528pt x 346.896pt>
 File: euler_condition_initiale.png Graphic file (type png)
 
 <use euler_condition_initiale.png>
-Package pdftex.def Info: euler_condition_initiale.png used on input line 222.
+Package pdftex.def Info: euler_condition_initiale.png used on input line 224.
 (pdftex.def)             Requested size: 256.0748pt x 192.06375pt.
 
 <euler_condition_initiale_simulee.png, id=39, 462.528pt x 346.896pt>
@@ -892,202 +896,565 @@ File: euler_condition_initiale_simulee.png Graphic file (type png)
 
 <use euler_condition_initiale_simulee.png>
 Package pdftex.def Info: euler_condition_initiale_simulee.png used on input lin
-e 222.
+e 224.
 (pdftex.def)             Requested size: 256.0748pt x 192.06375pt.
 
-Overfull \hbox (52.45274pt too wide) in paragraph at lines 221--225
+Overfull \hbox (52.45274pt too wide) in paragraph at lines 223--227
 [][] 
  []
 
 [7] [8 <./euler_condition_initiale.png> <./euler_condition_initiale_simulee.png
 >]
-Underfull \hbox (badness 10000) in paragraph at lines 269--271
+Underfull \hbox (badness 10000) in paragraph at lines 270--272
 
  []
 
-[9] [10] <ecoulement_cellulaire_10.png, id=59, 462.528pt x 346.896pt>
-File: ecoulement_cellulaire_10.png Graphic file (type png)
 
-<use ecoulement_cellulaire_10.png>
-Package pdftex.def Info: ecoulement_cellulaire_10.png used on input line 373.
-(pdftex.def)             Requested size: 231.26343pt x 173.44757pt.
+Underfull \hbox (badness 10000) in paragraph at lines 290--291
 
-<valeurs_singulieres_eulerien_constant.png, id=60, 462.528pt x 346.896pt>
+ []
+
+[9] [10]
+Underfull \hbox (badness 10000) in paragraph at lines 363--366
+
+ []
+
+[11] <valeurs_singulieres_eulerien_constant.png, id=63, 462.528pt x 346.896pt>
 File: valeurs_singulieres_eulerien_constant.png Graphic file (type png)
 
 <use valeurs_singulieres_eulerien_constant.png>
 Package pdftex.def Info: valeurs_singulieres_eulerien_constant.png used on inpu
-t line 390.
+t line 460.
 (pdftex.def)             Requested size: 358.50314pt x 268.88925pt.
- [11 <./ecoulement_cellulaire_10.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 408--409
+ [12]
+Underfull \hbox (badness 10000) in paragraph at lines 465--471
+
+ []
+
+<eulerien_constant_mode_1.png, id=67, 462.528pt x 346.896pt>
+File: eulerien_constant_mode_1.png Graphic file (type png)
+
+<use eulerien_constant_mode_1.png>
+Package pdftex.def Info: eulerien_constant_mode_1.png used on input line 475.
+(pdftex.def)             Requested size: 256.0748pt x 192.06375pt.
+
+<eulerien_constant_mode_2.png, id=68, 462.528pt x 346.896pt>
+File: eulerien_constant_mode_2.png Graphic file (type png)
+
+<use eulerien_constant_mode_2.png>
+Package pdftex.def Info: eulerien_constant_mode_2.png used on input line 475.
+(pdftex.def)             Requested size: 256.0748pt x 192.06375pt.
+
+Overfull \hbox (52.45274pt too wide) in paragraph at lines 474--477
+[][] 
+ []
+
+[13 <./valeurs_singulieres_eulerien_constant.png>]
+<eulerien_constant_mode_10.png, id=75, 462.528pt x 346.896pt>
+File: eulerien_constant_mode_10.png Graphic file (type png)
+
+<use eulerien_constant_mode_10.png>
+Package pdftex.def Info: eulerien_constant_mode_10.png used on input line 479.
+(pdftex.def)             Requested size: 256.0748pt x 192.06375pt.
+
+<eulerien_constant_mode_50.png, id=76, 462.528pt x 346.896pt>
+File: eulerien_constant_mode_50.png Graphic file (type png)
+
+<use eulerien_constant_mode_50.png>
+Package pdftex.def Info: eulerien_constant_mode_50.png used on input line 479.
+(pdftex.def)             Requested size: 256.0748pt x 192.06375pt.
+
+Overfull \hbox (52.45274pt too wide) in paragraph at lines 478--481
+[][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 482--484
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 416--417
-
- []
-
-[12 <./valeurs_singulieres_eulerien_constant.png>]
-<ecoulement_cellulaire.png, id=70, 578.16pt x 433.62pt>
-File: ecoulement_cellulaire.png Graphic file (type png)
-
-<use ecoulement_cellulaire.png>
-Package pdftex.def Info: ecoulement_cellulaire.png used on input line 420.
-(pdftex.def)             Requested size: 227.62204pt x 170.71231pt.
- <uxcellulaire.png, id=71, 578.16pt x 433.62pt>
-File: uxcellulaire.png Graphic file (type png)
-
-<use uxcellulaire.png>
-Package pdftex.def Info: uxcellulaire.png used on input line 427.
-(pdftex.def)             Requested size: 227.62204pt x 170.71231pt.
- <uycellulaire.png, id=72, 578.16pt x 433.62pt>
-File: uycellulaire.png Graphic file (type png)
-
-<use uycellulaire.png>
-Package pdftex.def Info: uycellulaire.png used on input line 428.
-(pdftex.def)             Requested size: 227.62204pt x 170.71231pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 432--433
+Underfull \hbox (badness 10000) in paragraph at lines 485--486
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 434--441
+<eulerien_constant_reproduction_condition_initiale_10modes.png, id=77, 1156.32p
+t x 579.6054pt>
+File: eulerien_constant_reproduction_condition_initiale_10modes.png Graphic fil
+e (type png)
+
+<use eulerien_constant_reproduction_condition_initiale_10modes.png>
+Package pdftex.def Info: eulerien_constant_reproduction_condition_initiale_10mo
+des.png used on input line 490.
+(pdftex.def)             Requested size: 256.0748pt x 128.35376pt.
+
+<eulerien_constant_reproduction_condition_initiale_20modes.png, id=78, 462.528p
+t x 346.896pt>
+File: eulerien_constant_reproduction_condition_initiale_20modes.png Graphic fil
+e (type png)
+
+<use eulerien_constant_reproduction_condition_initiale_20modes.png>
+Package pdftex.def Info: eulerien_constant_reproduction_condition_initiale_20mo
+des.png used on input line 490.
+(pdftex.def)             Requested size: 256.0748pt x 192.06375pt.
+
+Overfull \hbox (52.45274pt too wide) in paragraph at lines 489--493
+[][] 
+ []
+
+[14 <./eulerien_constant_mode_1.png> <./eulerien_constant_mode_2.png> <./euleri
+en_constant_mode_10.png> <./eulerien_constant_mode_50.png>]
+<eulerien_constant_reproduction_condition_initiale_50modes.png, id=86, 462.528p
+t x 346.896pt>
+File: eulerien_constant_reproduction_condition_initiale_50modes.png Graphic fil
+e (type png)
+
+<use eulerien_constant_reproduction_condition_initiale_50modes.png>
+Package pdftex.def Info: eulerien_constant_reproduction_condition_initiale_50mo
+des.png used on input line 495.
+(pdftex.def)             Requested size: 256.0748pt x 192.06375pt.
+
+<eulerien_constant_reproduction_condition_initiale_100modes.png, id=87, 462.528
+pt x 346.896pt>
+File: eulerien_constant_reproduction_condition_initiale_100modes.png Graphic fi
+le (type png)
+
+<use eulerien_constant_reproduction_condition_initiale_100modes.png>
+Package pdftex.def Info: eulerien_constant_reproduction_condition_initiale_100m
+odes.png used on input line 495.
+(pdftex.def)             Requested size: 256.0748pt x 192.06375pt.
+
+Overfull \hbox (52.45274pt too wide) in paragraph at lines 494--498
+[][] 
+ []
+
+
+<eulerien_constant_reproduction_condition_initiale_200modes.png, id=88, 462.528
+pt x 346.896pt>
+File: eulerien_constant_reproduction_condition_initiale_200modes.png Graphic fi
+le (type png)
+
+<use eulerien_constant_reproduction_condition_initiale_200modes.png>
+Package pdftex.def Info: eulerien_constant_reproduction_condition_initiale_200m
+odes.png used on input line 500.
+(pdftex.def)             Requested size: 256.0748pt x 192.06375pt.
+
+<eulerien_constant_reproduction_condition_initiale_500modes.png, id=89, 462.528
+pt x 346.896pt>
+File: eulerien_constant_reproduction_condition_initiale_500modes.png Graphic fi
+le (type png)
+
+<use eulerien_constant_reproduction_condition_initiale_500modes.png>
+Package pdftex.def Info: eulerien_constant_reproduction_condition_initiale_500m
+odes.png used on input line 500.
+(pdftex.def)             Requested size: 256.0748pt x 192.06375pt.
+
+Overfull \hbox (52.45274pt too wide) in paragraph at lines 499--503
+[][] 
+ []
+
+[15 <./eulerien_constant_reproduction_condition_initiale_10modes.png> <./euleri
+en_constant_reproduction_condition_initiale_20modes.png> <./eulerien_constant_r
+eproduction_condition_initiale_50modes.png> <./eulerien_constant_reproduction_c
+ondition_initiale_100modes.png> <./eulerien_constant_reproduction_condition_ini
+tiale_200modes.png> <./eulerien_constant_reproduction_condition_initiale_500mod
+es.png>]
+<eulerien_constant_reproduction_moment_random_10modes.png, id=99, 462.528pt x 3
+46.896pt>
+File: eulerien_constant_reproduction_moment_random_10modes.png Graphic file (ty
+pe png)
+ <use eulerien_constant_reproduction_moment_random_10modes.png>
+Package pdftex.def Info: eulerien_constant_reproduction_moment_random_10modes.p
+ng used on input line 507.
+(pdftex.def)             Requested size: 256.0748pt x 192.06375pt.
+
+<eulerien_constant_reproduction_moment_random_20modes.png, id=100, 462.528pt x 
+346.896pt>
+File: eulerien_constant_reproduction_moment_random_20modes.png Graphic file (ty
+pe png)
+ <use eulerien_constant_reproduction_moment_random_20modes.png>
+Package pdftex.def Info: eulerien_constant_reproduction_moment_random_20modes.p
+ng used on input line 507.
+(pdftex.def)             Requested size: 256.0748pt x 192.06375pt.
+
+Overfull \hbox (52.45274pt too wide) in paragraph at lines 506--510
+[][] 
+ []
+
+
+<eulerien_constant_reproduction_moment_random_50modes.png, id=101, 462.528pt x 
+346.896pt>
+File: eulerien_constant_reproduction_moment_random_50modes.png Graphic file (ty
+pe png)
+ <use eulerien_constant_reproduction_moment_random_50modes.png>
+Package pdftex.def Info: eulerien_constant_reproduction_moment_random_50modes.p
+ng used on input line 512.
+(pdftex.def)             Requested size: 256.0748pt x 192.06375pt.
+
+<eulerien_constant_reproduction_moment_random_100modes.png, id=102, 462.528pt x
+ 346.896pt>
+File: eulerien_constant_reproduction_moment_random_100modes.png Graphic file (t
+ype png)
+ <use eulerien_constant_reproduction_moment_random_100modes.png>
+Package pdftex.def Info: eulerien_constant_reproduction_moment_random_100modes.
+png used on input line 512.
+(pdftex.def)             Requested size: 256.0748pt x 192.06375pt.
+
+Overfull \hbox (52.45274pt too wide) in paragraph at lines 511--515
+[][] 
+ []
+
+
+<eulerien_constant_reproduction_moment_random_200modes.png, id=103, 462.528pt x
+ 346.896pt>
+File: eulerien_constant_reproduction_moment_random_200modes.png Graphic file (t
+ype png)
+ <use eulerien_constant_reproduction_moment_random_200modes.png>
+Package pdftex.def Info: eulerien_constant_reproduction_moment_random_200modes.
+png used on input line 517.
+(pdftex.def)             Requested size: 256.0748pt x 192.06375pt.
+
+<eulerien_constant_reproduction_moment_random_500modes.png, id=104, 462.528pt x
+ 346.896pt>
+File: eulerien_constant_reproduction_moment_random_500modes.png Graphic file (t
+ype png)
+ <use eulerien_constant_reproduction_moment_random_500modes.png>
+Package pdftex.def Info: eulerien_constant_reproduction_moment_random_500modes.
+png used on input line 517.
+(pdftex.def)             Requested size: 256.0748pt x 192.06375pt.
+
+Overfull \hbox (52.45274pt too wide) in paragraph at lines 516--520
+[][] 
+ []
+
+[16 <./eulerien_constant_reproduction_moment_random_10modes.png> <./eulerien_co
+nstant_reproduction_moment_random_20modes.png> <./eulerien_constant_reproductio
+n_moment_random_50modes.png> <./eulerien_constant_reproduction_moment_random_10
+0modes.png>] <ecoulement_cellulaire.pdf, id=112, 578.16pt x 433.62pt>
+File: ecoulement_cellulaire.pdf Graphic file (type pdf)
+
+<use ecoulement_cellulaire.pdf>
+Package pdftex.def Info: ecoulement_cellulaire.pdf used on input line 530.
+(pdftex.def)             Requested size: 227.62204pt x 170.71231pt.
+
+<ecoulement_cellulaire2.pdf, id=113, 578.16pt x 433.62pt>
+File: ecoulement_cellulaire2.pdf Graphic file (type pdf)
+
+<use ecoulement_cellulaire2.pdf>
+Package pdftex.def Info: ecoulement_cellulaire2.pdf used on input line 531.
+(pdftex.def)             Requested size: 227.62204pt x 170.71231pt.
+ [17 <./eulerien_constant_reproduction_moment_random_200modes.png> <./eulerien_
+constant_reproduction_moment_random_500modes.png> <./ecoulement_cellulaire.pdf>
+ <./ecoulement_cellulaire2.pdf
+
+pdfTeX warning: /Library/TeX/texbin/pdflatex (file ./ecoulement_cellulaire2.pdf
+): PDF inclusion: multiple pdfs with page group included in a single page
+>] <valeurs_singulieres_eulerien_cellulaire.png, id=143, 578.16pt x 433.62pt>
+File: valeurs_singulieres_eulerien_cellulaire.png Graphic file (type png)
+
+<use valeurs_singulieres_eulerien_cellulaire.png>
+Package pdftex.def Info: valeurs_singulieres_eulerien_cellulaire.png used on in
+put line 543.
+(pdftex.def)             Requested size: 227.62204pt x 170.71231pt.
+
+<ini_fine.png, id=144, 578.16pt x 433.62pt>
+File: ini_fine.png Graphic file (type png)
+ <use ini_fine.png>
+Package pdftex.def Info: ini_fine.png used on input line 552.
+(pdftex.def)             Requested size: 256.0748pt x 192.05052pt.
+
+<ini10modes.png, id=145, 578.16pt x 433.62pt>
+File: ini10modes.png Graphic file (type png)
+ <use ini10modes.png>
+Package pdftex.def Info: ini10modes.png used on input line 552.
+(pdftex.def)             Requested size: 256.0748pt x 192.05052pt.
+
+Overfull \hbox (52.45274pt too wide) in paragraph at lines 551--555
+[][] 
+ []
+
+<ini20modes.png, id=146, 578.16pt x 433.62pt>
+File: ini20modes.png Graphic file (type png)
+ <use ini20modes.png>
+Package pdftex.def Info: ini20modes.png used on input line 557.
+(pdftex.def)             Requested size: 256.0748pt x 192.05052pt.
+
+<ini50modes.png, id=147, 578.16pt x 433.62pt>
+File: ini50modes.png Graphic file (type png)
+ <use ini50modes.png>
+Package pdftex.def Info: ini50modes.png used on input line 557.
+(pdftex.def)             Requested size: 256.0748pt x 192.05052pt.
+
+Overfull \hbox (52.45274pt too wide) in paragraph at lines 556--560
+[][] 
+ []
+
+[18 <./valeurs_singulieres_eulerien_cellulaire.png> <./ini_fine.png> <./ini10mo
+des.png>] <ini100modes.png, id=154, 578.16pt x 433.62pt>
+File: ini100modes.png Graphic file (type png)
+ <use ini100modes.png>
+Package pdftex.def Info: ini100modes.png used on input line 562.
+(pdftex.def)             Requested size: 256.0748pt x 192.05052pt.
+
+<ini500modes.png, id=155, 578.16pt x 433.62pt>
+File: ini500modes.png Graphic file (type png)
+ <use ini500modes.png>
+Package pdftex.def Info: ini500modes.png used on input line 562.
+(pdftex.def)             Requested size: 256.0748pt x 192.05052pt.
+
+Overfull \hbox (52.45274pt too wide) in paragraph at lines 561--565
+[][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 561--565
 
  []
 
-[13 <./ecoulement_cellulaire.png> <./uxcellulaire.png> <./uycellulaire.png>]
-<valeurs_singulieres_eulerien_cellulaires.png, id=80, 578.16pt x 433.62pt>
-File: valeurs_singulieres_eulerien_cellulaires.png Graphic file (type png)
+<fin_fine.png, id=156, 578.16pt x 433.62pt>
+File: fin_fine.png Graphic file (type png)
+ <use fin_fine.png>
+Package pdftex.def Info: fin_fine.png used on input line 571.
+(pdftex.def)             Requested size: 256.0748pt x 192.05052pt.
 
-<use valeurs_singulieres_eulerien_cellulaires.png>
-Package pdftex.def Info: valeurs_singulieres_eulerien_cellulaires.png used on i
-nput line 450.
+<fin10modes.png, id=157, 578.16pt x 433.62pt>
+File: fin10modes.png Graphic file (type png)
+ <use fin10modes.png>
+Package pdftex.def Info: fin10modes.png used on input line 571.
+(pdftex.def)             Requested size: 256.0748pt x 192.05052pt.
+
+Overfull \hbox (52.45274pt too wide) in paragraph at lines 570--574
+[][] 
+ []
+
+[19 <./ini20modes.png> <./ini50modes.png> <./ini100modes.png> <./ini500modes.pn
+g>] <fin20modes.png, id=166, 578.16pt x 433.62pt>
+File: fin20modes.png Graphic file (type png)
+ <use fin20modes.png>
+Package pdftex.def Info: fin20modes.png used on input line 576.
+(pdftex.def)             Requested size: 256.0748pt x 192.05052pt.
+
+<fin50modes.png, id=167, 578.16pt x 433.62pt>
+File: fin50modes.png Graphic file (type png)
+ <use fin50modes.png>
+Package pdftex.def Info: fin50modes.png used on input line 576.
+(pdftex.def)             Requested size: 256.0748pt x 192.05052pt.
+
+Overfull \hbox (52.45274pt too wide) in paragraph at lines 575--579
+[][] 
+ []
+
+<fin100modes.png, id=168, 578.16pt x 433.62pt>
+File: fin100modes.png Graphic file (type png)
+ <use fin100modes.png>
+Package pdftex.def Info: fin100modes.png used on input line 581.
+(pdftex.def)             Requested size: 256.0748pt x 192.05052pt.
+
+<fin500modes.png, id=169, 578.16pt x 433.62pt>
+File: fin500modes.png Graphic file (type png)
+ <use fin500modes.png>
+Package pdftex.def Info: fin500modes.png used on input line 581.
+(pdftex.def)             Requested size: 256.0748pt x 192.05052pt.
+
+Overfull \hbox (52.45274pt too wide) in paragraph at lines 580--584
+[][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 580--584
+
+ []
+
+[20 <./fin_fine.png> <./fin10modes.png> <./fin20modes.png> <./fin50modes.png> <
+./fin100modes.png> <./fin500modes.png>]
+<out500modes.png, id=179, 578.16pt x 433.62pt>
+File: out500modes.png Graphic file (type png)
+ <use out500modes.png>
+Package pdftex.def Info: out500modes.png used on input line 591.
 (pdftex.def)             Requested size: 227.62204pt x 170.71231pt.
 
-<valeurs_singulieres_cell_10_particules.png, id=81, 578.16pt x 431.4519pt>
+<outfin.png, id=180, 578.16pt x 433.62pt>
+File: outfin.png Graphic file (type png)
+ <use outfin.png>
+Package pdftex.def Info: outfin.png used on input line 601.
+(pdftex.def)             Requested size: 227.62204pt x 170.71231pt.
+
+<outfin500modes.png, id=181, 578.16pt x 433.62pt>
+File: outfin500modes.png Graphic file (type png)
+ <use outfin500modes.png>
+Package pdftex.def Info: outfin500modes.png used on input line 602.
+(pdftex.def)             Requested size: 227.62204pt x 170.71231pt.
+
+Overfull \hbox (7.04085pt too wide) in paragraph at lines 606--607
+[]\T1/lmr/m/n/12 Cela est du au fait que les modes propres sont qua-si-ment nul
+s en de-hors de l'in-ter-valle $\OT1/lmr/m/n/12 [0\OML/lmm/m/it/12 :\OT1/lmr/m/
+n/12 25\OML/lmm/m/it/12 ; \OT1/lmr/m/n/12 0\OML/lmm/m/it/12 :\OT1/lmr/m/n/12 75
+] \OMS/lmsy/m/n/12 ^^B
+ []
+
+<valeurs_singulieres_cell_10_particules.png, id=182, 462.528pt x 346.896pt>
 File: valeurs_singulieres_cell_10_particules.png Graphic file (type png)
 
 <use valeurs_singulieres_cell_10_particules.png>
 Package pdftex.def Info: valeurs_singulieres_cell_10_particules.png used on inp
-ut line 464.
+ut line 617.
+(pdftex.def)             Requested size: 231.26343pt x 173.44757pt.
+ [21 <./out500modes.png> <./outfin.png> <./outfin500modes.png>]
+<lagrange_gauss_1er_mode.png, id=189, 578.16pt x 431.4519pt>
+File: lagrange_gauss_1er_mode.png Graphic file (type png)
+
+<use lagrange_gauss_1er_mode.png>
+Package pdftex.def Info: lagrange_gauss_1er_mode.png used on input line 625.
 (pdftex.def)             Requested size: 289.07928pt x 215.72542pt.
 
-<valeurs_singulieres_cell_100_particules.png, id=82, 462.528pt x 346.896pt>
+<ecoulement_cellulaire_10.png, id=190, 462.528pt x 346.896pt>
+File: ecoulement_cellulaire_10.png Graphic file (type png)
+
+<use ecoulement_cellulaire_10.png>
+Package pdftex.def Info: ecoulement_cellulaire_10.png used on input line 635.
+(pdftex.def)             Requested size: 256.0748pt x 192.06375pt.
+ [22 <./valeurs_singulieres_cell_10_particules.png> <./lagrange_gauss_1er_mode.
+png>]
+<valeurs_singulieres_cell_100_particules.png, id=196, 462.528pt x 346.896pt>
 File: valeurs_singulieres_cell_100_particules.png Graphic file (type png)
 
 <use valeurs_singulieres_cell_100_particules.png>
 Package pdftex.def Info: valeurs_singulieres_cell_100_particules.png used on in
-put line 471.
+put line 642.
 (pdftex.def)             Requested size: 231.26343pt x 173.44757pt.
 
-<lagrange_gauss_1er_mode.png, id=83, 578.16pt x 431.4519pt>
-File: lagrange_gauss_1er_mode.png Graphic file (type png)
+<lagrange_cell_variation_parametres.png, id=197, 462.528pt x 346.896pt>
+File: lagrange_cell_variation_parametres.png Graphic file (type png)
 
-<use lagrange_gauss_1er_mode.png>
-Package pdftex.def Info: lagrange_gauss_1er_mode.png used on input line 477.
-(pdftex.def)             Requested size: 289.07928pt x 215.72542pt.
- [14 <./valeurs_singulieres_eulerien_cellulaires.png> <./valeurs_singulieres_ce
-ll_10_particules.png>]
-File: ecoulement_cellulaire_10.png Graphic file (type png)
-
-<use ecoulement_cellulaire_10.png>
-Package pdftex.def Info: ecoulement_cellulaire_10.png used on input line 487.
-(pdftex.def)             Requested size: 256.0748pt x 192.06375pt.
- [15 <./valeurs_singulieres_cell_100_particules.png> <./lagrange_gauss_1er_mode
-.png>]
-<champ_lamboseen.png, id=94, 462.528pt x 346.896pt>
+<use lagrange_cell_variation_parametres.png>
+Package pdftex.def Info: lagrange_cell_variation_parametres.png used on input l
+ine 653.
+(pdftex.def)             Requested size: 231.26343pt x 173.44757pt.
+ [23 <./ecoulement_cellulaire_10.png> <./valeurs_singulieres_cell_100_particule
+s.png>]
+<champ_lamboseen.png, id=203, 462.528pt x 346.896pt>
 File: champ_lamboseen.png Graphic file (type png)
  <use champ_lamboseen.png>
-Package pdftex.def Info: champ_lamboseen.png used on input line 496.
+Package pdftex.def Info: champ_lamboseen.png used on input line 664.
 (pdftex.def)             Requested size: 231.26343pt x 173.44757pt.
 
-<valeurs_singulieres_lambo_100_particules.png, id=95, 462.528pt x 346.896pt>
+<valeurs_singulieres_lambo_100_particules.png, id=204, 462.528pt x 346.896pt>
 File: valeurs_singulieres_lambo_100_particules.png Graphic file (type png)
 
 <use valeurs_singulieres_lambo_100_particules.png>
 Package pdftex.def Info: valeurs_singulieres_lambo_100_particules.png used on i
-nput line 503.
+nput line 671.
 (pdftex.def)             Requested size: 231.26343pt x 173.44757pt.
- [16 <./champ_lamboseen.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 531--532
-
- []
-
-[17 <./valeurs_singulieres_lambo_100_particules.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 541--542
+ [24 <./lagrange_cell_variation_parametres.png> <./champ_lamboseen.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 685--688
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 543--544
+Underfull \hbox (badness 10000) in paragraph at lines 689--690
+
+ []
+
+[25 <./valeurs_singulieres_lambo_100_particules.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 715--718
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 555--556
-
- []
-
-[18]
-
-LaTeX Warning: Command \L invalid in math mode on input line 587.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 596--597
+Underfull \hbox (badness 10000) in paragraph at lines 719--722
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 601--603
+Underfull \hbox (badness 10000) in paragraph at lines 723--725
 
  []
 
-LaTeX Font Info:    Try loading font information for U+dsrom on input line 611.
+[26]
+Underfull \hbox (badness 10000) in paragraph at lines 734--735
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 744--745
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 746--747
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 758--759
+
+ []
+
+[27]
+
+LaTeX Warning: Command \L invalid in math mode on input line 790.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 799--800
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 804--806
+
+ []
+
+LaTeX Font Info:    Try loading font information for U+dsrom on input line 814.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/doublestroke/Udsrom.fd
 File: Udsrom.fd 1995/08/01 v0.1 Double stroke roman font definitions
-) [19]
-(./maillage.py [20]
+) [28]
+(./maillage.py [29]
 LaTeX Font Info:    Try loading font information for TS1+lmr on input line 14.
  (/usr/local/texlive/2015/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
-) [21] [22] [23] [24]) (./riemann_scal.py) (./volumesfinis_eulerien_constant.py
+) [30] [31] [32] [33]) (./riemann_scal.py) (./volumesfinis_eulerien_constant.py
 
-[25] [26] [27] [28]) (./svd_eulerien_constant.py [29])
+[34] [35] [36] [37]) (./svd_eulerien_constant.py [38]) (./lagrange_v_cste.py
+[39] [40]
+Overfull \hbox (64.79703pt too wide) in paragraph at lines 65--67
+[][][][] 
+ []
 
-LaTeX Warning: Citation `Article1' on page 30 undefined on input line 671.
+[41] [42]) (./lagrange_ecouleent_cellulaire.py [43]
+Overfull \hbox (269.24579pt too wide) in paragraph at lines 37--38
+[][][][] 
+ []
 
+[44]
+Overfull \hbox (64.79703pt too wide) in paragraph at lines 69--71
+[][][][] 
+ []
 
-LaTeX Warning: Citation `Article2' on page 30 undefined on input line 671.
+[45] [46]) (./lagrange_lambo.py [47]
+Overfull \hbox (64.79703pt too wide) in paragraph at lines 79--81
+[][][][] 
+ []
 
+[48] [49])
+Overfull \hbox (15.44733pt too wide) in paragraph at lines 159--878
+[][][][] 
+ []
 
-LaTeX Warning: Citation `Rapport' on page 30 undefined on input line 671.
+[50] [51] (./Rapport LaTeX.aux)
 
-
-LaTeX Warning: Citation `Thèse' on page 30 undefined on input line 671.
-
-
-LaTeX Warning: Reference `figure1' on page 30 undefined on input line 674.
-
-
-LaTeX Warning: Reference `tableau' on page 30 undefined on input line 675.
-
-[30] [31] (./Rapport LaTeX.aux)
-
-LaTeX Warning: There were undefined references.
+LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 16917 strings out of 493089
- 311615 string characters out of 6134841
- 511055 words of memory out of 5000000
- 20001 multiletter control sequences out of 15000+600000
- 64758 words of font info for 51 fonts, out of 8000000 for 9000
+ 17146 strings out of 493089
+ 318371 string characters out of 6134841
+ 502055 words of memory out of 5000000
+ 20192 multiletter control sequences out of 15000+600000
+ 58780 words of font info for 49 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 62i,10n,80p,1051b,1738s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 62i,10n,80p,1056b,1738s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{/usr/local/
 texlive/2015/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/local/texlive/2015/
 texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2015/texmf-dist/fon
@@ -1101,18 +1468,18 @@ ve/2015/texmf-dist/fonts/type1/public/lm/lmex10.pfb></usr/local/texlive/2015/te
 xmf-dist/fonts/type1/public/lm/lmmi12.pfb></usr/local/texlive/2015/texmf-dist/f
 onts/type1/public/lm/lmmi6.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/
 public/lm/lmmi8.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/lm/l
-mr10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/lm/lmr12.pfb></
-usr/local/texlive/2015/texmf-dist/fonts/type1/public/lm/lmr6.pfb></usr/local/te
-xlive/2015/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/texlive/2015/t
-exmf-dist/fonts/type1/public/lm/lmri12.pfb></usr/local/texlive/2015/texmf-dist/
-fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type
-1/public/lm/lmsy6.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/lm
-/lmsy8.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/symb
-ols/msbm10.pfb>
-Output written on "Rapport LaTeX.pdf" (31 pages, 800144 bytes).
+mr12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/lm/lmr6.pfb></u
+sr/local/texlive/2015/texmf-dist/fonts/type1/public/lm/lmr8.pfb></usr/local/tex
+live/2015/texmf-dist/fonts/type1/public/lm/lmri12.pfb></usr/local/texlive/2015/
+texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2015/texmf-dist
+/fonts/type1/public/lm/lmsy6.pfb></usr/local/texlive/2015/texmf-dist/fonts/type
+1/public/lm/lmsy8.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/am
+sfonts/symbols/msam10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/publi
+c/amsfonts/symbols/msbm10.pfb>
+Output written on "Rapport LaTeX.pdf" (51 pages, 3093360 bytes).
 PDF statistics:
- 218 PDF objects out of 1000 (max. 8388607)
- 139 compressed objects within 2 object streams
+ 367 PDF objects out of 1000 (max. 8388607)
+ 195 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
- 83 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 238 words of extra memory for PDF output out of 10000 (max. 10000000)
 
