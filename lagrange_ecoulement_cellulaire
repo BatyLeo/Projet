@@ -1,0 +1,105 @@
+import scipy as sc
+import numpy as np
+from scipy import linalg as LS
+from numpy import linalg as LA
+import matplotlib.pyplot as plt
+import time
+
+    
+dt=0.002
+epsilon=0.00001
+nb_steps=256
+nbParticles=10
+center=[0.5,0.5]
+cov=0.02
+dx=dy=0.01
+
+#--------------------------- Champ de vitesse dérivant d'un écoulement cellulaire-------------------------------
+
+def Vx(x,y,theta):
+    res = 2*np.pi*np.sin(2*np.pi*x)*np.cos(2*np.pi*y) - theta[0]*2*np.pi*theta[2]*np.cos(2*np.pi*theta[1]*x)*np.sin(2*np.pi*theta[2]*y)
+    return res
+
+def Vy(x,y,theta):
+    res = 2*np.pi*np.sin(2*np.pi*y)*np.cos(2*np.pi*x) - theta[0]*2*np.pi*theta[1]*np.cos(2*np.pi*theta[1]*y)*np.sin(2*np.pi*theta[2]*x)
+    return -res
+    
+def vitesse_cell(x,y,theta):
+    return np.array([ Vx(x,y,theta), Vy(x,y,theta)])
+#------------------------------------------------------------------------------------------------------------
+class particle:
+    x=0
+    x0=0
+    y=0
+    y0=0
+    vx=0
+    vy=0
+    def __init__(self):
+        self.x=self.y=0
+        
+
+Particles=[]
+for i in range(nbParticles):
+    Particles.append(particle())
+    Particles[i].x0=Particles[i].x=np.random.normal(center[0],cov)
+    Particles[i].y=Particles[i].y0=np.random.normal(center[1],cov)
+
+def point_fixe(A,theta):
+    f_k = A + dt*vitesse_cell(A[0],A[1],theta)/2
+    B = f_k + dt*vitesse_cell(A[0],A[1],theta)/2
+    while norme( B-A) > epsilon :
+        A,B = B, f_k + dt*vitesse_cell(A[0],A[1],theta)/2
+    return B
+    
+
+def resoudre(X0,n,theta):
+    X = np.array([ X0 for k in range(n)] )
+    for k in range(n-1):
+        X[k+1] = point_fixe(X[k],theta)
+    
+    return X
+#-------------------------------------------------------------------------------
+
+X,Y=np.meshgrid(np.linspace(0,1,20),np.linspace(0,1,20))
+
+
+allXp=nbParticles*[1]
+theta = [0.2, 3.12, 2.69]
+for i_p in range(len(Particles)):
+    p=Particles[i_p]
+    allXp[i_p]=resoudre([p.x0,p.y0],nb_steps,theta)
+    
+for i_t in range(nb_steps):
+    
+    Vx1,Vy1 = vitesse_cell(X,Y,theta)
+    #print(str(Vx)+"     "+str(Vy))
+    plt.quiver(np.linspace(0,1,20),np.linspace(0,1,20),Vx1,Vy1)
+    for i_p in range(len(Particles)):
+        p=Particles[i_p]
+        plt.plot([p.x],[p.y],marker='o',color='red')
+        
+    
+        p.x,p.y=allXp[i_p][i_t]
+    plt.show()
+    
+    plt.pause(0.02)
+    plt.clf()
+    
+    
+M=snap(theta);
+#On calcule la décomposition SVD de la matrice M
+print("Calcul de la décomposition SVD de la matrice M")
+Ut,St,Vt = LS.svd(M,False)
+Sigma = np.diag(St)
+sig = St[0:20]
+
+print(sig)
+
+svec = np.zeros(20) 
+for i in range(0,20):
+    svec[i] = i 
+
+plt.plot(svec, np.log(sig)/np.log(10)) 
+plt.xlabel('i')
+plt.ylabel('log 10 ieme valeur singuliere') 
+plt.show()
