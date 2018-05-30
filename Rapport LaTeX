@@ -179,7 +179,7 @@
 	Les particules sont distribuées selon une gaussienne centrée en (0.25 ; 0.25) de variance 1/50. Leurs vitesses sont identiques, constante et orientées avec un angle $\theta$ compris entre $0$ et $\frac{\pi}{2}$.
 	
 	\paragraph{Cas d'un écoulement cellulaire}
-
+	
 	Dans ce cas, le champ de vitesse dérive du potentiel suivant : 
 	$$\psi(x,y) = \sin(2\pi x) \sin(2\pi y) + \theta_0 \cos(2\pi\theta_1x)\cos(2\pi \theta_2y)$$
 	où $\theta_0 \in [0,2.5]$ et $(\theta_1,\theta_2) \in [0.5,4]^2$. Nous avons pris $\theta_1=\theta_2=\frac{1}{2}$.
@@ -456,10 +456,10 @@
 	Voici d'abord le tracé du $\log$ des valeurs singulières en fonction de leur rang dans la décomposition SVD.
 	
 	\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.7\linewidth]{valeurs_singulieres_eulerien_constant}
-	\caption{Tracé du $\log$ des valeurs singulières en fonction du rang}
-	\label{fig:valeurssinguliereseulerienconstant}
+		\centering
+		\includegraphics[width=0.7\linewidth]{valeurs_singulieres_eulerien_constant}
+		\caption{Tracé du $\log$ des valeurs singulières en fonction du rang}
+		\label{fig:valeurssinguliereseulerienconstant}
 	\end{figure}
 	
 	Ceci nous permet de choisir le nombre de modes que l'on va utiliser. Avec un nombre maximal de 50 modes (que nous nous sommes fixés),
@@ -472,11 +472,11 @@
 	De plus, cet exemple illustre parfaitement le rôles des modes propres dans la reconstitution de la solution approchée. Voici en effet le tracé des modes propres sur $(0,1)^2$ (en utilisant le module \emph{pcolor} de \emph{matplotlib.pyplot}) :
 	
 	\begin{tabular}{cc}
-	\includegraphics[width=0.5\linewidth]{eulerien_constant_mode_1} &	\includegraphics[width=0.5\linewidth]{eulerien_constant_mode_2}\\
+		\includegraphics[width=0.5\linewidth]{eulerien_constant_mode_1} &	\includegraphics[width=0.5\linewidth]{eulerien_constant_mode_2}\\
 	\end{tabular}
 	
 	\begin{tabular}{cc}
-	\includegraphics[width=0.5\linewidth]{eulerien_constant_mode_10} &	\includegraphics[width=0.5\linewidth]{eulerien_constant_mode_50}\\
+		\includegraphics[width=0.5\linewidth]{eulerien_constant_mode_10} &	\includegraphics[width=0.5\linewidth]{eulerien_constant_mode_50}\\
 	\end{tabular}
 	
 	Les différentes couleurs montrent les oscillations de la fonction. On voit que le premier mode rassemble la majeure dynamique de ce qu'on a simulé : la condition initiale, qui est restée la même durant toutes nos simulations, est représentée de façon très claire.\\
@@ -487,49 +487,51 @@
 	Voici les différentes reconstructions pour un nombre de modes propres valant 10, 20, 50, 100, 200 et 500, d'abord pour la condition initiale :
 	
 	\begin{tabular}{cc}
-	\includegraphics[width=0.5\linewidth]{eulerien_constant_reproduction_condition_initiale_10modes} &	\includegraphics[width=0.5\linewidth]{eulerien_constant_reproduction_condition_initiale_20modes}\\
-	Condition initiale, 10 modes & Condition initiale, 20 modes
+		\includegraphics[width=0.5\linewidth]{eulerien_constant_reproduction_condition_initiale_10modes} &	\includegraphics[width=0.5\linewidth]{eulerien_constant_reproduction_condition_initiale_20modes}\\
+		Condition initiale, 10 modes & Condition initiale, 20 modes
 	\end{tabular}
 	
 	\begin{tabular}{cc}
-	\includegraphics[width=0.5\linewidth]{eulerien_constant_reproduction_condition_initiale_50modes} &	\includegraphics[width=0.5\linewidth]{eulerien_constant_reproduction_condition_initiale_100modes}\\
-	Condition initiale, 50 modes & Condition initiale, 100 modes
+		\includegraphics[width=0.5\linewidth]{eulerien_constant_reproduction_condition_initiale_50modes} &	\includegraphics[width=0.5\linewidth]{eulerien_constant_reproduction_condition_initiale_100modes}\\
+		Condition initiale, 50 modes & Condition initiale, 100 modes
 	\end{tabular}
 	
 	\begin{tabular}{cc}
-	\includegraphics[width=0.5\linewidth]{eulerien_constant_reproduction_condition_initiale_200modes} &	\includegraphics[width=0.5\linewidth]{eulerien_constant_reproduction_condition_initiale_500modes}\\
-	Condition initiale, 200 modes & Condition initiale, 500 modes
+		\includegraphics[width=0.5\linewidth]{eulerien_constant_reproduction_condition_initiale_200modes} &	\includegraphics[width=0.5\linewidth]{eulerien_constant_reproduction_condition_initiale_500modes}\\
+		Condition initiale, 200 modes & Condition initiale, 500 modes
 	\end{tabular}
 	
-	On voit premièrement que la condition initiale est plutôt bien restituée. Avec un nombre faibles de modes, on observe des oscillations mais elles disparaissent vite avec un nombre de modes de plus en plus grand. Cela est notamment dû au fait que la condition initiale a été la même dans toutes les simulations. Regardons maintenant ce qu'il se passe à mi-parcours :
+	On voit premièrement que la condition initiale est plutôt bien restituée. Avec un nombre faibles de modes, on observe des oscillations mais elles disparaissent vite avec un nombre de modes de plus en plus grand. Cela est notamment dû au fait que la condition initiale a été la même dans toutes les simulations. On remarque aussi et surtout que la positivité de la solution n'est plus conservée après reconstruction via la base propre. C'est à contraster avec ce qu'on voulait via l'utilisation du schéma de Lax-Friedrichs.
+	Regardons maintenant ce qu'il se passe à mi-parcours :
 	
 	\begin{tabular}{cc}
-	\includegraphics[width=0.5\linewidth]{eulerien_constant_reproduction_moment_random_10modes} &	\includegraphics[width=0.5\linewidth]{eulerien_constant_reproduction_moment_random_20modes}\\
-	A mi-parcours, 10 modes & A mi-parcours, 20 modes
-	\end{tabular}
-	
-	\begin{tabular}{cc}
-	\includegraphics[width=0.5\linewidth]{eulerien_constant_reproduction_moment_random_50modes} &	\includegraphics[width=0.5\linewidth]{eulerien_constant_reproduction_moment_random_100modes}\\
-	A mi-parcours, 50 modes & A mi-parcours, 100 modes
+		\includegraphics[width=0.5\linewidth]{eulerien_constant_reproduction_moment_random_10modes} &	\includegraphics[width=0.5\linewidth]{eulerien_constant_reproduction_moment_random_20modes}\\
+		A mi-parcours, 10 modes & A mi-parcours, 20 modes
 	\end{tabular}
 	
 	\begin{tabular}{cc}
-	\includegraphics[width=0.5\linewidth]{eulerien_constant_reproduction_moment_random_200modes} &	\includegraphics[width=0.5\linewidth]{eulerien_constant_reproduction_moment_random_500modes}\\
-	A mi-parcours, 200 modes & A mi-parcours, 500 modes
+		\includegraphics[width=0.5\linewidth]{eulerien_constant_reproduction_moment_random_50modes} &	\includegraphics[width=0.5\linewidth]{eulerien_constant_reproduction_moment_random_100modes}\\
+		A mi-parcours, 50 modes & A mi-parcours, 100 modes
 	\end{tabular}
 	
-	Cette fois-ci, on voit très clairement qu'un faible nombre de modes ne permet plus de restituer une dynamique cohérente. Des oscillations de grande amplitudes sont observées pour 10 et 20 modes, et il reste encore des petites "vagues" pour 50 modes. Cependant, passé une centaine de modes, on n'observe plus de grands changements dans la gaussienne. Il faudrait donc une centaine de modes environ pour s'en sortir dans la restitution d'une solution fine pour un nouveau paramètre dans l'intervalle de départ. 
+	\begin{tabular}{cc}
+		\includegraphics[width=0.5\linewidth]{eulerien_constant_reproduction_moment_random_200modes} &	\includegraphics[width=0.5\linewidth]{eulerien_constant_reproduction_moment_random_500modes}\\
+		A mi-parcours, 200 modes & A mi-parcours, 500 modes
+	\end{tabular}
+	
+	Cette fois-ci, on voit très clairement qu'un faible nombre de modes ne permet plus de restituer une dynamique cohérente. Des oscillations de grande amplitudes sont observées pour 10 et 20 modes, et il reste encore des petites "vagues" pour 50 modes. Cependant, passé une centaine de modes, on n'observe plus de grands changements dans la gaussienne. Il faudrait donc une centaine de modes environ pour s'en sortir dans la restitution d'une solution fine pour un nouveau paramètre dans l'intervalle de départ.\\
+	Si l'on fait le calcul (comme ce sera le cas pour l'écoulement cellulaire), on observe que l'erreur pour un même nombre de modes augmentent au cours du temps : cela est dû au fait que le paramètre n'est pas représenté dans la base propre dès le départ.
 	
 	\subsubsection{Cas des \'ecoulements cellulaires}
 	
 	Ensuite, nous avons consid\'er\'e le cas des \'ecoulements cellulaires (cf. param\'etrages) dans le carr\'e $[-0.5,1.5]\times [-0.5,1.5]$. On consid\`ere une condition initiale sous forme de gaussienne d'\'ecart-type $\sigma= \frac{1}{20}$ Le probl\`eme \'etant param\'etr\'e par la position initiale $(x_0,y_0)$ ainsi que par les param\`etres $(\theta_0, \theta_1, \theta_2)$, on a fix\'e $\theta_1=\theta_2=0.5$ et tir\'e al\'eatoirement de mani\`ere uniforme 64 tripl\'es $(x_0, y_0, \theta_0)$ dans $[0.25,0.75]\times [0.25,0.75]\times [0,2.5]$.
-
+	
 	
 	\begin{figure}[H]
-	\centering
-	\includegraphics[width=8cm]{ecoulement_cellulaire.pdf}
-	\includegraphics[width=8cm]{ecoulement_cellulaire2.pdf}
-	\caption{Exemples de champs de vitesse d'\'ecoulements cellulaires pour $\theta_0=0$ et $\theta_0=2$}
+		\centering
+		\includegraphics[width=8cm]{ecoulement_cellulaire.pdf}
+		\includegraphics[width=8cm]{ecoulement_cellulaire2.pdf}
+		\caption{Exemples de champs de vitesse d'\'ecoulements cellulaires pour $\theta_0=0$ et $\theta_0=2$}
 	\end{figure}
 	
 	
@@ -539,9 +541,9 @@
 	On a effectu\'e la SVD (d\'ecomposition en valeurs singuli\`eres) de $M$, puis on a sauvegard\'e les 500 premiers modes propres, pour un total de 66.6 Mo, ce qui met bien en \'evidence la compression de donn\'ee qu'apporte la r\'eduction de mod\`eles. On a trac\'e les 500 premi\`eres valeurs singuli\`eres de M:
 	
 	\begin{figure}[H]
-	\centering
-	\includegraphics[width=8cm]{valeurs_singulieres_eulerien_cellulaire.png}
-	\caption{Tracé du $\log$ des 500 premi\`eres valeurs singulières}
+		\centering
+		\includegraphics[width=8cm]{valeurs_singulieres_eulerien_cellulaire.png}
+		\caption{Tracé du $\log$ des 500 premi\`eres valeurs singulières}
 	\end{figure}
 	
 	On observe une d\'ecroissance exponentielle des valeurs singuli\`eres, ce qui indique que la POD est une solution envisageable dans le cas des \'ecoulements cellulaires. On peut donc s\'electionner un nouveau jeu de param\`etres "out of data in range", i.e $(x_0, y_0, \theta_0)$ dans $[0.25,0.75]\times [0.25,0.75]\times [0,2.5]$ calculer la solution fine \`a l'aide des volumes finis, puis projeter chaque snapshot sur les $r$ premiers vecteurs de la base POD afin de calculer l'erreur. 
@@ -549,37 +551,37 @@
 	Voici les différentes reconstructions pour un nombre de modes propres valant 10, 20, 50, 100 et 500, pour la condition initiale $(x_0,y_0,\theta_0)=(0.35,0.35,1)$ :
 	
 	\begin{tabular}{cc}
-	\includegraphics[width=0.5\linewidth]{ini_fine.png} &	\includegraphics[width=0.5\linewidth]{ini10modes.png}\\
-	Condition initiale de r\'ef\'erence & Condition initiale, 10 modes
+		\includegraphics[width=0.5\linewidth]{ini_fine.png} &	\includegraphics[width=0.5\linewidth]{ini10modes.png}\\
+		Condition initiale de r\'ef\'erence & Condition initiale, 10 modes
 	\end{tabular}
 	
 	\begin{tabular}{cc}
-	\includegraphics[width=0.5\linewidth]{ini20modes.png} &	\includegraphics[width=0.5\linewidth]{ini50modes.png}\\
-	Condition initiale, 20 modes & Condition initiale, 500 modes
+		\includegraphics[width=0.5\linewidth]{ini20modes.png} &	\includegraphics[width=0.5\linewidth]{ini50modes.png}\\
+		Condition initiale, 20 modes & Condition initiale, 500 modes
 	\end{tabular}
 	
 	\begin{tabular}{cc}
-	\includegraphics[width=0.5\linewidth]{ini100modes.png} &	\includegraphics[width=0.5\linewidth]{ini500modes.png}\\
-	Condition initiale, 100 modes & Condition initiale, 500 modes
+		\includegraphics[width=0.5\linewidth]{ini100modes.png} &	\includegraphics[width=0.5\linewidth]{ini500modes.png}\\
+		Condition initiale, 100 modes & Condition initiale, 500 modes
 	\end{tabular}\\
 	
 	On remarque que la condition initiale "in range" est plut\^ot bien restitu\'ee au bout d'un certain nombre de modes. On remarque aussi, que la projection donne des concentrations n\'egatives et des oscillations \`a certains endroits, ce qui est un inconv\'enient par rapport \`a la m\'ethode des volumes finis qui conserve la positivit\'e de la solution. 
 	
 	On obtient le m\^eme genre de r\'esultats si on fait de m\^eme pour un snapshot au milieu de la simulation:
-		
+	
 	\begin{tabular}{cc}
-	\includegraphics[width=0.5\linewidth]{fin_fine.png} &	\includegraphics[width=0.5\linewidth]{fin10modes.png}\\
-	A mi-parcours, r\'ef\'erence & A mi-parcours, 10 modes
+		\includegraphics[width=0.5\linewidth]{fin_fine.png} &	\includegraphics[width=0.5\linewidth]{fin10modes.png}\\
+		A mi-parcours, r\'ef\'erence & A mi-parcours, 10 modes
 	\end{tabular}
 	
 	\begin{tabular}{cc}
-	\includegraphics[width=0.5\linewidth]{fin20modes.png} &	\includegraphics[width=0.5\linewidth]{fin50modes.png}\\
-	A mi-parcours, 20 modes & A mi-parcours, 500 modes
+		\includegraphics[width=0.5\linewidth]{fin20modes.png} &	\includegraphics[width=0.5\linewidth]{fin50modes.png}\\
+		A mi-parcours, 20 modes & A mi-parcours, 500 modes
 	\end{tabular}
 	
 	\begin{tabular}{cc}
-	\includegraphics[width=0.5\linewidth]{fin100modes.png} &	\includegraphics[width=0.5\linewidth]{fin500modes.png}\\
-	A mi-parcours, 100 modes & A mi-parcours, 500 modes
+		\includegraphics[width=0.5\linewidth]{fin100modes.png} &	\includegraphics[width=0.5\linewidth]{fin500modes.png}\\
+		A mi-parcours, 100 modes & A mi-parcours, 500 modes
 	\end{tabular}\\
 	
 	\bigskip
@@ -587,9 +589,9 @@
 	Ensuite, on s'est interess\'e \`a des jeux de param\`etres "out of data-out of range ", i.e. $(x_0, y_0, \theta_0)$ en dehors de $[0.25,0.75]\times [0.25,0.75]\times [0,2.5]$. Ainsi, pour $(x_0, y_0, \theta_0)=(0,0,1)$, la gaussienne initiale devient:
 	
 	\begin{figure}[H]
-	\centering
-	\includegraphics[width=8cm]{out500modes.png}
-	\caption{Projection d'une gaussienne "out of range" pour 500 modes}
+		\centering
+		\includegraphics[width=8cm]{out500modes.png}
+		\caption{Projection d'une gaussienne "out of range" pour 500 modes}
 	\end{figure}
 	
 	On observe d\'eja que la gaussienne n'est pas tr\`es bien restitu\'ee. 
@@ -597,10 +599,10 @@
 	Puis, au milieu de la simulation, la projection sur les 500 modes propres n'est pas du tout restitu\'ee:
 	
 	\begin{figure}[H]
-	\centering
-	\includegraphics[width=8cm]{outfin.png}
-	\includegraphics[width=8cm]{outfin500modes.png}
-	\caption{Solution de r\'ef\'erence et sa projection sur 500 modes propres}
+		\centering
+		\includegraphics[width=8cm]{outfin.png}
+		\includegraphics[width=8cm]{outfin500modes.png}
+		\caption{Solution de r\'ef\'erence et sa projection sur 500 modes propres}
 	\end{figure}
 	
 	Cela est du au fait que les modes propres sont quasiment nuls en dehors de l'intervalle $[0.25,0.75]\times [0.25,0.75]\times [0,2.5]$. On constate donc les limites de la m\'ethode POD.
@@ -613,18 +615,18 @@
 	\subsubsection{Vitesse constante}
 	
 	\begin{figure}[H]
-	\begin{center}
-	\includegraphics[scale=0.5]{valeurs_singulieres_cell_10_particules.png}
-	\caption{Valeurs singulières pour 10 particules}
-	\end{center}
+		\begin{center}
+			\includegraphics[scale=0.5]{valeurs_singulieres_cell_10_particules.png}
+			\caption{Valeurs singulières pour 10 particules}
+		\end{center}
 	\end{figure}
 	
 	
 	\begin{figure}[H]
-	\begin{center}
-	\includegraphics[scale=0.5]{lagrange_gauss_1er_mode.png}
-	\caption{Projection suivant le premier mode}
-	\end{center}
+		\begin{center}
+			\includegraphics[scale=0.5]{lagrange_gauss_1er_mode.png}
+			\caption{Projection suivant le premier mode}
+		\end{center}
 	\end{figure}
 	
 	La décroissance des valeurs singulières est très rapide dans les deux cas. Les deux premiers modes propres (colonnes de $U$ suffisent à représenter très correctement
@@ -634,19 +636,19 @@
 	
 	La dynamique a été simulée en utilisant les paramètres suivants : $\theta_0 = 0.2;  \theta_1 = 3.12; \theta_2 = 2.69$.
 	\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.5\linewidth]{ecoulement_cellulaire_10}
-	\caption{10 particules dans un écoulement cellulaire}
-	\label{fig:ecoulementcellulaire10}
+		\centering
+		\includegraphics[width=0.5\linewidth]{ecoulement_cellulaire_10}
+		\caption{10 particules dans un écoulement cellulaire}
+		\label{fig:ecoulementcellulaire10}
 	\end{figure}
 	
 	La figure suivante montre les valeurs singulières de la matrice des snapshots pour 100 particules, pour les paramètres donnés ci-dessus.
 	\begin{figure}[H]
-	\begin{center}
-	\includegraphics[scale=0.5]{valeurs_singulieres_cell_100_particules.png}
-	\caption{Valeurs singulières pour 100 particules, 1 simulation}
-	\label{valeurs_singulieres_cell_100_particules}
-	\end{center}
+		\begin{center}
+			\includegraphics[scale=0.5]{valeurs_singulieres_cell_100_particules.png}
+			\caption{Valeurs singulières pour 100 particules, 1 simulation}
+			\label{valeurs_singulieres_cell_100_particules}
+		\end{center}
 	\end{figure}
 	On remarque que la décroissance est assez lente.
 	
@@ -655,11 +657,11 @@
 	64 trajectoires ont été simulées, pour 100 particules. Les positions initiales suivent une loi gaussienne centrée en (0.25 , 0.5) et de variance 0.05. 
 	Le premier paramètre ($\theta_0$) a été choisi uniformément sur $[0, 2.5]$.
 	\begin{figure}[H]
-	\begin{center}
-	\includegraphics[scale=0.5]{lagrange_cell_variation_parametres.png}
-	\caption{Valeurs singulières pour 500 particules, 64 simulations}
-	\label{valeurs_singulieres_cell_100_particules}
-	\end{center}
+		\begin{center}
+			\includegraphics[scale=0.5]{lagrange_cell_variation_parametres.png}
+			\caption{Valeurs singulières pour 500 particules, 64 simulations}
+			\label{valeurs_singulieres_cell_100_particules}
+		\end{center}
 	\end{figure}
 	
 	D'une part, les valeurs singulières sont très élevées et d'autre part, leur décroissance est plutôt lente.
@@ -668,17 +670,17 @@
 	Dans cette simulation : $\Gamma = 10$, $\nu = 0.5$ et $r_c = 0.7$.
 	Le tourbillon est centré en 0 mais nous n'étudions ici que le domaine $(0,1)^2$.
 	\begin{figure}[H]
-	\begin{center}
-	\includegraphics[scale=0.5]{champ_lamboseen.png}
-	\caption{100 particules dans un champs de Lamb-Oseen}
-	\end{center}
+		\begin{center}
+			\includegraphics[scale=0.5]{champ_lamboseen.png}
+			\caption{100 particules dans un champs de Lamb-Oseen}
+		\end{center}
 	\end{figure}
 	
 	\begin{figure}[H]
-	\begin{center}
-	\includegraphics[scale=0.5]{valeurs_singulieres_lambo_100_particules.png}
-	\caption{Valeurs singulières pour 100 particules}
-	\end{center}
+		\begin{center}
+			\includegraphics[scale=0.5]{valeurs_singulieres_lambo_100_particules.png}
+			\caption{Valeurs singulières pour 100 particules}
+		\end{center}
 	\end{figure}
 	
 	Comme dans le cas où le champs de vitesse est uniforme, les valeurs singulières de la matrice des snapshots décroissent assez rapidement. 
@@ -702,7 +704,7 @@
 	\subsection{Approche Lagrangienne}
 	
 	\subsubsection{Vitesse constante}
-	 
+	
 	Cependant, Les modes propres dépendent
 	de l'angle $\theta$ qui caractérise la vitesse des particules. Si ce paramètre est modifié alors le mode propre est également modifié.
 	L'approche lagrangienne est préferable à l'approche eulerienne dans ce cas.
@@ -730,14 +732,14 @@
 	
 	En revanche, nous avons déterminé une séparation entre les écoulements pour lesquels l'approche lagrangienne était bien plus adaptée (vitesse constante, Lamb-Oseen) et ceux pour 
 	lesquels l'approche eulérienne donnait de meilleurs résultats (écoulement cellulaire). Il est interessant de remarquer que l'approche lagrangienne est plus efficace lorsque les particules posèdent des trajectoires similaires, ce qui n'est pas le cas pour des écoulements cellulaires.
-	Nous avons également déterminé ainsi qu'une limitation de l'algorithme dans le cas d'une reconstruction d'une solution fine pour un paramètre n'étant pas dans l'intervalle de départ choisi pour construire la base de modes propres. Ainsi, il semble que la POD demande de bien choisir l?approche choisie en fonction de l?écoulement 
-	observé afin d?obtenir une réduction optimale du modèle, et de se poser la question du nombre de simulations (et donc du temps de calcul en amont) et de quels paramètres pertinents choisir pour créer la base de la POD.\\
+	Nous avons également déterminé ainsi qu'une limitation de l'algorithme dans le cas d'une reconstruction d'une solution fine pour un paramètre n'étant pas dans l'intervalle de départ choisi pour construire la base de modes propres. Ainsi, il semble que la POD demande de bien choisir l'approche choisie en fonction de l'écoulement 
+	observé afin d'obtenir une réduction optimale du modèle, et de se poser la question du nombre de simulations (et donc du temps de calcul en amont) et de quels paramètres pertinents choisir pour créer la base de la POD.\\
 	
-	Enfin, grâce à une interpolation d?ordre 1 d?un champ de vitesse discrétisé, nous avons pu entrevoir comment résoudre et compresser un tel modèle à partir de relevés expérimentaux comme 
+	Enfin, grâce à une interpolation d'ordre 1 d'un champ de vitesse discrétisé, nous avons pu entrevoir comment résoudre et compresser un tel modèle à partir de relevés expérimentaux comme 
 	on y serait confronté dans une situation réelle.\\
 	
-	Ainsi, nous avons remarqué que la réduction de modèles en grande dimension via la POD était une méthode permettant, sous réserve d?un bon 
-	choix d?approche et de paramètres, de résoudre rapidement et avec une certaine fiabilité les équations décrivant le transport de polluants.  
+	Ainsi, nous avons remarqué que la réduction de modèles en grande dimension via la POD était une méthode permettant, sous réserve d'un bon 
+	choix d'approche et de paramètres, de résoudre rapidement et avec une certaine fiabilité les équations décrivant le transport de polluants.  
 	
 	
 	\section{Appendice}
@@ -893,25 +895,25 @@
 	\section{Remerciements}
 	
 	Nous tenons particulièrement à remercier M. Damiano Lombardi et M. Sébastien Boyaval pour leur patience 
-	et leur précieuse aide, ainsi que pour toute l'expérience qu?ils nous ont apporté au cours de ce projet. 
+	et leur précieuse aide, ainsi que pour toute l'expérience qu'ils nous ont apporté au cours de ce projet. 
 	Nous remercions de même l'Ecole Nationale des Ponts et Chaussées pour la mise en \oe{}uvre d'un tel projet et 
-	les rencontres organisées avec les intervenants du cours d?ouverture de M. Boyaval et M. Lombardi.
+	les rencontres organisées avec les intervenants du cours d'ouverture de M. Boyaval et M. Lombardi.
 	
 	\newpage
 	
 	\begin{thebibliography}{99}
-	
-	
-	\bibitem{Cours1}
-	V. Ehrlacher, S.Boyaval
-	\newblock {\em Méthodes numériques pour les problèmes en grande dimension}.
-	\newblock Cours de l'École nationale des ponts et chaussées, 2018.
-	
-	\bibitem{Cours2}
-	S.Boyaval
-	\newblock{\em Numerical Hydrodynamics for the environment Illustrated by river flows}
-	\newblock Cours de l'École nationale des ponts et chaussées, 2018.
-	
+		
+		
+		\bibitem{Cours1}
+		V. Ehrlacher, S.Boyaval
+		\newblock {\em Méthodes numériques pour les problèmes en grande dimension}.
+		\newblock Cours de l'École nationale des ponts et chaussées, 2018.
+		
+		\bibitem{Cours2}
+		S.Boyaval
+		\newblock{\em Numerical Hydrodynamics for the environment Illustrated by river flows}
+		\newblock Cours de l'École nationale des ponts et chaussées, 2018.
+		
 	\end{thebibliography}
 	
-	\end{document}
+\end{document}
