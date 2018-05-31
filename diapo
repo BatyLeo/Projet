@@ -306,37 +306,37 @@
 		\end{figure}
 	\end{frame}
 	
-		\begin{frame}{Approche lagrangienne}{Écoulements cellulaires}
+	\begin{frame}{Approche lagrangienne}{Écoulements cellulaires}
 		\begin{figure}[H]
 			\begin{center}
-				\includegraphics[scale=0.45]{cell_0.png}
+				\includegraphics[scale=0.40]{cell_0.png}
 				\caption{simulation pour 100 particules, $\theta_0 = \theta_1 =\theta_2=0.5$}
 			\end{center}
 		\end{figure}
 	\end{frame}
 	
-			\begin{frame}{Approche lagrangienne}{Écoulements cellulaires}
+	\begin{frame}{Approche lagrangienne}{Écoulements cellulaires}
 		\begin{figure}[H]
 			\begin{center}
-				\includegraphics[scale=0.45]{cell_1.png}
+				\includegraphics[scale=0.40]{cell_1.png}
 				\caption{simulation pour 100 particules, $\theta_0 = \theta_1 =\theta_2=0.5$}
 			\end{center}
 		\end{figure}
 	\end{frame}
 	
-			\begin{frame}{Approche lagrangienne}{Écoulements cellulaires}
+	\begin{frame}{Approche lagrangienne}{Écoulements cellulaires}
 		\begin{figure}[H]
 			\begin{center}
-				\includegraphics[scale=0.45]{cell_2.png}
+				\includegraphics[scale=0.40]{cell_2.png}
 				\caption{simulation pour 100 particules, $\theta_0 = \theta_1 =\theta_2=0.5$}
 			\end{center}
 		\end{figure}
 	\end{frame}
 	
-			\begin{frame}{Approche lagrangienne}{Écoulements cellulaires}
+	\begin{frame}{Approche lagrangienne}{Écoulements cellulaires}
 		\begin{figure}[H]
 			\begin{center}
-				\includegraphics[scale=0.45]{cell_3.png}
+				\includegraphics[scale=0.40]{cell_3.png}
 				\caption{simulation pour 100 particules, $\theta_0 = \theta_1 =\theta_2=0.5$}
 			\end{center}
 		\end{figure}
