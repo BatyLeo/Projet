@@ -21,8 +21,8 @@
 \subtitle{Projet d'introduction à la recherche}
 
 \author{Léo Baty, Chiheb Eddine Najjar,
-Nathan Godey, Régis Santet, Song Phuc Duong, Clément Lasuen\\ sous la direction de \\
-Damiano Lombardi et Sebastien Boyaval \\ Laboratoire INRIA}
+	Nathan Godey, Régis Santet, Song Phuc Duong, Clément Lasuen\\ sous la direction de \\
+	Damiano Lombardi et Sebastien Boyaval \\ Laboratoire INRIA}
 
 \setbeamertemplate{footline}[frame number]
 \setbeamertemplate{caption}[numbered]
@@ -33,320 +33,322 @@ Damiano Lombardi et Sebastien Boyaval \\ Laboratoire INRIA}
 
 \AtBeginSubsection[]
 {
-  \begin{frame}<beamer>{Sommaire}
-    \tableofcontents[currentsection,currentsubsection]
-  \end{frame}
+	\begin{frame}<beamer>{Sommaire}
+		\tableofcontents[currentsection,currentsubsection]
+	\end{frame}
 }
 
 % Let's get started
 \begin{document}
-
-\begin{frame}
-  \titlepage
-\end{frame}
-
-\begin{frame}{Sommaire}
-  \tableofcontents
-  % You might wish to add the option [pausesections]
-\end{frame}
-
-% Section and subsections will appear in the presentation overview
-% and table of contents.
-\section{Introduction}
-
-
-\begin{frame}{Introduction}
-
-\begin{figure}[H]
-\begin{center}
-\includegraphics[scale=0.1]{deepwater_horizon_explosion.jpg}
-\caption{Explosion de \emph{Deepwater Horizon, 20/04/2010}}
-\end{center}
-\end{figure}
-
-\end{frame}
-
-\begin{frame}{Equation de transport}
-
-$$\partial_tc+u \cdot \nabla c = 0$$
-c(x,t) : concentration en polluant à la position $x \in (0,1)^2 = \Omega$ à l'instant $t \in [0,T]$ \\
-u : champ de vitesse
-\end{frame}
-
-
-
-\section{Methodes}
-
-\subsection{Proper Orthogonal Decomposition}
-
-\subsection{Champs de vitesse étudiés}
-
-% You can reveal the parts of a slide one at a time
-% with the \pause command:
-\begin{frame}{Champs de vitesse étudiés}{Champ de vitesse uniforme}
-
-	$$\left\{\begin{array}{c c c}
-	u_x = ||u||\cos(\theta)\\
-	u_y = ||u||\sin(\theta)
-\end{array}\right.$$ 
-\begin{figure}[H]
-\begin{center}
-\includegraphics[scale=0.30]{lagrange_gauss_1er_mode.png}
-\caption{Écoulement constant avec un angle $\theta$}
-\end{center}
-\end{figure}
-\end{frame}
-
-\begin{frame}{Champs de vitesse étudiés}{Écoulements cellulaires}
-$$\psi(x,y) = \sin(2\pi x) \sin(2\pi y) + \theta_0 \cos(2\pi\theta_1x)\cos(2\pi \theta_2y)$$
-$\theta_0 \in [0,2.5]$ et $(\theta_1,\theta_2) \in [0.5,4]^2$
-
-\begin{figure}[H]
-\begin{center}
-\includegraphics[scale=0.32]{ecoulement_cellulaire_10.png}
-\caption{Écoulement cellulaire}
-\end{center}
-\end{figure}
-
-\end{frame}
-
-\begin{frame}{Champs de vitesse étudiés}{Champ de vitesse de Lamb-Oseen}
-$$ \mathbf{V}(r,\theta,t) = \frac{\Gamma}{2\pi r}\left(1 - \exp\left( \frac{-r^2}{4\nu t + r_c^2}\right)\right)\mathbf{u_{\theta}}$$
-\begin{figure}[H]
-\begin{center}
-\includegraphics[scale=0.30]{lagrange_lamboseen.png}
-\caption{Écoulement Lamb-Oseen}
-\end{center}
-\end{figure}
-\end{frame}
-% Placing a * after \section means it will not show in the
-% outline or table of contents.
-
-\subsection{Approche eulerienne}
-\begin{frame}{Approche eulerienne}
 	
-	\begin{figure}
-		\includegraphics[width=0.7\linewidth]{euler_condition_initiale}
-		\caption{Condition initiale...}
-	\end{figure}
-
-\end{frame}
-
-\begin{frame}{Approche eulerienne}
-	\begin{figure}
-		\includegraphics[width=0.7\linewidth]{euler_condition_initiale_simulee}
-		\caption{... et après un certain temps}
-	\end{figure}
-\end{frame}
-
-\begin{frame}{Approche eulerienne}{Méthode des volumes finis}
-
-\end{frame}
-
-\begin{frame}{Approche eulerienne}{Modèle réduit}
-
-\end{frame}
-
-
-\subsection{Approche lagrangienne}
-\begin{frame}{Approche lagrangienne}
-$X(\xi,t) \in \mathbb{R}^{n\times2}$ désigne les positions, à l'instant $t\in [0,T]$, des particules 
-qui étaient initialement aux positions $\xi \in \mathbb{R}^{n\times2}$
-	$$
-	\left\{
-	\begin{array}{c c c}
-	\partial_tX  =  v(X(\xi,t),t)\\
-	X(\xi,0)  =  \xi
-	\end{array}
-	\right.
-$$ 
-
-\end{frame}
-
-
-\begin{frame}
-\begin{exampleblock}{Hypothèses}
-$v \in\mathcal{C}^0(\mathbb{R}^{n\times2} \times \mathbb{R}) \bigcap W^{1,\infty}(\mathbb{R}^{n\times2} \times \mathbb{R}) $
-\end{exampleblock}
-\begin{exampleblock}{Théorème de Cauchy-Lipschitz}
-Existence et unicité d'une solution locale pour des temps arbitraires
-\end{exampleblock}
-\begin{exampleblock}{Conséquence}
-Le transport est à vitesse finie
-\end{exampleblock}
-\end{frame}
-
-\begin{frame}{Approche lagrangienne}{Résolution numérique}
-Schéma de Crank-Nicholson :
-
-$$X^{(k+1)} = X^{(k)} + \frac{\Delta t}{2}(v(X^{(k)},t^k) + v(X^{(k+1)},t^{k+1}))$$
-
-Algorithme du point fixe : 
-
-	$$
-	\left\{
-	\begin{array}{c c c}
-	X^{(k+1)}_0 = X^{(k)}\\
-	X^{(k+1)}_1 = X^{(k)} + \Delta t v(X^{(k)},t^k) \\
-	X^{(k+1)}_{r+1} = X^{(k)} + \frac{\Delta t}{2}(v(X^{(k)},t^k) + v(X^{(k+1)}_r,t^{k+1}))
-	\end{array}
-	\right.
-	$$
-\end{frame}
-
-\section{Résultats et interpretations}
-
-\subsection{Approche eulerienne}
-\subsubsection{Champ de vitesse uniforme}
-
-\begin{frame}{Approche eulerienne}{Champ de vitesse uniforme}
+	\begin{frame}
+		\titlepage
+	\end{frame}
 	
-	$16$ simulations, $\theta\in[0,\frac{\pi}{2}]$
+	\begin{frame}{Sommaire}
+		\tableofcontents
+		% You might wish to add the option [pausesections]
+	\end{frame}
 	
-	\begin{figure}[H]
-		\centering
-		\includegraphics[width=0.7\linewidth]{valeurs_singulieres_eulerien_constant}
-		\caption{Tracé du $\log$ des valeurs singulières en fonction du rang}
-		\label{fig:valeurssinguliereseulerienconstant}
-	\end{figure}
-
-\end{frame}
-
-\begin{frame}{Approche eulerienne}{Champ de vitesse uniforme}
-	Rôle des modes propres :
+	% Section and subsections will appear in the presentation overview
+	% and table of contents.
+	\section{Introduction}
 	
-	\begin{tabular}{cc}
-		\includegraphics[width=0.5\linewidth]{eulerien_constant_mode_1} &	\includegraphics[width=0.5\linewidth]{eulerien_constant_mode_2}\\
-	\end{tabular}
-\end{frame}
-
-\begin{frame}
-
-	\begin{tabular}{cc}
-		\includegraphics[width=0.5\linewidth]{eulerien_constant_mode_10} &	\includegraphics[width=0.5\linewidth]{eulerien_constant_mode_50}\\
-	\end{tabular}
-
-\end{frame}
-
-\begin{frame}{Approche eulerienne}{Champ de vitesse uniforme}
-	Reconstruction d'une solution fine\\
-	\begin{tabular}{cc}
-		\includegraphics[width=0.5\linewidth]{eulerien_constant_reproduction_condition_initiale_10modes} &	\includegraphics[width=0.5\linewidth]{eulerien_constant_reproduction_condition_initiale_20modes}\\
-		Condition initiale, 10 modes & Condition initiale, 20 modes
-	\end{tabular}
-\end{frame}
-
-\begin{frame}{Approche eulerienne}{Champ de vitesse uniforme}
-	Reconstruction d'une solution fine\\
-	\begin{tabular}{cc}
-		\includegraphics[width=0.5\linewidth]{eulerien_constant_reproduction_condition_initiale_50modes} &	\includegraphics[width=0.5\linewidth]{eulerien_constant_reproduction_condition_initiale_100modes}\\
-		Condition initiale, 50 modes & Condition initiale, 100 modes
-	\end{tabular}
-\end{frame}
-
-\begin{frame}{Approche eulerienne}{Champ de vitesse uniforme}
-	Reconstruction d'une solution fine\\
-	\begin{tabular}{cc}
-		\includegraphics[width=0.5\linewidth]{eulerien_constant_reproduction_condition_initiale_200modes} &	\includegraphics[width=0.5\linewidth]{eulerien_constant_reproduction_condition_initiale_500modes}\\
-		Condition initiale, 200 modes & Condition initiale, 500 modes
-	\end{tabular}
-\end{frame}
-
-\begin{frame}{Approche eulerienne}{Champ de vitesse uniforme}
-	Reconstruction d'une solution fine\\
-	\begin{tabular}{cc}
-		\includegraphics[width=0.5\linewidth]{eulerien_constant_reproduction_moment_random_10modes} &	\includegraphics[width=0.5\linewidth]{eulerien_constant_reproduction_moment_random_20modes}\\
-		A mi-parcours, 10 modes & A mi-parcours, 20 modes
-	\end{tabular}
-\end{frame}
-
-\begin{frame}{Approche eulerienne}{Champ de vitesse uniforme}
-	Reconstruction d'une solution fine\\
-	\begin{tabular}{cc}
-		\includegraphics[width=0.5\linewidth]{eulerien_constant_reproduction_moment_random_50modes} &	\includegraphics[width=0.5\linewidth]{eulerien_constant_reproduction_moment_random_100modes}\\
-		A mi-parcours, 50 modes & A mi-parcours, 100 modes
-	\end{tabular}
-\end{frame}
-
-\begin{frame}{Approche eulerienne}{Champ de vitesse uniforme}
-	Reconstruction d'une solution fine\\
-	\begin{tabular}{cc}
-		\includegraphics[width=0.5\linewidth]{eulerien_constant_reproduction_moment_random_200modes} &	\includegraphics[width=0.5\linewidth]{eulerien_constant_reproduction_moment_random_500modes}\\
-		A mi-parcours, 200 modes & A mi-parcours, 500 modes
-	\end{tabular}
-\end{frame}
-
-\subsubsection{Écoulements cellulaires}
-
-\begin{frame}{Approche eulerienne}{Ecoulements cellulaires}
-
-\end{frame}
-
-\subsection{Approche lagrangienne}
-\subsubsection{Champ de vitesse uniforme}
-\begin{frame}{Approche lagrangienne}{Champ de vitesse uniforme}
-\begin{figure}[H]
-\begin{center}
-\includegraphics[scale=0.30]{valeurs_singulieres_v_cste_8000_particules_rond.png}
-\caption{Valeurs singulières pour 8000 particules}
-\end{center}
-\end{figure}
-\end{frame}
-
-\subsubsection{Écoulements cellulaires}
-
-\begin{frame}{Approche lagrangienne}{Écoulements cellulaires}
-\begin{figure}[H]
-\begin{center}
-\includegraphics[scale=0.30]{lagrange_cell_variation_parametres.png}
-\caption{}
-\end{center}
-\end{figure}
-\end{frame}
-
-\subsubsection{Champ de vitesse de Lamb-Oseen}
-
-\begin{frame}{Approche lagrangienne}{Champ de vitesse de Lamb-Oseen}
-\begin{figure}[H]
-\begin{center}
-\includegraphics[scale=0.30]{valeurs_singulieres_lambo_100_particules.png}
-\caption{}
-\end{center}
-\end{figure}
-\end{frame}
-
-\section{Conclusion}
-
-
-
-% All of the following is optional and typically not needed. 
-\appendix
-\section<presentation>*{\appendixname}
-\subsection<presentation>*{For Further Reading}
-
-\begin{frame}[allowframebreaks]
-  \frametitle<presentation>{For Further Reading}
-    
-  \begin{thebibliography}{10}
-    
-  \beamertemplatebookbibitems
-  % Start with overview books.
-
-  \bibitem{Author1990}
-    A.~Author.
-    \newblock {\em Handbook of Everything}.
-    \newblock Some Press, 1990.
- 
-    
-  \beamertemplatearticlebibitems
-  % Followed by interesting articles. Keep the list short. 
-
-  \bibitem{Someone2000}
-    S.~Someone.
-    \newblock On this and that.
-    \newblock {\em Journal of This and That}, 2(1):50--100,
-    2000.
-  \end{thebibliography}
-\end{frame}
-
+	
+	\begin{frame}{Introduction}
+		
+		\begin{figure}[H]
+			\begin{center}
+				\includegraphics[scale=0.15]{deepwater_horizon_explosion.jpg}
+				\caption{Explosion de \emph{Deepwater Horizon, 20/04/2010}}
+			\end{center}
+		\end{figure}
+		
+	\end{frame}
+	
+	\begin{frame}{Equation de transport}
+		
+		\begin{center}
+			\fbox{$\partial_tc+u \cdot \nabla c = 0$}
+		\end{center}
+		c(x,t) : concentration en polluant à la position $x \in (0,1)^2 = \Omega$ à l'instant $t \in [0,T]$ \\
+		u : champ de vitesse, dépend \emph{a priori} de $x$ et de $t$
+	\end{frame}
+	
+	
+	
+	\section{Methodes}
+	
+	\subsection{Proper Orthogonal Decomposition}
+	
+	\subsection{Champs de vitesse étudiés}
+	
+	% You can reveal the parts of a slide one at a time
+	% with the \pause command:
+	\begin{frame}{Champs de vitesse étudiés}{Champ de vitesse uniforme}
+		
+		$$\left\{\begin{array}{c c c}
+		u_x = ||u||\cos(\theta)\\
+		u_y = ||u||\sin(\theta)
+		\end{array}\right.$$ 
+		\begin{figure}[H]
+			\begin{center}
+				\includegraphics[scale=0.30]{lagrange_gauss_1er_mode.png}
+				\caption{Écoulement constant avec un angle $\theta$}
+			\end{center}
+		\end{figure}
+	\end{frame}
+	
+	\begin{frame}{Champs de vitesse étudiés}{Écoulements cellulaires}
+		$$\psi(x,y) = \sin(2\pi x) \sin(2\pi y) + \theta_0 \cos(2\pi\theta_1x)\cos(2\pi \theta_2y)$$
+		$\theta_0 \in [0,2.5]$ et $(\theta_1,\theta_2) \in [0.5,4]^2$
+		
+		\begin{figure}[H]
+			\begin{center}
+				\includegraphics[scale=0.32]{ecoulement_cellulaire_10.png}
+				\caption{Écoulement cellulaire}
+			\end{center}
+		\end{figure}
+		
+	\end{frame}
+	
+	\begin{frame}{Champs de vitesse étudiés}{Champ de vitesse de Lamb-Oseen}
+		$$ \mathbf{V}(r,\theta,t) = \frac{\Gamma}{2\pi r}\left(1 - \exp\left( \frac{-r^2}{4\nu t + r_c^2}\right)\right)\mathbf{u_{\theta}}$$
+		\begin{figure}[H]
+			\begin{center}
+				\includegraphics[scale=0.30]{lagrange_lamboseen.png}
+				\caption{Écoulement Lamb-Oseen}
+			\end{center}
+		\end{figure}
+	\end{frame}
+	% Placing a * after \section means it will not show in the
+	% outline or table of contents.
+	
+	\subsection{Approche eulerienne}
+	\begin{frame}{Approche eulerienne}
+		
+		\begin{figure}
+			\includegraphics[width=0.7\linewidth]{euler_condition_initiale}
+			\caption{Condition initiale...}
+		\end{figure}
+		
+	\end{frame}
+	
+	\begin{frame}{Approche eulerienne}
+		\begin{figure}
+			\includegraphics[width=0.7\linewidth]{euler_condition_initiale_simulee}
+			\caption{... et après un certain temps}
+		\end{figure}
+	\end{frame}
+	
+	\begin{frame}{Approche eulerienne}{Méthode des volumes finis}
+		
+	\end{frame}
+	
+	\begin{frame}{Approche eulerienne}{Modèle réduit}
+		
+	\end{frame}
+	
+	
+	\subsection{Approche lagrangienne}
+	\begin{frame}{Approche lagrangienne}
+		$X(\xi,t) \in \mathbb{R}^{n\times2}$ désigne les positions, à l'instant $t\in [0,T]$, des particules 
+		qui étaient initialement aux positions $\xi \in \mathbb{R}^{n\times2}$
+		$$
+		\left\{
+		\begin{array}{c c c}
+		\partial_tX  =  v(X(\xi,t),t)\\
+		X(\xi,0)  =  \xi
+		\end{array}
+		\right.
+		$$ 
+		
+	\end{frame}
+	
+	
+	\begin{frame}
+		\begin{exampleblock}{Hypothèses}
+			$v \in\mathcal{C}^0(\mathbb{R}^{n\times2} \times \mathbb{R}) \bigcap W^{1,\infty}(\mathbb{R}^{n\times2} \times \mathbb{R}) $
+		\end{exampleblock}
+		\begin{exampleblock}{Théorème de Cauchy-Lipschitz}
+			Existence et unicité d'une solution locale pour des temps arbitraires
+		\end{exampleblock}
+		\begin{exampleblock}{Conséquence}
+			Le transport est à vitesse finie
+		\end{exampleblock}
+	\end{frame}
+	
+	\begin{frame}{Approche lagrangienne}{Résolution numérique}
+		Schéma de Crank-Nicholson :
+		
+		$$X^{(k+1)} = X^{(k)} + \frac{\Delta t}{2}(v(X^{(k)},t^k) + v(X^{(k+1)},t^{k+1}))$$
+		
+		Algorithme du point fixe : 
+		
+		$$
+		\left\{
+		\begin{array}{c c c}
+		X^{(k+1)}_0 = X^{(k)}\\
+		X^{(k+1)}_1 = X^{(k)} + \Delta t v(X^{(k)},t^k) \\
+		X^{(k+1)}_{r+1} = X^{(k)} + \frac{\Delta t}{2}(v(X^{(k)},t^k) + v(X^{(k+1)}_r,t^{k+1}))
+		\end{array}
+		\right.
+		$$
+	\end{frame}
+	
+	\section{Résultats et interpretations}
+	
+	\subsection{Approche eulerienne}
+	\subsubsection{Champ de vitesse uniforme}
+	
+	\begin{frame}{Approche eulerienne}{Champ de vitesse uniforme}
+		
+		$16$ simulations, $\theta\in[0,\frac{\pi}{2}]$
+		
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=0.7\linewidth]{valeurs_singulieres_eulerien_constant}
+			\caption{Tracé du $\log$ des valeurs singulières en fonction du rang}
+			\label{fig:valeurssinguliereseulerienconstant}
+		\end{figure}
+		
+	\end{frame}
+	
+	\begin{frame}{Approche eulerienne}{Champ de vitesse uniforme}
+		Rôle des modes propres :
+		
+		\begin{tabular}{cc}
+			\includegraphics[width=0.5\linewidth]{eulerien_constant_mode_1} &	\includegraphics[width=0.5\linewidth]{eulerien_constant_mode_2}\\
+		\end{tabular}
+	\end{frame}
+	
+	\begin{frame}
+		
+		\begin{tabular}{cc}
+			\includegraphics[width=0.5\linewidth]{eulerien_constant_mode_10} &	\includegraphics[width=0.5\linewidth]{eulerien_constant_mode_50}\\
+		\end{tabular}
+		
+	\end{frame}
+	
+	\begin{frame}{Approche eulerienne}{Champ de vitesse uniforme}
+		Reconstruction d'une solution fine\\
+		\begin{tabular}{cc}
+			\includegraphics[width=0.5\linewidth]{eulerien_constant_reproduction_condition_initiale_10modes} &	\includegraphics[width=0.5\linewidth]{eulerien_constant_reproduction_condition_initiale_20modes}\\
+			Condition initiale, 10 modes & Condition initiale, 20 modes
+		\end{tabular}
+	\end{frame}
+	
+	\begin{frame}{Approche eulerienne}{Champ de vitesse uniforme}
+		Reconstruction d'une solution fine\\
+		\begin{tabular}{cc}
+			\includegraphics[width=0.5\linewidth]{eulerien_constant_reproduction_condition_initiale_50modes} &	\includegraphics[width=0.5\linewidth]{eulerien_constant_reproduction_condition_initiale_100modes}\\
+			Condition initiale, 50 modes & Condition initiale, 100 modes
+		\end{tabular}
+	\end{frame}
+	
+	\begin{frame}{Approche eulerienne}{Champ de vitesse uniforme}
+		Reconstruction d'une solution fine\\
+		\begin{tabular}{cc}
+			\includegraphics[width=0.5\linewidth]{eulerien_constant_reproduction_condition_initiale_200modes} &	\includegraphics[width=0.5\linewidth]{eulerien_constant_reproduction_condition_initiale_500modes}\\
+			Condition initiale, 200 modes & Condition initiale, 500 modes
+		\end{tabular}
+	\end{frame}
+	
+	\begin{frame}{Approche eulerienne}{Champ de vitesse uniforme}
+		Reconstruction d'une solution fine\\
+		\begin{tabular}{cc}
+			\includegraphics[width=0.5\linewidth]{eulerien_constant_reproduction_moment_random_10modes} &	\includegraphics[width=0.5\linewidth]{eulerien_constant_reproduction_moment_random_20modes}\\
+			A mi-parcours, 10 modes & A mi-parcours, 20 modes
+		\end{tabular}
+	\end{frame}
+	
+	\begin{frame}{Approche eulerienne}{Champ de vitesse uniforme}
+		Reconstruction d'une solution fine\\
+		\begin{tabular}{cc}
+			\includegraphics[width=0.5\linewidth]{eulerien_constant_reproduction_moment_random_50modes} &	\includegraphics[width=0.5\linewidth]{eulerien_constant_reproduction_moment_random_100modes}\\
+			A mi-parcours, 50 modes & A mi-parcours, 100 modes
+		\end{tabular}
+	\end{frame}
+	
+	\begin{frame}{Approche eulerienne}{Champ de vitesse uniforme}
+		Reconstruction d'une solution fine\\
+		\begin{tabular}{cc}
+			\includegraphics[width=0.5\linewidth]{eulerien_constant_reproduction_moment_random_200modes} &	\includegraphics[width=0.5\linewidth]{eulerien_constant_reproduction_moment_random_500modes}\\
+			A mi-parcours, 200 modes & A mi-parcours, 500 modes
+		\end{tabular}
+	\end{frame}
+	
+	\subsubsection{Écoulements cellulaires}
+	
+	\begin{frame}{Approche eulerienne}{Ecoulements cellulaires}
+		
+	\end{frame}
+	
+	\subsection{Approche lagrangienne}
+	\subsubsection{Champ de vitesse uniforme}
+	\begin{frame}{Approche lagrangienne}{Champ de vitesse uniforme}
+		\begin{figure}[H]
+			\begin{center}
+				\includegraphics[scale=0.40]{valeurs_singulieres_v_cste_8000_particules_rond.png}
+				\caption{$\log$ des valeurs singulières pour 8000 particules}
+			\end{center}
+		\end{figure}
+	\end{frame}
+	
+	\subsubsection{Écoulements cellulaires}
+	
+	\begin{frame}{Approche lagrangienne}{Écoulements cellulaires}
+		\begin{figure}[H]
+			\begin{center}
+				\includegraphics[scale=0.45]{lagrange_cell_variation_parametres.png}
+				\caption{$\log$ des valeurs singulières pour 500 particules}
+			\end{center}
+		\end{figure}
+	\end{frame}
+	
+	\subsubsection{Champ de vitesse de Lamb-Oseen}
+	
+	\begin{frame}{Approche lagrangienne}{Champ de vitesse de Lamb-Oseen}
+		\begin{figure}[H]
+			\begin{center}
+				\includegraphics[scale=0.45]{valeurs_singulieres_lambo_100_particules.png}
+				\caption{$\log$ des valeurs singulières pour 100 particules}
+			\end{center}
+		\end{figure}
+	\end{frame}
+	
+	\section{Conclusion}
+	
+	
+	
+	% All of the following is optional and typically not needed. 
+	\appendix
+	\section<presentation>*{\appendixname}
+	\subsection<presentation>*{For Further Reading}
+	
+	\begin{frame}[allowframebreaks]
+		\frametitle<presentation>{For Further Reading}
+		
+		\begin{thebibliography}{10}
+			
+			\beamertemplatebookbibitems
+			% Start with overview books.
+			
+			\bibitem{Author1990}
+			A.~Author.
+			\newblock {\em Handbook of Everything}.
+			\newblock Some Press, 1990.
+			
+			
+			\beamertemplatearticlebibitems
+			% Followed by interesting articles. Keep the list short. 
+			
+			\bibitem{Someone2000}
+			S.~Someone.
+			\newblock On this and that.
+			\newblock {\em Journal of This and That}, 2(1):50--100,
+			2000.
+		\end{thebibliography}
+	\end{frame}
+	
 \end{document}
