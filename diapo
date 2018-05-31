@@ -1,37 +1,19 @@
 \documentclass{beamer}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage[bottom]{footmisc}
+\usepackage{float}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel} 
+\usepackage{color}
+\usepackage{fancyhdr}
+\usepackage{lmodern} 
+\usepackage{makeidx}
 
-% There are many different themes available for Beamer. A comprehensive
-% list with examples is given here:
-% http://deic.uab.es/~iblanes/beamer_gallery/index_by_theme.html
-% You can uncomment the themes below if you would like to use a different
-% one:
-%\usetheme{AnnArbor}
-%\usetheme{Antibes}
-%\usetheme{Bergen}
-%\usetheme{Berkeley}
-%\usetheme{Berlin}
-%\usetheme{Boadilla}
-%\usetheme{boxes}
-%\usetheme{CambridgeUS}
-%\usetheme{Copenhagen}
-%\usetheme{Darmstadt}
-\usetheme{default}
-%\usetheme{Frankfurt}
-%\usetheme{Goettingen}
-%\usetheme{Hannover}
-%\usetheme{Ilmenau}
-%\usetheme{JuanLesPins}
-%\usetheme{Luebeck}
-%\usetheme{Madrid}
-%\usetheme{Malmoe}
-%\usetheme{Marburg}
-%\usetheme{Montpellier}
-%\usetheme{PaloAlto}
-%\usetheme{Pittsburgh}
-%\usetheme{Rochester}
-%\usetheme{Singapore}
-%\usetheme{Szeged}
-%\usetheme{Warsaw}
+\usetheme{Warsaw}
 
 \title{Modélisation du transport d'un polluant}
 
@@ -44,7 +26,7 @@ Damiano Lombardi et Sebastien Boyaval \\ Laboratoire INRIA}
 
 
 
-\date{ Juin 2018}
+\date{ \today}
 
 
 
@@ -76,8 +58,8 @@ Damiano Lombardi et Sebastien Boyaval \\ Laboratoire INRIA}
 
 \begin{figure}[H]
 \begin{center}
-\includegraphics[scale=0.1]{polluant_riviere.jpg}
-\caption{}
+\includegraphics[scale=0.1]{deepwater_horizon_explosion.jpg}
+\caption{Explosion de \emph{Deepwater Horizon, 20/04/2010}}
 \end{center}
 \end{figure}
 
