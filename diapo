@@ -186,6 +186,7 @@ Existence et unicité d'une solution locale (Théorème de Cauchy-Lipschitz).
 \item{
 Le transport est à vitesse finie.
 }
+\end{itemize}
 \end{frame}
 
 \begin{frame}{Approche lagrangienne}{Résolution numérique}
