@@ -198,19 +198,34 @@ Algorithme du point fixe :
 \subsection{Approche lagrangienne}
 \subsubsection{Champ de vitesse uniforme}
 \begin{frame}{Approche lagrangienne}{Champ de vitesse uniforme}
-
+	\begin{figure}[H]
+		\begin{center}
+			\includegraphics[scale=0.5]{valeurs_singulieres_v_cste_8000_particules_rond.png}
+			\caption{Valeurs singulières pour 8000 particules}
+		\end{center}
+\end{figure}
 \end{frame}
 
 \subsubsection{Écoulements cellulaires}
 
 \begin{frame}{Approche lagrangienne}{Écoulements cellulaires}
-
+	\begin{figure}[H]
+		\begin{center}
+			\includegraphics[scale=0.5]{lagrange_cell_variation_parametres.png}
+			\caption{Valeurs singulières pour 64 simulations de trajectoires pour 100 particules}
+		\end{center}
+\end{figure}
 \end{frame}
 
 \subsubsection{Champ de vitesse de Lamb-Oseen}
 
 \begin{frame}{Approche lagrangienne}{Champ de vitesse de Lamb-Oseen}
-
+	\begin{figure}[H]
+		\begin{center}
+			\includegraphics[scale=0.5]{valeurs_singulieres_lambo_100_particules.png}
+			\caption{Valeurs singulières pour 100 particules}
+		\end{center}
+\end{figure}
 \end{frame}
 
 \section{Conclusion}
