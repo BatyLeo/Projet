@@ -68,12 +68,9 @@ Damiano Lombardi et Sebastien Boyaval \\ Laboratoire INRIA}
 
 \begin{frame}{Equation de transport}
 
-	\begin{equation}
-	\partial_tc+u\nabla c=0
-	\label{equation1}
-\end{equation}
-où, pour $x \in (0,1)^2 = \Omega$ et $t \in [0,T]$, c(x,t) désigne la concentration en polluant à la position $x$ à l'instant $t$.
-u est le champs de vitesse
+$$\partial_tc+u \cdot \nabla c = 0$$
+c(x,t) : concentration en polluant à la position $x \in (0,1)^2 = \Omega$ à l'instant $t \in [0,T]$ \\
+u : champ de vitesse
 \end{frame}
 
 
