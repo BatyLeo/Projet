@@ -178,7 +178,13 @@ $$
 \begin{frame}{Approche lagrangienne}{Hypothèses mathématiques}
 \begin{itemize}
 \item{
-$v \in  $
+$v \in\mathcal{C}^0(\mathbb{R}^{n\times2} \times \mathbb{R}) \bigcap W^{1,\infty}(\mathbb{R}^{n\times2} \times \mathbb{R}) $
+}
+\item{
+Existence et unicité d'une solution locale (Théorème de Cauchy-Lipschitz).
+}
+\item{
+Le transport est à vitesse finie.
 }
 \end{frame}
 
