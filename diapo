@@ -168,7 +168,7 @@ $$
 
 \end{frame}
 
-\begin{frame}{Approche lagrangienne}{Hypothèses mathématiques}
+\begin{frame}{Approche lagrangienne}{Aspects mathématiques}
 \begin{itemize}
 \item{
 $v \in\mathcal{C}^0(\mathbb{R}^{n\times2} \times \mathbb{R}) \bigcap W^{1,\infty}(\mathbb{R}^{n\times2} \times \mathbb{R}) $
