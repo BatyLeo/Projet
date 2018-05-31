@@ -1,4 +1,4 @@
-\documentclass{beamer}
+\documentclass[handout]{beamer}
 \usepackage{graphicx}
 \usepackage{amsmath}
 \usepackage{amssymb}
@@ -24,7 +24,7 @@
 Nathan Godey, Régis Santet, Song Phuc Duong, Clément Lasuen\\ sous la direction de \\
 Damiano Lombardi et Sebastien Boyaval \\ Laboratoire INRIA}
 
-
+\setbeamertemplate{footline}[frame number]
 
 \date{ \today}
 
@@ -203,7 +203,7 @@ Algorithme du point fixe :
 
 \subsubsection{Ecoulements cellulaires}
 
-\begin{frame}{Approche lagrangienne}{Ecoulements cellulaires}
+\begin{frame}{Approche lagrangienne}{Écoulements cellulaires}
 
 \end{frame}
 
