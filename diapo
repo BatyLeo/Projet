@@ -305,7 +305,7 @@ Algorithme du point fixe :
 \begin{frame}{Approche lagrangienne}{Champ de vitesse uniforme}
 \begin{figure}[H]
 \begin{center}
-\includegraphics[scale=0.30]{valeurs_singulieres_v_cste_8000_particules.png}
+\includegraphics[scale=0.30]{valeurs_singulieres_v_cste_8000_particules_rond.png}
 \caption{Valeurs singulières pour 8000 particules}
 \end{center}
 \end{figure}
