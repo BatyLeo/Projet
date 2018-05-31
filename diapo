@@ -170,15 +170,15 @@ $$
 
 
 \begin{frame}
-\begin{example}{Hypothèses}
+\begin{exampleblock}{Hypothèses}
 $v \in\mathcal{C}^0(\mathbb{R}^{n\times2} \times \mathbb{R}) \bigcap W^{1,\infty}(\mathbb{R}^{n\times2} \times \mathbb{R}) $
-\end{example}
-\begin{example}{Théorème de Cauchy-Lipschitz}
+\end{exampleblock}
+\begin{exampleblock}{Théorème de Cauchy-Lipschitz}
 Existence et unicité d'une solution locale pour des temps arbitraires
-\end{example}
-\begin{example}{Conséquence}
+\end{exampleblock}
+\begin{exampleblock}{Conséquence}
 Le transport est à vitesse finie
-\end{example}
+\end{exampleblock}
 \end{frame}
 
 \begin{frame}{Approche lagrangienne}{Résolution numérique}
