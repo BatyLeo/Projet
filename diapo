@@ -105,19 +105,19 @@ Here is an example of an example block.
 \begin{figure}[H]
 \begin{center}
 \includegraphics[scale=0.30]{lagrange_gauss_1er_mode.png}
-\caption{}
+\caption{Écoulement constant avec un angle $\theta$}
 \end{center}
 \end{figure}
 \end{frame}
 
-\begin{frame}{Champs de vitesse étudiés}{Ecoulements cellulaires}
+\begin{frame}{Champs de vitesse étudiés}{Écoulements cellulaires}
 $$\psi(x,y) = \sin(2\pi x) \sin(2\pi y) + \theta_0 \cos(2\pi\theta_1x)\cos(2\pi \theta_2y)$$
 $\theta_0 \in [0,2.5]$ et $(\theta_1,\theta_2) \in [0.5,4]^2$
 
 \begin{figure}[H]
 \begin{center}
 \includegraphics[scale=0.32]{ecoulement_cellulaire_10.png}
-\caption{}
+\caption{Écoulement cellulaire}
 \end{center}
 \end{figure}
 
@@ -128,7 +128,7 @@ $$ \mathbf{V}(r,\theta,t) = \frac{\Gamma}{2\pi r}\left(1 - \exp\left( \frac{-r^2
 \begin{figure}[H]
 \begin{center}
 \includegraphics[scale=0.30]{lagrange_lamboseen.png}
-\caption{}
+\caption{Écoulement Lamb-Oseen}
 \end{center}
 \end{figure}
 \end{frame}
@@ -211,34 +211,19 @@ Algorithme du point fixe :
 \subsection{Approche lagrangienne}
 \subsubsection{Champ de vitesse uniforme}
 \begin{frame}{Approche lagrangienne}{Champ de vitesse uniforme}
-	\begin{figure}[H]
-		\begin{center}
-			\includegraphics[scale=0.5]{valeurs_singulieres_v_cste_8000_particules_rond.png}
-			\caption{Valeurs singulières pour 8000 particules}
-		\end{center}
-\end{figure}
+
 \end{frame}
 
 \subsubsection{Écoulements cellulaires}
 
 \begin{frame}{Approche lagrangienne}{Écoulements cellulaires}
-	\begin{figure}[H]
-		\begin{center}
-			\includegraphics[scale=0.5]{lagrange_cell_variation_parametres.png}
-			\caption{Valeurs singulières pour 64 simulations de trajectoires pour 100 particules}
-		\end{center}
-\end{figure}
+
 \end{frame}
 
 \subsubsection{Champ de vitesse de Lamb-Oseen}
 
 \begin{frame}{Approche lagrangienne}{Champ de vitesse de Lamb-Oseen}
-	\begin{figure}[H]
-		\begin{center}
-			\includegraphics[scale=0.5]{valeurs_singulieres_lambo_100_particules.png}
-			\caption{Valeurs singulières pour 100 particules}
-		\end{center}
-\end{figure}
+
 \end{frame}
 
 \section{Conclusion}
