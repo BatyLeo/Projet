@@ -213,7 +213,80 @@ Algorithme du point fixe :
 \subsubsection{Champ de vitesse uniforme}
 
 \begin{frame}{Approche eulerienne}{Champ de vitesse uniforme}
+	
+	$16$ simulations, $\theta\in[0,\frac{\pi}{2}]$
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=0.7\linewidth]{valeurs_singulieres_eulerien_constant}
+		\caption{Tracé du $\log$ des valeurs singulières en fonction du rang}
+		\label{fig:valeurssinguliereseulerienconstant}
+	\end{figure}
 
+\end{frame}
+
+\begin{frame}{Approche eulerienne}{Champ de vitesse uniforme}
+	Rôle des modes propres :
+	
+	\begin{tabular}{cc}
+		\includegraphics[width=0.5\linewidth]{eulerien_constant_mode_1} &	\includegraphics[width=0.5\linewidth]{eulerien_constant_mode_2}\\
+	\end{tabular}
+\end{frame}
+
+\begin{frame}
+
+	\begin{tabular}{cc}
+		\includegraphics[width=0.5\linewidth]{eulerien_constant_mode_10} &	\includegraphics[width=0.5\linewidth]{eulerien_constant_mode_50}\\
+	\end{tabular}
+
+\end{frame}
+
+\begin{frame}{Approche eulerienne}{Champ de vitesse uniforme}
+	Reconstruction d'une solution fine\\
+	\begin{tabular}{cc}
+		\includegraphics[width=0.5\linewidth]{eulerien_constant_reproduction_condition_initiale_10modes} &	\includegraphics[width=0.5\linewidth]{eulerien_constant_reproduction_condition_initiale_20modes}\\
+		Condition initiale, 10 modes & Condition initiale, 20 modes
+	\end{tabular}
+\end{frame}
+
+\begin{frame}{Approche eulerienne}{Champ de vitesse uniforme}
+	Reconstruction d'une solution fine\\
+	\begin{tabular}{cc}
+		\includegraphics[width=0.5\linewidth]{eulerien_constant_reproduction_condition_initiale_50modes} &	\includegraphics[width=0.5\linewidth]{eulerien_constant_reproduction_condition_initiale_100modes}\\
+		Condition initiale, 50 modes & Condition initiale, 100 modes
+	\end{tabular}
+\end{frame}
+
+\begin{frame}{Approche eulerienne}{Champ de vitesse uniforme}
+	Reconstruction d'une solution fine\\
+	\begin{tabular}{cc}
+		\includegraphics[width=0.5\linewidth]{eulerien_constant_reproduction_condition_initiale_200modes} &	\includegraphics[width=0.5\linewidth]{eulerien_constant_reproduction_condition_initiale_500modes}\\
+		Condition initiale, 200 modes & Condition initiale, 500 modes
+	\end{tabular}
+\end{frame}
+
+\begin{frame}{Approche eulerienne}{Champ de vitesse uniforme}
+	Reconstruction d'une solution fine\\
+	\begin{tabular}{cc}
+		\includegraphics[width=0.5\linewidth]{eulerien_constant_reproduction_moment_random_10modes} &	\includegraphics[width=0.5\linewidth]{eulerien_constant_reproduction_moment_random_20modes}\\
+		A mi-parcours, 10 modes & A mi-parcours, 20 modes
+	\end{tabular}
+\end{frame}
+
+\begin{frame}{Approche eulerienne}{Champ de vitesse uniforme}
+	Reconstruction d'une solution fine\\
+	\begin{tabular}{cc}
+		\includegraphics[width=0.5\linewidth]{eulerien_constant_reproduction_moment_random_50modes} &	\includegraphics[width=0.5\linewidth]{eulerien_constant_reproduction_moment_random_100modes}\\
+		A mi-parcours, 50 modes & A mi-parcours, 100 modes
+	\end{tabular}
+\end{frame}
+
+\begin{frame}{Approche eulerienne}{Champ de vitesse uniforme}
+	Reconstruction d'une solution fine\\
+	\begin{tabular}{cc}
+		\includegraphics[width=0.5\linewidth]{eulerien_constant_reproduction_moment_random_200modes} &	\includegraphics[width=0.5\linewidth]{eulerien_constant_reproduction_moment_random_500modes}\\
+		A mi-parcours, 200 modes & A mi-parcours, 500 modes
+	\end{tabular}
 \end{frame}
 
 \subsubsection{Écoulements cellulaires}
