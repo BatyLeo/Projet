@@ -168,30 +168,17 @@ $$
 
 \end{frame}
 
-\begin{frame}{Approche lagrangienne}{Aspects mathématiques}
-\begin{itemize}
-\item{
-$v \in\mathcal{C}^0(\mathbb{R}^{n\times2} \times \mathbb{R}) \bigcap W^{1,\infty}(\mathbb{R}^{n\times2} \times \mathbb{R}) $
-}
-\item{
-Existence et unicité d'une solution locale (Théorème de Cauchy-Lipschitz)
-}
-\item{
-Le transport est à vitesse finie
-}
-\end{itemize}
-\end{frame}
 
 \begin{frame}
-\begin{block}{Hypothèses}
+\begin{example}{Hypothèses}
 $v \in\mathcal{C}^0(\mathbb{R}^{n\times2} \times \mathbb{R}) \bigcap W^{1,\infty}(\mathbb{R}^{n\times2} \times \mathbb{R}) $
-\end{block}
-\begin{block}{Théorème de Cauchy-Lipschitz}
-Existence et unicité d'une solution locale
-\end{block}
-\begin{block}{Conséquence}
+\end{example}
+\begin{example}{Théorème de Cauchy-Lipschitz}
+Existence et unicité d'une solution locale pour des temps arbitraires
+\end{example}
+\begin{example}{Conséquence}
 Le transport est à vitesse finie
-\end{block}
+\end{example}
 \end{frame}
 
 \begin{frame}{Approche lagrangienne}{Résolution numérique}
