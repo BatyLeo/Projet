@@ -66,12 +66,14 @@ Damiano Lombardi et Sebastien Boyaval \\ Laboratoire INRIA}
 
 \end{frame}
 
-\begin{frame}
+\begin{frame}{Equation de transport}
 
 	\begin{equation}
-	\partial_tc+u\nabla c=0.
+	\partial_tc+u\nabla c=0
 	\label{equation1}
 \end{equation}
+où, pour $x \in (0,1)^2 = \Omega$ et $t \in [0,T]$, c(x,t) désigne la concentration en polluant à la position $x$ à l'instant $t$.
+u est le champs de vitesse
 \end{frame}
 
 
@@ -79,10 +81,6 @@ Damiano Lombardi et Sebastien Boyaval \\ Laboratoire INRIA}
 \section{Methodes}
 
 \subsection{Proper Orthogonal Decomposition}
-
-\begin{frame}{Blocks}
-
-\end{frame}
 
 \subsection{Champs de vitesse étudiés}
 
