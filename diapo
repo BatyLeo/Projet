@@ -44,7 +44,7 @@ Damiano Lombardi et Sebastien Boyaval \\ Laboratoire INRIA}
   \titlepage
 \end{frame}
 
-\begin{frame}{Outline}
+\begin{frame}{Sommaire}
   \tableofcontents
   % You might wish to add the option [pausesections]
 \end{frame}
@@ -103,7 +103,7 @@ Here is an example of an example block.
 \end{array}\right.$$ 
 \begin{figure}[H]
 \begin{center}
-\includegraphics[scale=0.4]{lagrange_gauss_1er_mode.png}
+\includegraphics[scale=0.30]{lagrange_gauss_1er_mode.png}
 \caption{}
 \end{center}
 \end{figure}
@@ -115,7 +115,7 @@ $\theta_0 \in [0,2.5]$ et $(\theta_1,\theta_2) \in [0.5,4]^2$
 
 \begin{figure}[H]
 \begin{center}
-\includegraphics[scale=0.5]{ecoulement_cellulaire_10.png}
+\includegraphics[scale=0.32]{ecoulement_cellulaire_10.png}
 \caption{}
 \end{center}
 \end{figure}
@@ -126,7 +126,7 @@ $\theta_0 \in [0,2.5]$ et $(\theta_1,\theta_2) \in [0.5,4]^2$
 $$ \mathbf{V}(r,\theta,t) = \frac{\Gamma}{2\pi r}\left(1 - \exp\left( \frac{-r^2}{4\nu t + r_c^2}\right)\right)\mathbf{u_{\theta}}$$
 \begin{figure}[H]
 \begin{center}
-\includegraphics[scale=0.4]{lagrange_lamboseen.png}
+\includegraphics[scale=0.30]{lagrange_lamboseen.png}
 \caption{}
 \end{center}
 \end{figure}
@@ -189,7 +189,7 @@ Algorithme du point fixe :
 
 \end{frame}
 
-\subsubsection{Ecoulements cellulaires}
+\subsubsection{Écoulements cellulaires}
 
 \begin{frame}{Approche eulerienne}{Ecoulements cellulaires}
 
@@ -201,7 +201,7 @@ Algorithme du point fixe :
 
 \end{frame}
 
-\subsubsection{Ecoulements cellulaires}
+\subsubsection{Écoulements cellulaires}
 
 \begin{frame}{Approche lagrangienne}{Écoulements cellulaires}
 
@@ -214,32 +214,6 @@ Algorithme du point fixe :
 \end{frame}
 
 \section{Conclusion}
-
-
-
-\section*{Summary}
-
-\begin{frame}{Summary}
-  \begin{itemize}
-  \item
-    The \alert{first main message} of your talk in one or two lines.
-  \item
-    The \alert{second main message} of your talk in one or two lines.
-  \item
-    Perhaps a \alert{third message}, but not more than that.
-  \end{itemize}
-  
-  \begin{itemize}
-  \item
-    Outlook
-    \begin{itemize}
-    \item
-      Something you haven't solved.
-    \item
-      Something else you haven't solved.
-    \end{itemize}
-  \end{itemize}
-\end{frame}
 
 
 
