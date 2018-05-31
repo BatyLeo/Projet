@@ -25,6 +25,7 @@ Nathan Godey, Régis Santet, Song Phuc Duong, Clément Lasuen\\ sous la directio
 Damiano Lombardi et Sebastien Boyaval \\ Laboratoire INRIA}
 
 \setbeamertemplate{footline}[frame number]
+\setbeamertemplate{caption}[numbered]
 
 \date{ \today}
 
@@ -136,7 +137,19 @@ $$ \mathbf{V}(r,\theta,t) = \frac{\Gamma}{2\pi r}\left(1 - \exp\left( \frac{-r^2
 
 \subsection{Approche eulerienne}
 \begin{frame}{Approche eulerienne}
+	
+	\begin{figure}
+		\includegraphics[width=0.7\linewidth]{euler_condition_initiale}
+		\caption{Condition initiale...}
+	\end{figure}
 
+\end{frame}
+
+\begin{frame}{Approche eulerienne}
+	\begin{figure}
+		\includegraphics[width=0.7\linewidth]{euler_condition_initiale_simulee}
+		\caption{... et après un certain temps}
+	\end{figure}
 \end{frame}
 
 \begin{frame}{Approche eulerienne}{Méthode des volumes finis}
