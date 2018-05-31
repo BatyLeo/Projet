@@ -81,15 +81,7 @@ Damiano Lombardi et Sebastien Boyaval \\ Laboratoire INRIA}
 \subsection{Proper Orthogonal Decomposition}
 
 \begin{frame}{Blocks}
-\begin{block}{Block Title}
-You can also highlight sections of your presentation in a block, with it's own title
-\end{block}
-\begin{theorem}
-There are separate environments for theorems, examples, definitions and proofs.
-\end{theorem}
-\begin{example}
-Here is an example of an example block.
-\end{example}
+
 \end{frame}
 
 \subsection{Champs de vitesse étudiés}
@@ -163,7 +155,8 @@ $$ \mathbf{V}(r,\theta,t) = \frac{\Gamma}{2\pi r}\left(1 - \exp\left( \frac{-r^2
 
 \subsection{Approche lagrangienne}
 \begin{frame}{Approche lagrangienne}
-
+$X(\xi,t) \in \mathbb{R}^{n\times2}$ désigne les positions, à l'instant $t\in [0,T]$, des particules 
+qui étaient initialement aux positions $\xi \in \mathbb{R}^{n\times2}$
 	$$
 	\left\{
 	\begin{array}{c c c}
@@ -181,12 +174,24 @@ $$
 $v \in\mathcal{C}^0(\mathbb{R}^{n\times2} \times \mathbb{R}) \bigcap W^{1,\infty}(\mathbb{R}^{n\times2} \times \mathbb{R}) $
 }
 \item{
-Existence et unicité d'une solution locale (Théorème de Cauchy-Lipschitz).
+Existence et unicité d'une solution locale (Théorème de Cauchy-Lipschitz)
 }
 \item{
-Le transport est à vitesse finie.
+Le transport est à vitesse finie
 }
 \end{itemize}
+\end{frame}
+
+\begin{frame}
+\begin{block}{Hypothèses}
+$v \in\mathcal{C}^0(\mathbb{R}^{n\times2} \times \mathbb{R}) \bigcap W^{1,\infty}(\mathbb{R}^{n\times2} \times \mathbb{R}) $
+\end{block}
+\begin{block}{Théorème de Cauchy-Lipschitz}
+Existence et unicité d'une solution locale
+\end{block}
+\begin{block}{Conséquence}
+Le transport est à vitesse finie
+\end{block}
 \end{frame}
 
 \begin{frame}{Approche lagrangienne}{Résolution numérique}
