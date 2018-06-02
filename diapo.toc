@@ -10,8 +10,8 @@
 \beamer@subsectionintoc {3}{1}{Approche eulerienne}{15}{0}{3}
 \beamer@subsubsectionintoc {3}{1}{1}{Champ de vitesse uniforme}{15}{0}{3}
 \beamer@subsubsectionintoc {3}{1}{2}{\IeC {\'E}coulements cellulaires}{24}{0}{3}
-\beamer@subsectionintoc {3}{2}{Approche lagrangienne}{26}{0}{3}
-\beamer@subsubsectionintoc {3}{2}{1}{Champ de vitesse uniforme}{26}{0}{3}
-\beamer@subsubsectionintoc {3}{2}{2}{\IeC {\'E}coulements cellulaires}{27}{0}{3}
-\beamer@subsubsectionintoc {3}{2}{3}{Champ de vitesse de Lamb-Oseen}{32}{0}{3}
-\beamer@sectionintoc {4}{Conclusion}{33}{0}{4}
+\beamer@subsectionintoc {3}{2}{Approche lagrangienne}{27}{0}{3}
+\beamer@subsubsectionintoc {3}{2}{1}{Champ de vitesse uniforme}{27}{0}{3}
+\beamer@subsubsectionintoc {3}{2}{2}{\IeC {\'E}coulements cellulaires}{28}{0}{3}
+\beamer@subsubsectionintoc {3}{2}{3}{Champ de vitesse de Lamb-Oseen}{33}{0}{3}
+\beamer@sectionintoc {4}{Conclusion}{34}{0}{4}

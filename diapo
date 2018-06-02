@@ -1,4 +1,4 @@
-\documentclass[handout]{beamer}
+\documentclass[handout,8pt]{beamer}
 \usepackage{graphicx}
 \usepackage{amsmath}
 \usepackage{amssymb}
@@ -283,13 +283,27 @@
 	\subsubsection{Écoulements cellulaires}
 	
 	\begin{frame}{Approche eulerienne}{Ecoulements cellulaires}
+		\begin{block}{64 simulations}
+			\begin{itemize}
+				\item $(x_0,y_0,\theta_0)\in [0.25,0.75]\times[0.25,0.75]\times[0,2.5]$ tir\'es uniform\'ement
+				\item 
+			\end{itemize}
+		\end{block}
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=6cm]{erreureuleriencellulaire.png}
+		\end{figure}
+	\end{frame}
+
+	
+	\begin{frame}{Approche eulerienne}{Ecoulements cellulaires}
 		\begin{block}{Ecoulement cellulaire}
 		
 		\end{block}
 		\begin{figure}[H]
 			\centering
-			\includegraphics[width=5cm]{ecoulement_cellulaire.pdf}
-			\includegraphics[width=5cm]{ecoulement_cellulaire2.pdf}
+			\includegraphics[width=5cm]{outfin.png}
+			\includegraphics[width=5cm]{outfin500modes.png}
 		\end{figure}
 	\end{frame}
 	
@@ -299,8 +313,8 @@
 		\end{block}
 		\begin{figure}[H]
 			\centering
-			\includegraphics[width=5cm]{ecoulement_cellulaire.pdf}
-			\includegraphics[width=5cm]{ecoulement_cellulaire2.pdf}
+			\includegraphics[width=5cm]{opticell2.png}
+			\includegraphics[width=5cm]{opticell1.png}
 		\end{figure}
 	\end{frame}
 	
