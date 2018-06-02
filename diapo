@@ -282,34 +282,42 @@
 	
 	\subsubsection{Écoulements cellulaires}
 	
+	
 	\begin{frame}{Approche eulerienne}{Ecoulements cellulaires}
-		\begin{block}{64 simulations}
+		\begin{block}{64 simulations en volumes finis}
 			\begin{itemize}
+				\item On se place sur $[-0.5,1.5]\times[-0.5,1.5]$
+				\item Maillage de $2^7$ mailles de c\^ot\'e
 				\item $(x_0,y_0,\theta_0)\in [0.25,0.75]\times[0.25,0.75]\times[0,2.5]$ tir\'es uniform\'ement
-				\item 
 			\end{itemize}
 		\end{block}
 		\begin{figure}[H]
 			\centering
-			\includegraphics[width=6cm]{erreureuleriencellulaire.png}
+			\includegraphics[width=6cm]{valeurs_singulieres_eulerien_cellulaire.png}
 		\end{figure}
+	\end{frame}
+	
+	\begin{frame}{Approche eulerienne}{Ecoulements cellulaires}
+		Reconstruction "in-range" : 
+		\begin{tabular}{cc}
+			\includegraphics[width=0.5\linewidth]{fin_fine.png} &	\includegraphics[width=0.5\linewidth]{fin200modes.png}\\
+			Snapshot \`a mi-parcours, 200 modes & A mi-parcours, 200 modes
+		\end{tabular}
 	\end{frame}
 
 	
 	\begin{frame}{Approche eulerienne}{Ecoulements cellulaires}
-		\begin{block}{Ecoulement cellulaire}
-		
-		\end{block}
-		\begin{figure}[H]
-			\centering
-			\includegraphics[width=5cm]{outfin.png}
-			\includegraphics[width=5cm]{outfin500modes.png}
-		\end{figure}
+		Reconstruction "out of range" : 
+		\begin{tabular}{cc}
+			\includegraphics[width=0.5\linewidth]{outfin.png} &	\includegraphics[width=0.5\linewidth]{outfin500modes.png}\\
+			Snapshot \`a mi-parcours, 500 modes & A mi-parcours, 200 modes
+		\end{tabular}
 	\end{frame}
 	
 	\begin{frame}{Approche eulerienne}{Ecoulements cellulaires}
-		\begin{block}{}
-		
+		\begin{block}{Prise en en compte de la positivit\'e de la concentration}
+			Recherche des coefficients $(a_j)_j$ tels que : 
+			$$(a_j)_j=\text{argmin} \|c_{*}-\sum\limits_j a_j\varphi_j \|_{L^2} \text{ s.c. } \sum\limits_j a_j\varphi_j\geq0$$
 		\end{block}
 		\begin{figure}[H]
 			\centering
