@@ -144,8 +144,134 @@
 	\end{frame}
 	
 	\begin{frame}{Approche eulerienne}{Méthode des volumes finis}
-		
-	\end{frame}
+\begin{figure}
+		\includegraphics[scale = 0.5]{maillage_en_espace.png}
+		\caption{Maillage en espace}
+	\end{figure}
+
+\end{frame}
+
+\begin{frame}{Approche eulerienne}{Méthode des volumes finis}
+la valeur moyenne de $c$ sur la cellule $K_{i,j}$. 
+\begin{equation*}
+c_{i,j}(t) =\frac{1}{\vert K_{i,j} \vert}\int_{K_{i,j}} c(t,X) dX
+\end{equation*}
+vérifie :
+$$
+\frac{\partial c_{i,j}}{\partial t} +  \frac{1}{\vert K_{i,j} \vert} \int_{\partial K_{i,j} } c \ u \cdot n \ dL = 0
+$$
+\begin{itemize}
+\item Comment discrétiser la dérivation temporelle ?
+\item Comment discrétiser l'intégrale de bords (le flux)?
+\end{itemize}
+\end{frame}
+
+
+
+\begin{frame}{Approche eulerienne}{Méthode des volumes finis}
+La dérivée temporelle : Euler explicite
+$$ 
+\frac{\partial c_{i,j}}{\partial t} \simeq \frac{c_{i,j}(t_n) - c_{i,j}(t_{n-1})}{t_n - t_{n-1}}
+$$
+Maillage en temps : $(t_n)_{n=0}^{n_t}$ croissante, vérifiant la condition CFL:
+\begin{equation}
+t_n - t_{n-1} < \frac{h}{2 \lambda(t_n) }
+\end{equation}
+où $\lambda(t_n) = \max_{X} \lbrace\vert u(t_n)\vert  \rbrace$, et $ h = \min \lbrace \Delta x , \Delta y \rbrace$\\
+\end{frame}
+
+\begin{frame}{Approche eulerienne}{Méthode des volumes finis}
+Le flux : Lax-Friedrichs \\
+$$\int_{\partial K_{i,j} } c \ u \cdot n \ dL$$ 
+\end{frame}
+
+\begin{frame}{Approche eulerienne}{Méthode des volumes finis}
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[scale=0.4]{flux.png}
+\end{center}
+\end{figure}
+\end{frame}
+
+
+\begin{frame}{Approche eulerienne}{Méthode des volumes finis}
+Sur le premier coté
+\begin{equation*}
+	\begin{cases}
+	\lambda_1 = \mathrm{max}\lbrace u_{i,j}\cdot n_1 , u_{i,j+1}\cdot n_1 \rbrace \\
+	F_1(c_{i,j},c_{i,j+1}) = \frac{1}{2} (c_{i,j}u_{i,j} + c_{i,j+1}u_{i,j+1})\cdot n_1 + \frac{1}{2\lambda_1} (c_{i,j} - c_{i,j+1})
+	\end{cases}
+	\end{equation*}
+
+
+Finalement on combine les 2 schémas : 
+
+\begin{equation}
+c_{i,j}(t_n) = c_{i,j}(t_{n-1}) - \frac{\Delta t_n}{\vert K_{i,j} \vert}  \sum_{\mathrm{cotés}} \vert \Gamma \vert F_i \ \forall n
+\end{equation}
+
+\end{frame}
+
+\begin{frame}{Approche eulerienne}{La POD}
+On stocke les résultats obtenus (i.e. les vecteurs $C(t_n)=(c_{ij}(t_n))$ par la méthode des volumes finis pour un champs de vitesse $v_1$ dans une matrice 
+$$
+M_{v_1} = (C(t_0)_{v1} \vert \dots \vert C(t_f)_{v1} )
+$$
+On répète ça pour plusieurs champs de vitesse $v_i$ et on met tout dans une grosse matrice 
+$$
+M = (M_{v_1} \vert M_{v_2} \vert \dots \vert M_{v_f} )
+$$
+\textbf{Décomposition en valeurs singulières : } $M = U D V^T$
+\begin{itemize}
+\item Unicité de la décomposition si on impose des valeurs singulières décroissantes à $D$
+\item $U,V$ matrices unitaires $UU^T = I$ et $VV^T=I$ 
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Approche eulerienne}{Modèle réduit}
+la base orthonormée, obtenue par la POD : $(P_i)_{i=1}^r$, 
+$$
+U_r  = ( P_1 \vert P_2 \vert \dots \vert P_r)
+$$
+Théoriquement l'erreur qu'on fait est de l'ordre de $\sum_{i>r} D_{i,i}$
+
+\begin{itemize}
+\item projection d'un vecteur $C=(c_{ij})$ de la base de données sur cette base :
+$$
+C_p = U_r U_r^T C
+$$
+Théoriquement l'erreur est de l'ordre de
+$$\sum_{i>r} D_{i,i}^2$$
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}{Approche eulerienne}{Modèle réduit}
+\begin{figure}[H]
+\begin{center}
+\includegraphics[scale=0.4]{projection.png}
+\end{center}
+\end{figure}
+\end{frame}
+
+\begin{frame}{Approche eulerienne}{Modèle réduit}
+\begin{itemize}
+\item Construire des nouvelles solutions pour un autre choix de paramètres notamment le champs de vitesse
+$$C(t) = U_r \cdot A(t)$$
+$A(t)$ vérifie :
+$$
+\partial_t A(t) + D_{v,r} \cdot A(t) = 0
+$$
+qu'on peut discrétiser avec un schéma d'Euler Implicite 
+$$
+\frac{A(t_n)-A(t_{n-1})}{t_n - t_{n-1}} + D_{v,r} \cdot A(t_n) = 0
+$$
+\end{itemize}
+\end{frame}
+
 	
 	
 	\subsection{Approche lagrangienne}
