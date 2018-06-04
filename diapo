@@ -15,6 +15,7 @@
 
 \usetheme{Warsaw}
 
+
 \title{Modélisation du transport d'un polluant}
 
 % A subtitle is optional and this may be deleted
@@ -34,7 +35,7 @@
 \AtBeginSubsection[]
 {
 	\begin{frame}<beamer>{Sommaire}
-		\tableofcontents[currentsection,currentsubsection]
+		\tableofcontents[currentsection,currentsubsection,hideallsubsections]
 	\end{frame}
 }
 
@@ -78,8 +79,7 @@
 	
 	
 	\section{M\'ethodes}
-	
-	\subsection{Proper Orthogonal Decomposition}
+
 	
 	\subsection{Champs de vitesse étudiés}
 	
@@ -101,8 +101,8 @@
 	
 	\begin{frame}{Champs de vitesse étudiés}{Écoulements cellulaires}
 		\begin{center}
-		$\psi(x,y) = \sin(2\pi x) \sin(2\pi y) + \theta_0 \cos(2\pi\theta_1x)\cos(2\pi \theta_2y)$\\
-		$\theta_0 \in [0,2.5]$ et $(\theta_1,\theta_2) \in [0.5,4]^2$
+			$\psi(x,y) = \sin(2\pi x) \sin(2\pi y) + \theta_0 \cos(2\pi\theta_1x)\cos(2\pi \theta_2y)$\\
+			$\theta_0 \in [0,2.5]$ et $(\theta_1,\theta_2) \in [0.5,4]^2$
 		\end{center}
 		
 		\begin{figure}[H]
@@ -144,10 +144,6 @@
 	\end{frame}
 	
 	\begin{frame}{Approche eulerienne}{Méthode des volumes finis}
-		
-	\end{frame}
-	
-	\begin{frame}{Approche eulerienne}{Modèle réduit}
 		
 	\end{frame}
 	
@@ -198,7 +194,9 @@
 		$$
 	\end{frame}
 	
-	\section{Résultats et interpretations}
+		\subsection{Proper Orthogonal Decomposition}
+	
+	\section{Résultats et interprétations}
 	
 	\subsection{Approche eulerienne}
 	\subsubsection{Champ de vitesse uniforme}
@@ -304,7 +302,7 @@
 			Snapshot \`a mi-parcours, 200 modes & A mi-parcours, 200 modes
 		\end{tabular}
 	\end{frame}
-
+	
 	
 	\begin{frame}{Approche eulerienne}{Ecoulements cellulaires}
 		Reconstruction "out of range" : 
@@ -401,30 +399,33 @@
 	% All of the following is optional and typically not needed. 
 	\appendix
 	\section<presentation>*{\appendixname}
-	\subsection<presentation>*{For Further Reading}
+	\subsection<presentation>*{Références}
 	
 	\begin{frame}[allowframebreaks]
-		\frametitle<presentation>{For Further Reading}
+		\frametitle<presentation>{Références}
 		
 		\begin{thebibliography}{10}
 			
-			\beamertemplatebookbibitems
-			% Start with overview books.
+			\setbeamertemplate{bibliography item}[triangle]
 			
-			\bibitem{Author1990}
-			A.~Author.
-			\newblock {\em Handbook of Everything}.
-			\newblock Some Press, 1990.
+			\bibitem{Cours1}
+			V. Ehrlacher, S.Boyaval
+			\newblock {\em Méthodes numériques pour les problèmes en grande dimension}.
+			\newblock Cours de l'École nationale des ponts et chaussées, 2018.
+			
+			\bibitem{Cours2}
+			S.Boyaval
+			\newblock{\em Numerical Hydrodynamics for the environment Illustrated by river flows}
+			\newblock Cours de l'École nationale des ponts et chaussées, 2018.
 			
 			
-			\beamertemplatearticlebibitems
+			\setbeamertemplate{bibliography item}[article]
 			% Followed by interesting articles. Keep the list short. 
 			
-			\bibitem{Someone2000}
-			S.~Someone.
-			\newblock On this and that.
-			\newblock {\em Journal of This and That}, 2(1):50--100,
-			2000.
+			\bibitem{article}
+			E.Bruman
+			\newblock{\em Consistent SUPG-method for transient transport problems: Stability and convergence}
+			\newblock Comput. Methods Appl. Mech. Engrg. 
 		\end{thebibliography}
 	\end{frame}
 	
