@@ -423,21 +423,14 @@
 \end{frame}
 
 \begin{frame}{Conclusion}{Perspectives}
-	\begin{block}{Approche eulerienne}
+	\begin{block}{Approche eulerienne et lagrangienne}
 		\begin{itemize}
-			\item dynamique r\'eduite Galerkine
-			\item positivit\'e
-			\item sch\'emas non-lin\'eaires VF
-		\end{itemize}
-	\end{block}
-	\begin{block}{Approche lagrangienne}
-		\begin{itemize}
-			\item dynamique r\'eduite
-			\item 
+			\item Utilisation de sch\'ema non-lin\'eaires et plus pr\'ecis pour r\'esoudre le probl\`eme fin
+			\item Dynamique r\'eduite par m\'ethode de Galerkine, afin de verifier l'efficacit\'e de la POD
+			\item Probl\`eme de la positivit\'e de la solution
 		\end{itemize}
 	\end{block}
 \end{frame}
-
 	
 	
 	
