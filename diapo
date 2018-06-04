@@ -381,6 +381,15 @@
 			\end{center}
 		\end{figure}
 	\end{frame}
+	
+		\begin{frame}{Approche lagrangienne}{Écoulements cellulaires}
+		\begin{figure}[H]
+			\begin{center}
+				\includegraphics[scale=0.40]{lagrange_premier_mode_propre_lambo.png}
+				\caption{Projection selon le premier mode propre}
+			\end{center}
+		\end{figure}
+	\end{frame}
 	\subsubsection{Champ de vitesse de Lamb-Oseen}
 	
 	\begin{frame}{Approche lagrangienne}{Champ de vitesse de Lamb-Oseen}
