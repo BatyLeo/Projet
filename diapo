@@ -404,30 +404,40 @@
 	\section{Conclusion}
 	
 	\begin{frame}{Conclusion}{R\'esultats}
-	\begin{block}{Mod\`ele eulerien}
+	\begin{block}{Approche eulerienne}
 		\begin{itemize}
-			\item
+			\item Mod\`ele r\'eduit efficace pour des param\`etres "in-range"
+			\item Limites pour des param\`etres "out of range"
+			\item Probl\`emes de positivit\'e de la solution
 		\end{itemize}
+		$\implies$ besoin d'un grand nombre de modes et de bien choisir le domaine de param\`etres pour \^etre pr\'ecis 
 	\end{block}
-	\begin{block}{Mod\`ele lagrangien}
+	\begin{block}{Approche lagrangienne}
 		\begin{itemize}
-			\item
+			\item Approche plus efficace pour un champ de vitesse constant et Lamboseen
+			\item Approche tr\`es limit\'ee pour un \'ecoulement cellulaire, du aux multiples trajectoires radicalement diff\'erentes
 		\end{itemize}
+		$\implies$ besoin de trajectoires pas trop changeantes pour \^etre efficace
+
 	\end{block}
-	\end{frame}
+\end{frame}
 
 \begin{frame}{Conclusion}{Perspectives}
-	\begin{block}{Mod\`ele eulerien}
+	\begin{block}{Approche eulerienne}
 		\begin{itemize}
-			\item
+			\item dynamique r\'eduite Galerkine
+			\item positivit\'e
+			\item sch\'emas non-lin\'eaires VF
 		\end{itemize}
 	\end{block}
-	\begin{block}{Mod\`ele lagrangien}
+	\begin{block}{Approche lagrangienne}
 		\begin{itemize}
-			\item
+			\item dynamique r\'eduite
+			\item 
 		\end{itemize}
 	\end{block}
 \end{frame}
+
 	
 	
 	
