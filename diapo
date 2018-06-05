@@ -268,7 +268,7 @@
 	\subsection{Proper Orthogonal Decomposition}
 	
 		\begin{frame}{Proper Orthogonal Decomposition}{La POD}
-		On stocke les résultats obtenus (i.e. les vecteurs $C(t_n)=(c_{ij}(t_n))$ par la méthode des volumes finis pour un champs de vitesse $v_1$ dans une matrice 
+		On stocke les résultats obtenus (les vecteurs $C(t_n)=(c_{ij}(t_n))$) par la méthode des volumes finis pour un champs de vitesse $v_1$ dans une matrice 
 		$$
 		M_{v_1} = (C(t_0)_{v1} \vert \dots \vert C(t_f)_{v1} )
 		$$
