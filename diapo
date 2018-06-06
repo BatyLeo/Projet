@@ -275,11 +275,6 @@
 	\end{frame}
 	
 	\begin{frame}{Approche eulerienne}{Méthode des volumes finis}
-		Le flux : Lax-Friedrichs \\
-		$$\int_{\partial K_{i,j} } c \ u \cdot n \ dL$$ 
-	\end{frame}
-	
-	\begin{frame}{Approche eulerienne}{Méthode des volumes finis}
 		
 		\begin{figure}[H]
 			\begin{center}
@@ -334,16 +329,14 @@
 			$$\sum_{i>r} D_{i,i}^2$$
 		\end{itemize}
 		
-	\end{frame}
-	
-	
-	\begin{frame}{Proper Orthogonal Decomposition}{Modèle réduit}
 		\begin{figure}[H]
 			\begin{center}
-				\includegraphics[scale=0.4]{projection.png}
+				\includegraphics[scale=0.2]{projection.png}
 			\end{center}
 		\end{figure}
+		
 	\end{frame}
+	
 	
 	\begin{frame}{Proper Orthogonal Decomposition}{Modèle réduit}
 		\begin{itemize}
@@ -407,14 +400,6 @@
 	\begin{frame}{Approche eulerienne}{Champ de vitesse uniforme}
 		Reconstruction d'une solution fine\\
 		\begin{tabular}{cc}
-			\includegraphics[width=0.5\linewidth]{eulerien_constant_reproduction_condition_initiale_50modes} &	\includegraphics[width=0.5\linewidth]{eulerien_constant_reproduction_condition_initiale_100modes}\\
-			Condition initiale, 50 modes & Condition initiale, 100 modes
-		\end{tabular}
-	\end{frame}
-	
-	\begin{frame}{Approche eulerienne}{Champ de vitesse uniforme}
-		Reconstruction d'une solution fine\\
-		\begin{tabular}{cc}
 			\includegraphics[width=0.5\linewidth]{eulerien_constant_reproduction_condition_initiale_200modes} &	\includegraphics[width=0.5\linewidth]{eulerien_constant_reproduction_condition_initiale_500modes}\\
 			Condition initiale, 200 modes & Condition initiale, 500 modes
 		\end{tabular}
@@ -427,14 +412,7 @@
 			A mi-parcours, 10 modes & A mi-parcours, 20 modes
 		\end{tabular}
 	\end{frame}
-	
-	\begin{frame}{Approche eulerienne}{Champ de vitesse uniforme}
-		Reconstruction d'une solution fine\\
-		\begin{tabular}{cc}
-			\includegraphics[width=0.5\linewidth]{eulerien_constant_reproduction_moment_random_50modes} &	\includegraphics[width=0.5\linewidth]{eulerien_constant_reproduction_moment_random_100modes}\\
-			A mi-parcours, 50 modes & A mi-parcours, 100 modes
-		\end{tabular}
-	\end{frame}
+
 	
 	\begin{frame}{Approche eulerienne}{Champ de vitesse uniforme}
 		Reconstruction d'une solution fine\\
@@ -465,7 +443,7 @@
 		Reconstruction "in-range" : 
 		\begin{tabular}{cc}
 			\includegraphics[width=0.5\linewidth]{fin_fine.png} &	\includegraphics[width=0.5\linewidth]{fin200modes.png}\\
-			Snapshot \`a mi-parcours, 200 modes & A mi-parcours, 200 modes
+			Snapshot \`a mi-parcours & A mi-parcours, 200 modes
 		\end{tabular}
 	\end{frame}
 	
@@ -474,7 +452,7 @@
 		Reconstruction "out of range" : 
 		\begin{tabular}{cc}
 			\includegraphics[width=0.5\linewidth]{outfin.png} &	\includegraphics[width=0.5\linewidth]{outfin500modes.png}\\
-			Snapshot \`a mi-parcours, 500 modes & A mi-parcours, 200 modes
+			Snapshot \`a mi-parcours & A mi-parcours, 500 modes
 		\end{tabular}
 	\end{frame}
 	
