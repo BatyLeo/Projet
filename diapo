@@ -248,13 +248,6 @@
 	
 	
 	\begin{frame}{Approche eulerienne}{Méthode des volumes finis}
-		Sur le premier coté
-		\begin{equation*}
-		\begin{cases}
-		\lambda_1 = \mathrm{max}\lbrace u_{i,j}\cdot n_1 , u_{i,j+1}\cdot n_1 \rbrace \\
-		F_1(c_{i,j},c_{i,j+1}) = \frac{1}{2} (c_{i,j}u_{i,j} + c_{i,j+1}u_{i,j+1})\cdot n_1 + \frac{1}{2\lambda_1} (c_{i,j} - c_{i,j+1})
-		\end{cases}
-		\end{equation*}
 		
 		
 		Finalement on combine les 2 schémas : 
