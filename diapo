@@ -268,7 +268,7 @@
 	\subsection{Proper Orthogonal Decomposition}
 	
 		\begin{frame}{Proper Orthogonal Decomposition}{La POD}
-		On stocke les résultats obtenus (les vecteurs $C(t_n)=(c_{ij}(t_n))$) par la méthode des volumes finis pour un champs de vitesse $v_1$ dans une matrice 
+		On stocke les résultats obtenus (i.e. les vecteurs $C(t_n)=(c_{ij}(t_n))$ par la méthode des volumes finis pour un champs de vitesse $v_1$ dans une matrice 
 		$$
 		M_{v_1} = (C(t_0)_{v1} \vert \dots \vert C(t_f)_{v1} )
 		$$
@@ -289,7 +289,6 @@
 		$$
 		U_r  = ( P_1 \vert P_2 \vert \dots \vert P_r)
 		$$
-		Théoriquement l'erreur qu'on fait est de l'ordre de $\sum_{i>r} D_{i,i}$
 		
 		\begin{itemize}
 			\item projection d'un vecteur $C=(c_{ij})$ de la base de données sur cette base :
