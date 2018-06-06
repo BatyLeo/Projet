@@ -109,7 +109,7 @@
 		\end{figure}
 		
 	\end{frame}
-	\begin{frame}{Equation de transport}
+	\begin{frame}{Équation de transport}
 		
 		\begin{center}
 			\fbox{$\partial_tc+u \cdot \nabla c = 0$}
@@ -185,9 +185,9 @@
 		\end{figure}
 	\end{frame}
 	
-
 	
-
+	
+	
 	
 	
 	
@@ -236,8 +236,8 @@
 		\right.
 		$$
 	\end{frame}
-
-		\begin{frame}{Approche eulerienne}{Méthode des volumes finis}
+	
+	\begin{frame}{Approche eulerienne}{Méthode des volumes finis}
 		\begin{figure}
 			\includegraphics[scale = 0.5]{maillage_en_espace.png}
 			\caption{Maillage en espace}
@@ -302,7 +302,7 @@
 	
 	\subsection{Proper Orthogonal Decomposition}
 	
-		\begin{frame}{Proper Orthogonal Decomposition}{La POD}
+	\begin{frame}{Proper Orthogonal Decomposition}{La POD}
 		On stocke les résultats obtenus (i.e. les vecteurs $C(t_n)=(c_{ij}(t_n))$ par la méthode des volumes finis pour un champs de vitesse $v_1$ dans une matrice 
 		$$
 		M_{v_1} = (C(t_0)_{v1} \vert \dots \vert C(t_f)_{v1} )
