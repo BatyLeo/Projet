@@ -67,6 +67,48 @@
 		
 	\end{frame}
 	
+	\begin{frame}{Introduction}
+		
+		\begin{figure}[H]
+			\begin{center}
+				\includegraphics[scale=0.3]{tcherno1.jpg}
+				\caption{Nuage radioactif issu de l'explosion de Tchernobyl, 30/04/1986}
+			\end{center}
+		\end{figure}
+		
+	\end{frame}
+	
+	\begin{frame}{Introduction}
+		
+		\begin{figure}[H]
+			\begin{center}
+				\includegraphics[scale=0.3]{tcherno2.jpg}
+				\caption{Nuage radioactif issu de l'explosion de Tchernobyl, 03/05/1986}
+			\end{center}
+		\end{figure}
+		
+	\end{frame}
+	
+	
+	\begin{frame}{Réduction de modèles}
+		
+		\begin{figure}[H]
+			\begin{center}
+				\includegraphics[scale=0.27]{exemple_compression.jpg}
+			\end{center}
+		\end{figure}
+		
+	\end{frame}
+	
+	\begin{frame}{Réduction de modèles}
+		
+		\begin{figure}[H]
+			\begin{center}
+				\includegraphics[scale=0.27]{slide_appli.jpg}
+			\end{center}
+		\end{figure}
+		
+	\end{frame}
 	\begin{frame}{Equation de transport}
 		
 		\begin{center}
